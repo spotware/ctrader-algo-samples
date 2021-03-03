@@ -1,0 +1,28 @@
+﻿using cAlgo.API;
+
+namespace cAlgo
+{
+    /// <summary>
+    /// A sample cBot for Bars
+    /// </summary>
+    [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    public class BarsSample : Indicator
+    {
+        [Parameter(DefaultValue = 0.0)]
+        public double Parameter { get; set; }
+
+        [Output("Main")]
+        public IndicatorDataSeries Result { get; set; }
+
+        protected override void Initialize()
+        {
+            // Initialize and create nested indicators
+        }
+
+        public override void Calculate(int index)
+        {
+            // Calculate value at specified index
+            // Result[index] = ...
+        }
+    }
+}
