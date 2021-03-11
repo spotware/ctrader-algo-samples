@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chart Rectangle Sample", "Chart Rectangle Sample\Chart Rectangle Sample.csproj", "{E336C18E-794D-48A5-92CE-3AE4462185CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E336C18E-794D-48A5-92CE-3AE4462185CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E336C18E-794D-48A5-92CE-3AE4462185CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E336C18E-794D-48A5-92CE-3AE4462185CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E336C18E-794D-48A5-92CE-3AE4462185CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
