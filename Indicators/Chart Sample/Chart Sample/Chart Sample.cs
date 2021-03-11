@@ -12,6 +12,10 @@ namespace cAlgo
 
         private TextBlock _mouseLocationTextBlock;
 
+        private TextBlock _mouseWheelDeltaTextBlock;
+
+        private TextBlock _objectsNumberTextBlock;
+
         protected override void Initialize()
         {
             Chart.ChartTypeChanged += args => CreateAndAddGridToChart();
@@ -33,7 +37,16 @@ namespace cAlgo
                 if (_mouseLocationTextBlock == null) return;
 
                 _mouseLocationTextBlock.Text = "(Null, Null)";
+                _mouseWheelDeltaTextBlock.Text = "0";
             };
+            Chart.MouseWheel += args =>
+            {
+                if (_mouseWheelDeltaTextBlock == null) return;
+
+                _mouseWheelDeltaTextBlock.Text = args.Delta.ToString();
+            };
+            Chart.ObjectsAdded += args => _objectsNumberTextBlock.Text = Chart.Objects.Count.ToString();
+            Chart.ObjectsRemoved += args => _objectsNumberTextBlock.Text = Chart.Objects.Count.ToString();
 
             Chart.ZoomChanged += args => CreateAndAddGridToChart();
 
@@ -72,7 +85,10 @@ namespace cAlgo
             _grid.AddChild(new TextBlock { Text = Chart.ZoomLevel.ToString(), Style = style }, 2, 1);
 
             _grid.AddChild(new TextBlock { Text = "Objects #", Style = style }, 3, 0);
-            _grid.AddChild(new TextBlock { Text = Chart.Objects.Count.ToString(), Style = style }, 3, 1);
+
+            _objectsNumberTextBlock = new TextBlock { Style = style, Text = Chart.Objects.Count.ToString() };
+
+            _grid.AddChild(_objectsNumberTextBlock, 3, 1);
 
             _grid.AddChild(new TextBlock { Text = "Top Y", Style = style }, 4, 0);
             _grid.AddChild(new TextBlock { Text = Chart.TopY.ToString(), Style = style }, 4, 1);
@@ -91,6 +107,12 @@ namespace cAlgo
 
             _grid.AddChild(new TextBlock { Text = "Indicator Areas #", Style = style }, 8, 0);
             _grid.AddChild(new TextBlock { Text = Chart.IndicatorAreas.Count.ToString(), Style = style }, 8, 1);
+
+            _grid.AddChild(new TextBlock { Text = "Mouse Wheel Delta", Style = style }, 9, 0);
+
+            _mouseWheelDeltaTextBlock = new TextBlock { Style = style, Text = "0" };
+
+            _grid.AddChild(_mouseWheelDeltaTextBlock, 9, 1);
 
             Chart.AddControl(_grid);
         }
