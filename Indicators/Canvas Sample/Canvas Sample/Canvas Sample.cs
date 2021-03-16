@@ -7,7 +7,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var canvas = new Canvas
+            var canvas = new Canvas 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -17,7 +17,7 @@ namespace cAlgo
                 Opacity = 0.5
             };
 
-            canvas.AddChild(new Button
+            canvas.AddChild(new Button 
             {
                 Top = 20,
                 Left = 80,
@@ -25,7 +25,7 @@ namespace cAlgo
                 Text = "Button Inside Canvas"
             });
 
-            canvas.AddChild(new Image
+            canvas.AddChild(new Image 
             {
                 Source = Properties.Resources.stock,
                 Margin = 5,

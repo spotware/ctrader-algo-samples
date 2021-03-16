@@ -10,7 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var dockPanel = new DockPanel
+            var dockPanel = new DockPanel 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -18,7 +18,7 @@ namespace cAlgo
                 Opacity = 0.8
             };
 
-            dockPanel.AddChild(new TextBlock
+            dockPanel.AddChild(new TextBlock 
             {
                 Text = "Enter Your Name",
                 Margin = 5,
@@ -28,7 +28,12 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             });
 
-            dockPanel.AddChild(new TextBox { Dock = Dock.Bottom, Margin = 5, Width = 100 });
+            dockPanel.AddChild(new TextBox 
+            {
+                Dock = Dock.Bottom,
+                Margin = 5,
+                Width = 100
+            });
 
             Chart.AddControl(dockPanel);
         }

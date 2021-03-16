@@ -10,7 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -19,7 +19,7 @@ namespace cAlgo
                 Width = 200
             };
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Lower Character Casing",
                 Margin = new Thickness(10, 10, 10, 0),
@@ -27,9 +27,13 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             });
 
-            stackPanel.AddChild(new TextBox { CharacterCasing = CharacterCasing.Lower, Margin = 10 });
+            stackPanel.AddChild(new TextBox 
+            {
+                CharacterCasing = CharacterCasing.Lower,
+                Margin = 10
+            });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Upper Character Casing",
                 Margin = new Thickness(10, 10, 10, 0),
@@ -37,9 +41,13 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             });
 
-            stackPanel.AddChild(new TextBox { CharacterCasing = CharacterCasing.Upper, Margin = 10 });
+            stackPanel.AddChild(new TextBox 
+            {
+                CharacterCasing = CharacterCasing.Upper,
+                Margin = 10
+            });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Normal Character Casing",
                 Margin = new Thickness(10, 10, 10, 0),
@@ -47,7 +55,11 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             });
 
-            stackPanel.AddChild(new TextBox { CharacterCasing = CharacterCasing.Normal, Margin = 10 });
+            stackPanel.AddChild(new TextBox 
+            {
+                CharacterCasing = CharacterCasing.Normal,
+                Margin = 10
+            });
 
             Chart.AddControl(stackPanel);
         }

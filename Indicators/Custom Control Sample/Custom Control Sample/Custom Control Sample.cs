@@ -12,7 +12,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var comboBox = new ComboBox
+            var comboBox = new ComboBox 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center
@@ -50,21 +50,21 @@ namespace cAlgo
 
         public ComboBox()
         {
-            _textBox = new TextBox
+            _textBox = new TextBox 
             {
                 Width = 100,
                 IsReadOnly = true,
                 IsReadOnlyCaretVisible = false
             };
 
-            _button = new Button
+            _button = new Button 
             {
-                Text = "▼",
+                Text = "▼"
             };
 
             _button.Click += Button_Click;
 
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 Orientation = Orientation.Horizontal
             };
@@ -72,7 +72,7 @@ namespace cAlgo
             stackPanel.AddChild(_textBox);
             stackPanel.AddChild(_button);
 
-            _panel = new StackPanel
+            _panel = new StackPanel 
             {
                 Orientation = Orientation.Vertical
             };
@@ -94,7 +94,8 @@ namespace cAlgo
 
         private void Button_Click(ButtonClickEventArgs obj)
         {
-            if (_itemsGrid != null) _panel.RemoveChild(_itemsGrid);
+            if (_itemsGrid != null)
+                _panel.RemoveChild(_itemsGrid);
 
             if (_isExpanded)
             {
@@ -111,7 +112,10 @@ namespace cAlgo
             {
                 var item = _items[i];
 
-                _itemsGrid.AddChild(new TextBlock { Text = item.ToString() }, i, 0);
+                _itemsGrid.AddChild(new TextBlock 
+                {
+                    Text = item.ToString()
+                }, i, 0);
             }
 
             _panel.AddChild(_itemsGrid);

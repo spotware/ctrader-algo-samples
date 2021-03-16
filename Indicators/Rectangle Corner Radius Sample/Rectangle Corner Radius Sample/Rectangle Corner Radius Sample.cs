@@ -10,7 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var rectangle = new Rectangle
+            var rectangle = new Rectangle 
             {
                 RadiusX = 20,
                 RadiusY = 20,
@@ -19,7 +19,7 @@ namespace cAlgo
                 Width = 200,
                 Height = 150,
                 FillColor = Color.FromArgb(100, Color.Red),
-                StrokeColor = Color.Yellow,
+                StrokeColor = Color.Yellow
             };
 
             Chart.AddControl(rectangle);
