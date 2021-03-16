@@ -10,8 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            Chart.DrawFibonacciFan("Fan", Chart.FirstVisibleBarIndex, Bars.ClosePrices[Chart.FirstVisibleBarIndex],
-                Chart.LastVisibleBarIndex, Bars.ClosePrices[Chart.LastVisibleBarIndex], Color.Red);
+            Chart.DrawFibonacciFan("Fan", Chart.FirstVisibleBarIndex, Bars.ClosePrices[Chart.FirstVisibleBarIndex], Chart.LastVisibleBarIndex, Bars.ClosePrices[Chart.LastVisibleBarIndex], Color.Red);
         }
 
         public override void Calculate(int index)

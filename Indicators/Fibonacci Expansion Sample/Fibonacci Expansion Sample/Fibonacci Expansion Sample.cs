@@ -12,9 +12,7 @@ namespace cAlgo
         {
             var period = Chart.LastVisibleBarIndex - Chart.FirstVisibleBarIndex;
 
-            var fibonacciExpansion = Chart.DrawFibonacciExpansion("fibonacciExpansion", Chart.FirstVisibleBarIndex,
-                Bars.LowPrices[Chart.FirstVisibleBarIndex], Chart.FirstVisibleBarIndex, Bars.LowPrices.Minimum(period),
-                Chart.LastVisibleBarIndex, Bars.HighPrices.Maximum(period), Color.Red);
+            var fibonacciExpansion = Chart.DrawFibonacciExpansion("fibonacciExpansion", Chart.FirstVisibleBarIndex, Bars.LowPrices[Chart.FirstVisibleBarIndex], Chart.FirstVisibleBarIndex, Bars.LowPrices.Minimum(period), Chart.LastVisibleBarIndex, Bars.HighPrices.Maximum(period), Color.Red);
 
             fibonacciExpansion.IsInteractive = true;
         }

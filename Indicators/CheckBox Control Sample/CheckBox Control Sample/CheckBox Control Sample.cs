@@ -10,14 +10,14 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
-                BackgroundColor = Color.Gold,
+                BackgroundColor = Color.Gold
             };
 
-            var checkBox = new CheckBox
+            var checkBox = new CheckBox 
             {
                 Text = "Unchecked",
                 Margin = 10,

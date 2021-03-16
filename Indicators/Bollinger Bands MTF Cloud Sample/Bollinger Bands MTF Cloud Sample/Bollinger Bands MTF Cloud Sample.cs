@@ -72,8 +72,8 @@ namespace cAlgo
 
                 case DataSeriesType.Close:
                     return _baseBars.ClosePrices;
-
                 default:
+
                     throw new ArgumentOutOfRangeException("DataSeriesType");
             }
         }

@@ -10,9 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var channel = Chart.DrawEquidistantChannel("EquidistantChannel", Chart.FirstVisibleBarIndex,
-                Bars.LowPrices[Chart.FirstVisibleBarIndex], Chart.LastVisibleBarIndex, Bars.HighPrices[Chart.LastVisibleBarIndex],
-                20 * Symbol.PipSize, Color.Red);
+            var channel = Chart.DrawEquidistantChannel("EquidistantChannel", Chart.FirstVisibleBarIndex, Bars.LowPrices[Chart.FirstVisibleBarIndex], Chart.LastVisibleBarIndex, Bars.HighPrices[Chart.LastVisibleBarIndex], 20 * Symbol.PipSize, Color.Red);
 
             channel.IsInteractive = true;
         }

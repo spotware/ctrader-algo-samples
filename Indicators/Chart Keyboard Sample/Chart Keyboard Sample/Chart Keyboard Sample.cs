@@ -12,17 +12,17 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 Orientation = Orientation.Vertical,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 BackgroundColor = Color.Gold,
                 Opacity = 0.7,
-                Width = 200,
+                Width = 200
             };
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Keyboard Handler",
                 FontWeight = FontWeight.ExtraBold,
@@ -33,15 +33,33 @@ namespace cAlgo
 
             var grid = new Grid(2, 2);
 
-            grid.AddChild(new TextBlock { Text = "Key Down", Margin = 5, ForegroundColor = Color.Black }, 0, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Key Down",
+                Margin = 5,
+                ForegroundColor = Color.Black
+            }, 0, 0);
 
-            _keyDownTextBlock = new TextBlock { Margin = 5, ForegroundColor = Color.Black };
+            _keyDownTextBlock = new TextBlock 
+            {
+                Margin = 5,
+                ForegroundColor = Color.Black
+            };
 
             grid.AddChild(_keyDownTextBlock, 0, 1);
 
-            grid.AddChild(new TextBlock { Text = "Key Combination", Margin = 5, ForegroundColor = Color.Black }, 1, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Key Combination",
+                Margin = 5,
+                ForegroundColor = Color.Black
+            }, 1, 0);
 
-            _keyCombinationTextBlock = new TextBlock { Margin = 5, ForegroundColor = Color.Black };
+            _keyCombinationTextBlock = new TextBlock 
+            {
+                Margin = 5,
+                ForegroundColor = Color.Black
+            };
 
             grid.AddChild(_keyCombinationTextBlock, 1, 1);
 
@@ -58,9 +76,12 @@ namespace cAlgo
 
             _keyCombinationTextBlock.Text = string.Empty;
 
-            if (obj.AltKey) _keyCombinationTextBlock.Text += "Alt, ";
-            if (obj.ShiftKey) _keyCombinationTextBlock.Text += "Shift, ";
-            if (obj.CtrlKey) _keyCombinationTextBlock.Text += "Ctrl, ";
+            if (obj.AltKey)
+                _keyCombinationTextBlock.Text += "Alt, ";
+            if (obj.ShiftKey)
+                _keyCombinationTextBlock.Text += "Shift, ";
+            if (obj.CtrlKey)
+                _keyCombinationTextBlock.Text += "Ctrl, ";
         }
 
         public override void Calculate(int index)

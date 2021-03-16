@@ -17,7 +17,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(3, 2)
+            var grid = new Grid(3, 2) 
             {
                 BackgroundColor = Color.DarkGoldenrod,
                 HorizontalAlignment = HorizontalAlignment.Left,
@@ -25,21 +25,45 @@ namespace cAlgo
                 Opacity = 0.5
             };
 
-            grid.AddChild(new TextBlock { Text = "Last Value", Margin = 5 }, 0, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Last Value",
+                Margin = 5
+            }, 0, 0);
 
-            _lastValueTextBlock = new TextBlock { Text = Source.LastValue.ToString(), Margin = 5 };
+            _lastValueTextBlock = new TextBlock 
+            {
+                Text = Source.LastValue.ToString(),
+                Margin = 5
+            };
 
             grid.AddChild(_lastValueTextBlock, 0, 1);
 
-            grid.AddChild(new TextBlock { Text = "Last Closed Value", Margin = 5 }, 1, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Last Closed Value",
+                Margin = 5
+            }, 1, 0);
 
-            _lastClosedValueTextBlock = new TextBlock { Text = Source.Last(1).ToString(), Margin = 5 };
+            _lastClosedValueTextBlock = new TextBlock 
+            {
+                Text = Source.Last(1).ToString(),
+                Margin = 5
+            };
 
             grid.AddChild(_lastClosedValueTextBlock, 1, 1);
 
-            grid.AddChild(new TextBlock { Text = "Values Count", Margin = 5 }, 2, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Values Count",
+                Margin = 5
+            }, 2, 0);
 
-            _countTextBlock = new TextBlock { Text = Source.Count.ToString(), Margin = 5 };
+            _countTextBlock = new TextBlock 
+            {
+                Text = Source.Count.ToString(),
+                Margin = 5
+            };
 
             grid.AddChild(_countTextBlock, 2, 1);
 

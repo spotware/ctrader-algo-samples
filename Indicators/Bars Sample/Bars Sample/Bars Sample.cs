@@ -28,7 +28,7 @@ namespace cAlgo
 
             Bars.Reloaded += Bars_Reloaded;
 
-            var grid = new Grid(2, 2)
+            var grid = new Grid(2, 2) 
             {
                 BackgroundColor = Color.DarkGoldenrod,
                 HorizontalAlignment = HorizontalAlignment.Right,
@@ -36,15 +36,30 @@ namespace cAlgo
                 Opacity = 0.5
             };
 
-            grid.AddChild(new TextBlock { Text = "Bar Ticks #", Margin = 5 }, 0, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Bar Ticks #",
+                Margin = 5
+            }, 0, 0);
 
-            _barTicksNumberTextBlock = new TextBlock { Text = "0", Margin = 5 };
+            _barTicksNumberTextBlock = new TextBlock 
+            {
+                Text = "0",
+                Margin = 5
+            };
 
             grid.AddChild(_barTicksNumberTextBlock, 0, 1);
 
-            grid.AddChild(new TextBlock { Text = "Bars State", Margin = 5 }, 1, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Bars State",
+                Margin = 5
+            }, 1, 0);
 
-            _barsStateTextBlock = new TextBlock { Margin = 5 };
+            _barsStateTextBlock = new TextBlock 
+            {
+                Margin = 5
+            };
 
             grid.AddChild(_barsStateTextBlock, 1, 1);
 

@@ -17,7 +17,7 @@ namespace cAlgo
             style.Set(ControlProperty.FontSize, 14);
             style.Set(ControlProperty.Width, 100);
 
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -27,7 +27,11 @@ namespace cAlgo
 
             for (var i = 0; i < 10; i++)
             {
-                stackPanel.AddChild(new TextBlock { Text = "Textr Block #" + i, Style = style });
+                stackPanel.AddChild(new TextBlock 
+                {
+                    Text = "Textr Block #" + i,
+                    Style = style
+                });
             }
 
             Chart.AddControl(stackPanel);

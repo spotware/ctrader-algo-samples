@@ -15,8 +15,7 @@ namespace cAlgo
             var max = Bars.HighPrices.Maximum(period);
             var min = Bars.LowPrices.Minimum(period);
 
-            Chart.DrawFibonacciRetracement("FibonacciRetracement", Chart.FirstVisibleBarIndex, max, Chart.LastVisibleBarIndex,
-                min, Color.Red);
+            Chart.DrawFibonacciRetracement("FibonacciRetracement", Chart.FirstVisibleBarIndex, max, Chart.LastVisibleBarIndex, min, Color.Red);
         }
 
         public override void Calculate(int index)
