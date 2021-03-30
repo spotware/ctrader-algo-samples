@@ -8,7 +8,7 @@ namespace cAlgo.Robots
     /// This sample bot shows how to place different types of pending orders
     /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class PendingOrderSample : Robot
+    public class PendingOrderPlacingSample : Robot
     {
         [Parameter("Type", DefaultValue = PendingOrderType.Limit)]
         public PendingOrderType OrderType { get; set; }

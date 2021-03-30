@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pending Order Sample", "Pending Order Sample\Pending Order Sample.csproj", "{6B465CE8-6A3E-499E-8B56-5DBD22593FA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pending Order Placing Sample", "Pending Order Placing Sample\Pending Order Placing Sample.csproj", "{6B465CE8-6A3E-499E-8B56-5DBD22593FA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
