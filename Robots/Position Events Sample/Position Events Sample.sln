@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Position Events Sample", "Position Events Sample\Position Events Sample.csproj", "{73A983D7-A8D9-4C9C-98F4-B095F07A82EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73A983D7-A8D9-4C9C-98F4-B095F07A82EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73A983D7-A8D9-4C9C-98F4-B095F07A82EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73A983D7-A8D9-4C9C-98F4-B095F07A82EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73A983D7-A8D9-4C9C-98F4-B095F07A82EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

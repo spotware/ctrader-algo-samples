@@ -338,3 +338,397 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Indicators/ATRMTF_time_History
+/Indicators/Bar Color Change Alert
+/Indicators/ATR_Stops_time_MarketData_History
+/Indicators/Bar Ratio
+/Indicators/Belkhayate Timing
+/Indicators/Blank
+/Indicators/Custom
+/Indicators/Custom Data
+/Indicators/Flow Indicator/Flow Indicator/Properties/AssemblyInfo.cs
+/Indicators/Flow Indicator
+/Indicators/Global Hook
+/Indicators/HasCrossed Sample
+/Indicators/Heiken Ashi
+/Indicators/Heikin Ashi Smooth
+/Indicators/Ichimoku Cloud
+/Indicators/Keltner Channels
+/Indicators/Least Squares Regression
+/Indicators/Licensing Sample
+/Indicators/MA Cross Alert
+/Indicators/MACD Histogram Alert
+/Indicators/Sample Standard Deviation
+/Indicators/Sample SMA
+/Indicators/Sample Reference SMA
+/Indicators/Sample Price Channels
+/Indicators/Sample Envelopes Cloud
+/Indicators/Sample EMA
+/Indicators/Sample DeMarker
+/Indicators/Sample Bulls Power
+/Indicators/Sample Bears Power
+/Indicators/Sample Alligator
+/Indicators/RSI Alert Sample
+/Indicators/ROC
+/Indicators/psar
+/Indicators/Position_Stats_1.0
+/Indicators/Optimal Moving Average
+/Indicators/Moving Average Type Sample
+/Indicators/Time zone Sample
+/Indicators/Zero Lag MA
+/Indicators/VWAP with Source
+/Indicators/Volatility Scalper
+/Indicators/Triangularma Centered Bands
+/Indicators/Auto Trend Channel
+/Indicators/ADX Interpreter
+/Indicators/Advanced Volume
+/Indicators/ADR Pro
+/Indicators/Auto Trend Channel.algo
+/Indicators/ATR_Stops_time_MarketData_History.algo
+/Indicators/ATRMTF_time_History.algo
+/Indicators/ADX Interpreter.algo
+/Indicators/Advanced Volume.algo
+/Indicators/ADR Pro.algo
+/Indicators/Sample Standard Deviation.algo
+/Indicators/Sample SMA.algo
+/Indicators/Sample Reference SMA.algo
+/Indicators/Sample Price Channels.algo
+/Indicators/Sample Envelopes Cloud.algo
+/Indicators/Sample EMA.algo
+/Indicators/Sample DeMarker.algo
+/Indicators/Sample Bulls Power.algo
+/Indicators/Sample Bears Power.algo
+/Indicators/Sample Alligator.algo
+/Indicators/Time zone Sample.algo
+/Indicators/RSI Alert Sample.algo
+/Indicators/Moving Average Type Sample.algo
+/Indicators/Licensing Sample.algo
+/Indicators/HasCrossed Sample.algo
+/Indicators/Daily Separator Line Sample.algo
+/Indicators/Daily Separator Line Sample
+/Robots/Bar Breakout Trading Sample
+/Robots/Licensing Sample
+/Robots/Sample Advanced Take Profit
+/Robots/Sample Break Even
+/Robots/Sample Breakout cBot
+/Robots/Sample cBot Reference SMA
+/Robots/Sample Close Profitable Positions cBot
+/Robots/Sample Hotkey Trading
+/Robots/Sample Lines Trader
+/Robots/Sample Martingale cBot
+/Robots/Sample RSI cBot
+/Robots/Sample SAR Trailing Stop
+/Robots/Sample Trading Panel
+/Robots/Sample Trend cBot
+/Robots/Bar Breakout Trading Sample.algo
+/Robots/Licensing Sample.algo
+/Robots/Sample Trend cBot.algo
+/Robots/Sample Trading Panel.algo
+/Robots/Sample SAR Trailing Stop.algo
+/Robots/Sample RSI cBot.algo
+/Robots/Sample Martingale cBot.algo
+/Robots/Sample Lines Trader.algo
+/Robots/Sample Hotkey Trading.algo
+/Robots/Sample Close Profitable Positions cBot.algo
+/Robots/Sample cBot Reference SMA.algo
+/Robots/Sample Breakout cBot.algo
+/Robots/Sample Break Even.algo
+/Robots/Sample Advanced Take Profit.algo
+/Robots/Trading Hotkeys.algo
+/Robots/Trading Hotkeys
+/Robots/Tooltip.algo
+/Robots/Tooltip/Tooltip.sln
+/Robots/Tooltip/Tooltip/Tooltip.csproj
+/Robots/Tooltip/Tooltip/Tooltip.cs
+/Robots/Tooltip/Tooltip/Properties/AssemblyInfo.cs
+/Robots/Tooltip/Tooltip/Properties
+/Robots/Tooltip/Tooltip
+/Robots/Tooltip
+/Robots/ROC Bot.algo
+/Robots/ROC Bot/ROC Bot.sln
+/Robots/ROC Bot/ROC Bot/ROC Bot.csproj
+/Robots/ROC Bot/ROC Bot/ROC Bot.cs
+/Robots/ROC Bot/ROC Bot/Properties/AssemblyInfo.cs
+/Robots/ROC Bot/ROC Bot/Properties
+/Robots/ROC Bot/ROC Bot
+/Robots/ROC Bot
+/Robots/News Fixed Time Trader.algo
+/Robots/News Fixed Time Trader
+/Robots/My cBot.algo
+/Robots/My cBot/My cBot.sln
+/Robots/My cBot/My cBot/Properties/AssemblyInfo.cs
+/Robots/My cBot/My cBot/Properties
+/Robots/My cBot/My cBot/My cBot.csproj
+/Robots/My cBot/My cBot/My cBot.cs
+/Robots/My cBot/My cBot
+/Robots/My cBot
+/Robots/ML Data Generator.algo
+/Robots/ML Data Generator
+/Robots/Mean Reversion Trader.algo
+/Robots/Mean Reversion Trader
+/Robots/Manual Strategy Tester.algo
+/Robots/Manual Strategy Tester
+/Robots/Keltner EMA.algo
+/Robots/Keltner EMA 2.0.algo
+/Robots/Keltner EMA 2.0
+/Robots/Keltner EMA
+/Robots/Keltner Channels Trader.algo
+/Robots/Keltner Channels Trader v2.algo
+/Robots/Keltner Channels Trader v2
+/Robots/Keltner Channels Trader
+/Robots/Hull Trader Live.algo
+/Robots/Hull Trader Live
+/Robots/Hull Trader Backtest.algo
+/Robots/Hull Trader Backtest
+/Robots/High and Low Trader.algo
+/Robots/High and Low Trader
+/Robots/Hidden Protection.algo
+/Robots/Hidden Protection
+/Robots/First Hope.algo
+/Robots/First Hope
+/Robots/Day Trader.algo
+/Robots/Day Trader/Day Trader.sln
+/Robots/Day Trader/Day Trader/Properties/AssemblyInfo.cs
+/Robots/Day Trader/Day Trader/Properties
+/Robots/Day Trader/Day Trader/Models/LeftSpaceModel.cs
+/Robots/Day Trader/Day Trader/Models
+/Robots/Day Trader/Day Trader/Day Trader.csproj
+/Robots/Day Trader/Day Trader/Day Trader.cs
+/Robots/Day Trader/Day Trader
+/Robots/Day Trader
+/Robots/CustomTooltip.algo
+/Robots/CustomTooltip/CustomTooltip.sln
+/Robots/CustomTooltip/CustomTooltip/Properties/AssemblyInfo.cs
+/Robots/CustomTooltip/CustomTooltip/Properties
+/Robots/CustomTooltip/CustomTooltip/CustomTooltip.csproj
+/Robots/CustomTooltip/CustomTooltip/CustomTooltip.cs
+/Robots/CustomTooltip/CustomTooltip
+/Robots/CustomTooltip
+/Robots/Consecutive Bars Trader.algo
+/Robots/Consecutive Bars Trader Backtest.algo
+/Robots/Consecutive Bars Trader Backtest
+/Robots/Consecutive Bars Trader
+/Robots/Consecutive Bars HA Trader.algo
+/Robots/Consecutive Bars HA Trader
+/Robots/cMulti Tester.algo
+/Robots/cMulti Tester/cMulti Tester.sln
+/Robots/cMulti Tester/cMulti Tester/Properties/AssemblyInfo.cs
+/Robots/cMulti Tester/cMulti Tester/Properties
+/Robots/cMulti Tester/cMulti Tester/cMulti Tester.csproj
+/Robots/cMulti Tester/cMulti Tester/cMulti Tester.cs
+/Robots/cMulti Tester/cMulti Tester
+/Robots/cMulti Tester
+/Robots/Bug.algo
+/Robots/Bug/Bug.sln
+/Robots/Bug/Bug/Properties/AssemblyInfo.cs
+/Robots/Bug/Bug/Properties
+/Robots/Bug/Bug/Bug.csproj
+/Robots/Bug/Bug/Bug.cs
+/Robots/Bug/Bug
+/Robots/Bug
+/Robots/Bar Color Change Trader.algo
+/Robots/Bar Color Change Trader/Bar Color Change Trader.sln
+/Robots/Bar Color Change Trader/Bar Color Change Trader/Properties/AssemblyInfo.cs
+/Robots/Bar Color Change Trader/Bar Color Change Trader/Properties
+/Robots/Bar Color Change Trader/Bar Color Change Trader/Bar Color Change Trader.csproj
+/Robots/Bar Color Change Trader/Bar Color Change Trader/Bar Color Change Trader.cs
+/Robots/Bar Color Change Trader/Bar Color Change Trader
+/Robots/Bar Color Change Trader
+/Robots/Alert Tester.algo
+/Robots/Alert Tester/Alert Tester.sln
+/Robots/Alert Tester/Alert Tester/Properties/AssemblyInfo.cs
+/Robots/Alert Tester/Alert Tester/Properties
+/Robots/Alert Tester/Alert Tester/Alert Tester.csproj
+/Robots/Alert Tester/Alert Tester/Alert Tester.cs
+/Robots/Alert Tester/Alert Tester
+/Robots/Alert Tester
+/Robots/ABC.algo
+/Robots/ABC
+/Indicators/Zero Lag MA.algo
+/Indicators/VWAP.algo
+/Indicators/VWAP with Source.algo
+/Indicators/VWAP
+/Indicators/VSD.algo
+/Indicators/VSD
+/Indicators/Vortex.algo
+/Indicators/Vortex
+/Indicators/Volume Profile Timeframe.algo
+/Indicators/Volume Profile Timeframe
+/Indicators/Volume Profile Rectangles.algo
+/Indicators/Volume Profile Rectangles
+/Indicators/Volume Profile Fixed.algo
+/Indicators/Volume Profile Fixed
+/Indicators/Volume Profile Classic.algo
+/Indicators/Volume Profile Classic
+/Indicators/Volume Profile Between Two Line.algo
+/Indicators/Volume Profile Between Two Line
+/Indicators/Volume POC.algo
+/Indicators/Volume POC
+/Indicators/Volume Gap.algo
+/Indicators/Volume Gap
+/Indicators/Volatility Scalper.algo
+/Indicators/Triangularma Centered Bands.algo
+/Indicators/Trend Dash.algo
+/Indicators/Trend Dash
+/Indicators/Trend Catcher.algo
+/Indicators/Trend Catcher
+/Indicators/Trend Angle.algo
+/Indicators/Trend Angle
+/Indicators/Trading Time Periods.algo
+/Indicators/Trading Time Periods
+/Indicators/Tops and Bottoms.algo
+/Indicators/Tops and Bottoms
+/Indicators/Time Frame Dash.algo
+/Indicators/Time Frame Dash
+/Indicators/TD Trend Rider.algo
+/Indicators/TD Trend Rider
+/Indicators/TD Sequential.algo
+/Indicators/TD Sequential
+/Indicators/TD Breakout.algo
+/Indicators/TD Breakout
+/Indicators/Symbol Info.algo
+/Indicators/Symbol Info
+/Indicators/Supply And Demand Zones.algo
+/Indicators/Supply And Demand Zones
+/Indicators/Strong And Weak.algo
+/Indicators/Strong And Weak Ranking.algo
+/Indicators/Strong And Weak Ranking
+/Indicators/Strong And Weak
+/Indicators/Stochastic Divergence.algo
+/Indicators/Stochastic Divergence
+/Indicators/Session Box.algo
+/Indicators/Session Box
+/Indicators/RSI Divergence.algo
+/Indicators/RSI Divergence
+/Indicators/Round Numbers.algo
+/Indicators/Round Numbers
+/Indicators/ROC.algo
+/Indicators/Reversal Magic.algo
+/Indicators/Reversal Magic
+/Indicators/ReFlex and TrendFlex.algo
+/Indicators/ReFlex and TrendFlex
+/Indicators/Quandl Time Series.algo
+/Indicators/Quandl Time Series
+/Indicators/psar.algo
+/Indicators/Position_Stats_1.0.algo
+/Indicators/Pivot Points Pro.algo
+/Indicators/Pivot Points Pro Daily.algo
+/Indicators/Pivot Points Pro Daily
+/Indicators/Pivot Points Pro
+/Indicators/Percentage Price Oscillator.algo
+/Indicators/Percentage Price Oscillator
+/Indicators/Pattern_Drawing_1.0.0.zip
+/Indicators/Pattern Drawing.algo
+/Indicators/Pattern Drawing
+/Indicators/Outliers.algo
+/Indicators/Outliers
+/Indicators/Optimal Moving Average.algo
+/Indicators/OHLC Lines.algo
+/Indicators/OHLC Lines
+/Indicators/MMI.algo
+/Indicators/MMI
+/Indicators/Market Status.algo
+/Indicators/Market Status
+/Indicators/Market Profile TimeFrame.algo
+/Indicators/Market Profile TimeFrame
+/Indicators/Market Profile Rectangles.algo
+/Indicators/Market Profile Rectangles
+/Indicators/Market Profile Fixed.algo
+/Indicators/Market Profile Fixed
+/Indicators/Market Profile Classic.algo
+/Indicators/Market Profile Classic
+/Indicators/Market Profile Between Two Line.algo
+/Indicators/Market Profile Between Two Line
+/Indicators/MACD Histogram Alert.algo
+/Indicators/MACD Divergence.algo
+/Indicators/MACD Divergence
+/Indicators/MA Slope Trend.algo
+/Indicators/MA Slope Trend
+/Indicators/MA Ribbon.algo
+/Indicators/MA Ribbon
+/Indicators/MA Cross Alert.algo
+/Indicators/Line Alert.algo
+/Indicators/Line Alert
+/Indicators/Least Squares Regression.algo
+/Indicators/King-Lee.algo
+/Indicators/King-Lee
+/Indicators/Keltner Channels.algo
+/Indicators/Keltner Blast.algo
+/Indicators/Keltner Blast
+/Indicators/Intraday Momentum Trading Assistant.algo
+/Indicators/Intraday Momentum Trading Assistant
+/Indicators/Institutional Unfilled Orders.algo
+/Indicators/Institutional Unfilled Orders
+/Indicators/Ichimoku Cloud.algo
+/Indicators/Hull Moving Average.algo
+/Indicators/Hull Moving Average
+/Indicators/Hull Forecast.algo
+/Indicators/Hull Forecast
+/Indicators/High and Low Volume.algo
+/Indicators/High and Low Volume
+/Indicators/Heikin Ashi Smooth.algo
+/Indicators/Heiken Ashi.algo
+/Indicators/Heiken Ashi MTF.algo
+/Indicators/Heiken Ashi MTF
+/Indicators/Global Hook.algo
+/Indicators/Flow Indicator.algo
+/Indicators/Explosive Bars.algo
+/Indicators/Explosive Bars
+/Indicators/DMA.algo
+/Indicators/DMA
+/Indicators/Divergence.algo
+/Indicators/Divergence
+/Indicators/DEA and DIF.algo
+/Indicators/DEA and DIF
+/Indicators/Daily High Low Mean.algo
+/Indicators/Daily High Low Mean
+/Indicators/Custom.algo
+/Indicators/Custom Period Chart.algo
+/Indicators/Custom Period Chart Separate.algo
+/Indicators/Custom Period Chart Separate
+/Indicators/Custom Period Chart
+/Indicators/Custom Data.algo
+/Indicators/Cumulative Delta.algo
+/Indicators/Cumulative Delta
+/Indicators/COT.algo
+/Indicators/COT
+/Indicators/Correlation.algo
+/Indicators/Correlation
+/Indicators/Consecutive Bars.algo
+/Indicators/Consecutive Bars
+/Indicators/Compare Per Bar.algo
+/Indicators/Compare Per Bar
+/Indicators/Compare Fixed Time.algo
+/Indicators/Compare Fixed Time
+/Indicators/Compare Average.algo
+/Indicators/Compare Average
+/Indicators/Chart Switch.algo
+/Indicators/Chart Switch Separate Panel.algo
+/Indicators/Chart Switch Separate Panel
+/Indicators/Chart Switch
+/Indicators/Chart Navigator.algo
+/Indicators/Chart Navigator
+/Indicators/Chart Hotkeys.algo
+/Indicators/Chart Hotkeys
+/Indicators/Chart Calendar.algo
+/Indicators/Chart Calendar
+/Indicators/cFormula.algo
+/Indicators/cFormula Overlay.algo
+/Indicators/cFormula Overlay
+/Indicators/cFormula
+/Indicators/Breakout Candle.algo
+/Indicators/Breakout Candle
+/Indicators/Blank.algo
+/Indicators/Belkhayate Timing.algo
+/Indicators/BBands Volatility.algo
+/Indicators/BBands Volatility
+/Indicators/Bars Statistics.algo
+/Indicators/Bars Statistics
+/Indicators/Bar Ratio.algo
+/Indicators/Bar Color Change Alert.algo
+/Indicators/Bar Analyzer.algo
+/Indicators/Bar Analyzer on Chart.algo
+/Indicators/Bar Analyzer on Chart
+/Indicators/Bar Analyzer
+/Indicators/Average Bar Range.algo
+/Indicators/Average Bar Range
