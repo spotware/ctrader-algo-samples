@@ -6,7 +6,7 @@ namespace cAlgo
     /// This sample shows how to use control style to change a group of controls style instead of setting each control properties separatly
     /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class ControlStyleSample : Indicator
+    public class StyleSample : Indicator
     {
         protected override void Initialize()
         {
