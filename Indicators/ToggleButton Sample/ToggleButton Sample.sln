@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToggleButton Sample", "ToggleButton Sample\ToggleButton Sample.csproj", "{3EF47109-DEE7-404E-9C75-AE62A21BC68C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EF47109-DEE7-404E-9C75-AE62A21BC68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EF47109-DEE7-404E-9C75-AE62A21BC68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EF47109-DEE7-404E-9C75-AE62A21BC68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EF47109-DEE7-404E-9C75-AE62A21BC68C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
