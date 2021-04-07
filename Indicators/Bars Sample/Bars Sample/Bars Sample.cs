@@ -4,7 +4,7 @@ using System;
 namespace cAlgo
 {
     /// <summary>
-    /// A sample cBot for Bars
+    /// A sample indicator that shows how to use Bars
     /// </summary>
     [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class BarsSample : Indicator
