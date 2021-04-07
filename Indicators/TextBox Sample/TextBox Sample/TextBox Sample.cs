@@ -18,7 +18,7 @@ namespace cAlgo
                 Opacity = 0.6,
             };
 
-            stackPanel.AddChild(new TextBox
+            var textBox = new TextBox
             {
                 Text = "Enter text here...",
                 FontWeight = FontWeight.ExtraBold,
@@ -26,9 +26,18 @@ namespace cAlgo
                 ForegroundColor = Color.White,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 Width = 150
-            });
+            };
+
+            textBox.TextChanged += TextBox_TextChanged;
+
+            stackPanel.AddChild(textBox);
 
             Chart.AddControl(stackPanel);
+        }
+
+        private void TextBox_TextChanged(TextChangedEventArgs obj)
+        {
+            Print("Text box text changed to: ", obj.TextBox.Text);
         }
 
         public override void Calculate(int index)
