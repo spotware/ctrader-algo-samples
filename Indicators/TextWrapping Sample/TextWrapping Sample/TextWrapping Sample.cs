@@ -3,7 +3,7 @@
 namespace cAlgo
 {
     /// <summary>
-    /// This sample indicator shows how to use TextTrimming property to manage the text trim
+    /// This sample indicator shows how to use TextWrapping property to manage the text wrap
     /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class TextWrappingSample : Indicator
