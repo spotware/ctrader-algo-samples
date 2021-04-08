@@ -734,3 +734,6 @@ healthchecksdb
 /Indicators/Average Bar Range
 /Robots/Trade Time.algo
 /Robots/Trade Time
+/Robots/PendingOrders Filled Event Issue/PendingOrders Filled Event Issue
+/Robots/PendingOrders Filled Event Issue
+/Robots/PendingOrders Filled Event Issue.algo
