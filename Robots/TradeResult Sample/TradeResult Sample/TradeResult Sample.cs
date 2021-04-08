@@ -2,6 +2,9 @@
 
 namespace cAlgo.Robots
 {
+    /// <summary>
+    /// This sample cBot shows how to get a trade operation result
+    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class TradeResultSample : Robot
     {
