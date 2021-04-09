@@ -2,10 +2,10 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("AcceleratorOscillator Sample")]
+[assembly: AssemblyTitle("Accumulative Swing Index Sample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("AcceleratorOscillator Sample")]
+[assembly: AssemblyProduct("Accumulative Swing Index Sample")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

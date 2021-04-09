@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcceleratorOscillator Sample", "AcceleratorOscillator Sample\AcceleratorOscillator Sample.csproj", "{BDA878E0-5E66-4734-83AC-37881EB2C2B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accelerator Oscillator Sample", "Accelerator Oscillator Sample\Accelerator Oscillator Sample.csproj", "{BDA878E0-5E66-4734-83AC-37881EB2C2B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
