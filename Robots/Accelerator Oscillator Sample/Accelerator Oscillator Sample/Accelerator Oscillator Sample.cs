@@ -22,7 +22,7 @@ namespace cAlgo.Robots
         [Parameter("Take Profit (Pips)", DefaultValue = 10)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "AcceleratorOscillatorSample")]
+        [Parameter("Label", DefaultValue = "Sample")]
         public string Label { get; set; }
 
         public Position[] BotPositions

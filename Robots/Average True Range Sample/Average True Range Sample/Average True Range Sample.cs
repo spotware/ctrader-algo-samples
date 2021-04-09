@@ -1,26 +1,21 @@
 ﻿using cAlgo.API;
 using cAlgo.API.Indicators;
+using System;
 
 namespace cAlgo.Robots
 {
     /// <summary>
-    /// This sample cBot shows how to use an Aroon indicator
+    /// This sample cBot shows how to use an Average True Range indicator
     /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class AroonSample : Robot
+    public class AverageTrueRangeSample : Robot
     {
         private double _volumeInUnits;
 
-        private Aroon _accumulativeSwingIndex;
+        private AverageTrueRange _averageTrueRange;
 
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
-
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
-        public double StopLossInPips { get; set; }
-
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
-        public double TakeProfitInPips { get; set; }
 
         [Parameter("Label", DefaultValue = "Sample")]
         public string Label { get; set; }
@@ -37,22 +32,22 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _accumulativeSwingIndex = Indicators.Aroon(25);
+            _averageTrueRange = Indicators.AverageTrueRange(14, MovingAverageType.Exponential);
         }
 
         protected override void OnBar()
         {
-            if (_accumulativeSwingIndex.Up.Last(1) > _accumulativeSwingIndex.Down.Last(1) && _accumulativeSwingIndex.Up.Last(2) < _accumulativeSwingIndex.Down.Last(2))
+            if (Bars.ClosePrices.Last(1) > Bars.OpenPrices.Last(1) && Bars.ClosePrices.Last(2) < Bars.OpenPrices.Last(2))
             {
                 ClosePositions(TradeType.Sell);
 
-                ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
+                ExecuteOrder(TradeType.Buy);
             }
-            else if (_accumulativeSwingIndex.Up.Last(1) < _accumulativeSwingIndex.Down.Last(1) && _accumulativeSwingIndex.Up.Last(2) > _accumulativeSwingIndex.Down.Last(2))
+            else if (Bars.ClosePrices.Last(1) < Bars.OpenPrices.Last(1) && Bars.ClosePrices.Last(2) > Bars.OpenPrices.Last(2))
             {
                 ClosePositions(TradeType.Buy);
 
-                ExecuteMarketOrder(TradeType.Sell, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
+                ExecuteOrder(TradeType.Sell);
             }
         }
 
@@ -64,6 +59,16 @@ namespace cAlgo.Robots
 
                 ClosePosition(position);
             }
+        }
+
+        private void ExecuteOrder(TradeType tradeType)
+        {
+            var atrInPips = _averageTrueRange.Result.Last(1) * (Symbol.TickSize / Symbol.PipSize * Math.Pow(10, Symbol.Digits));
+
+            var stopLossInPips = atrInPips * 2;
+            var takeProfitInPips = stopLossInPips * 2;
+
+            ExecuteMarketOrder(tradeType, SymbolName, _volumeInUnits, Label, stopLossInPips, takeProfitInPips);
         }
     }
 }
