@@ -4,14 +4,14 @@ using cAlgo.API.Indicators;
 namespace cAlgo.Robots
 {
     /// <summary>
-    /// This sample cBot shows how to use the Commodity Channel Index indicator
+    /// This sample cBot shows how to use the Detrended Price Oscillator indicator
     /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class CommodityChannelIndexSample : Robot
+    public class DetrendedPriceOscillatorSample : Robot
     {
         private double _volumeInUnits;
 
-        private CommodityChannelIndex _commodityChannelIndex;
+        private DetrendedPriceOscillator _detrendedPriceOscillator;
 
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
@@ -37,18 +37,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _commodityChannelIndex = Indicators.CommodityChannelIndex(14);
+            _detrendedPriceOscillator = Indicators.DetrendedPriceOscillator(Bars.ClosePrices, 14, MovingAverageType.Simple);
         }
 
         protected override void OnBar()
         {
-            if (_commodityChannelIndex.Result.Last(1) > 100 && _commodityChannelIndex.Result.Last(2) <= 100)
+            if (_detrendedPriceOscillator.Result.Last(1) > 0 && _detrendedPriceOscillator.Result.Last(2) <= 0)
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (_commodityChannelIndex.Result.Last(1) < -100 && _commodityChannelIndex.Result.Last(2) >= -100)
+            else if (_detrendedPriceOscillator.Result.Last(1) < 0 && _detrendedPriceOscillator.Result.Last(2) >= 0)
             {
                 ClosePositions(TradeType.Buy);
 
