@@ -4,7 +4,7 @@ using cAlgo.API.Indicators;
 namespace cAlgo.Robots
 {
     /// <summary>
-    /// This sample cBot shows how to use an Bollinger Bands indicator
+    /// This sample cBot shows how to use the Bollinger Bands indicator
     /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class BollingerBandsSample : Robot
