@@ -743,3 +743,5 @@ healthchecksdb
 /Indicators/Load History Sample.algo
 /Indicators/Event Test.algo
 /Robots/Event Test Bot.algo
+/Indicators/Save File Dialog Sample
+/Indicators/Save File Dialog Sample.algo
