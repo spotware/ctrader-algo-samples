@@ -5,14 +5,14 @@ using cAlgo.API.Internals;
 namespace cAlgo.Robots
 {
     /// <summary>
-    /// This sample cBot shows how to use the MACD Cross Over indicator
+    /// This sample cBot shows how to use the MACD Histogram indicator
     /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class MacdCrossOverSample : Robot
+    public class MacdHistogramSample : Robot
     {
         private double _volumeInUnits;
 
-        private MacdCrossOver _macdCrossOver;
+        private MacdHistogram _macdHistogram;
 
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
@@ -38,18 +38,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _macdCrossOver = Indicators.MacdCrossOver(Bars.ClosePrices, 26, 12, 9);
+            _macdHistogram = Indicators.MacdHistogram(Bars.ClosePrices, 26, 12, 9);
         }
 
         protected override void OnBar()
         {
-            if (_macdCrossOver.MACD.Last(1) > _macdCrossOver.Signal.Last(1) && _macdCrossOver.MACD.Last(2) <= _macdCrossOver.Signal.Last(2))
+            if (_macdHistogram.Histogram.Last(1) > 0 && _macdHistogram.Histogram.Last(2) <= 0)
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (_macdCrossOver.MACD.Last(1) < _macdCrossOver.Signal.Last(1) && _macdCrossOver.MACD.Last(2) >= _macdCrossOver.Signal.Last(2))
+            else if (_macdHistogram.Histogram.Last(1) < 0 && _macdHistogram.Histogram.Last(2) >= 0)
             {
                 ClosePositions(TradeType.Buy);
 
