@@ -7,11 +7,13 @@ namespace cAlgo.Robots
     /// This sample cBot shows how to use the Momentum Oscillator indicator
     /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class MedianPriceSample : Robot
+    public class MomentumOscillatorSample : Robot
     {
         private double _volumeInUnits;
 
-        private MedianPrice _medianPrice;
+        private MomentumOscillator _momentumOscillator;
+
+        private SimpleMovingAverage _simpleMovingAverage;
 
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
@@ -37,25 +39,27 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _medianPrice = Indicators.MedianPrice();
+            _momentumOscillator = Indicators.MomentumOscillator(Bars.ClosePrices, 14);
+
+            _simpleMovingAverage = Indicators.SimpleMovingAverage(_momentumOscillator.Result, 14);
         }
 
         protected override void OnBar()
         {
-            if (Bars.ClosePrices.Last(1) > _medianPrice.Result.Last(1))
+            if (_momentumOscillator.Result.Last(1) > _simpleMovingAverage.Result.Last(1))
             {
                 ClosePositions(TradeType.Sell);
 
-                if (BotPositions.Length == 0)
+                if (_momentumOscillator.Result.Last(2) <= _simpleMovingAverage.Result.Last(2))
                 {
                     ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
                 }
             }
-            else if (Bars.ClosePrices.Last(1) < _medianPrice.Result.Last(1))
+            else if (_momentumOscillator.Result.Last(1) < _simpleMovingAverage.Result.Last(1))
             {
                 ClosePositions(TradeType.Buy);
 
-                if (BotPositions.Length == 0)
+                if (_momentumOscillator.Result.Last(2) >= _simpleMovingAverage.Result.Last(2))
                 {
                     ExecuteMarketOrder(TradeType.Sell, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
                 }
