@@ -63,9 +63,9 @@ namespace cAlgo.Robots
 
         private void ExecuteOrder(TradeType tradeType)
         {
-            var atrInPips = _trueRange.Result.Last(1) * (Symbol.TickSize / Symbol.PipSize * Math.Pow(10, Symbol.Digits));
+            var trueRangeInPips = _trueRange.Result.Last(1) * (Symbol.TickSize / Symbol.PipSize * Math.Pow(10, Symbol.Digits));
 
-            var stopLossInPips = atrInPips * 2;
+            var stopLossInPips = trueRangeInPips * 2;
             var takeProfitInPips = stopLossInPips * 2;
 
             ExecuteMarketOrder(tradeType, SymbolName, _volumeInUnits, Label, stopLossInPips, takeProfitInPips);
