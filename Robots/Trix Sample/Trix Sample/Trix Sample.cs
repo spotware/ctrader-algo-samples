@@ -4,16 +4,14 @@ using cAlgo.API.Indicators;
 namespace cAlgo.Robots
 {
     /// <summary>
-    /// This sample cBot shows how to use the Trade Volume Index indicator
+    /// This sample cBot shows how to use the Trix indicator
     /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class TradeVolumeIndexSample : Robot
+    public class TrixSample : Robot
     {
         private double _volumeInUnits;
 
-        private TradeVolumeIndex _tradeVolumeIndex;
-
-        private SimpleMovingAverage _simpleMovingAverage;
+        private Trix _trix;
 
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
@@ -39,20 +37,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _tradeVolumeIndex = Indicators.TradeVolumeIndex(Bars.ClosePrices);
-
-            _simpleMovingAverage = Indicators.SimpleMovingAverage(_tradeVolumeIndex.Result, 14);
+            _trix = Indicators.Trix(Bars.ClosePrices, 9);
         }
 
         protected override void OnBar()
         {
-            if (_tradeVolumeIndex.Result.HasCrossedAbove(_simpleMovingAverage.Result, 0))
+            if (_trix.Result.Last(1) > 0 && _trix.Result.Last(2) <= 0)
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (_tradeVolumeIndex.Result.HasCrossedBelow(_simpleMovingAverage.Result, 0))
+            else if (_trix.Result.Last(1) < 0 && _trix.Result.Last(2) >= 0)
             {
                 ClosePositions(TradeType.Buy);
 
