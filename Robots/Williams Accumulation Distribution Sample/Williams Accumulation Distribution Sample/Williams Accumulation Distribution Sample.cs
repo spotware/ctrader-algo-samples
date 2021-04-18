@@ -54,15 +54,15 @@ namespace cAlgo.Robots
 
             if (Bars.ClosePrices.Last(1) > _simpleMovingAverage.Result.Last(1))
             {
-                ClosePositions(TradeType.Sell);
-
-                ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
-            }
-            else if (Bars.ClosePrices.Last(1) < _simpleMovingAverage.Result.Last(1))
-            {
                 ClosePositions(TradeType.Buy);
 
                 ExecuteMarketOrder(TradeType.Sell, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
+            }
+            else if (Bars.ClosePrices.Last(1) < _simpleMovingAverage.Result.Last(1))
+            {
+                ClosePositions(TradeType.Sell);
+
+                ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
         }
 
