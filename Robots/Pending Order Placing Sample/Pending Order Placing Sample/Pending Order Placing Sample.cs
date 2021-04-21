@@ -43,8 +43,11 @@ namespace cAlgo.Robots
         [Parameter("Trailing Stop", DefaultValue = false)]
         public bool HasTrailingStop { get; set; }
 
-        [Parameter("Stop Method", DefaultValue = StopTriggerMethod.Trade)]
-        public StopTriggerMethod OrderStopTriggerMethod { get; set; }
+        [Parameter("Stop Loss Method", DefaultValue = StopTriggerMethod.Trade)]
+        public StopTriggerMethod StopLossTriggerMethod { get; set; }
+
+        [Parameter("Stop Order Method", DefaultValue = StopTriggerMethod.Trade)]
+        public StopTriggerMethod StopOrderTriggerMethod { get; set; }
 
         [Parameter("Async", DefaultValue = false)]
         public bool IsAsync { get; set; }
@@ -77,9 +80,9 @@ namespace cAlgo.Robots
                     var limitPrice = OrderTradeType == TradeType.Buy ? Symbol.Ask - DistanceInPips : Symbol.Ask + DistanceInPips;
 
                     if (IsAsync)
-                        PlaceLimitOrderAsync(OrderTradeType, SymbolName, volumeInUnits, limitPrice, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, OrderStopTriggerMethod, OnCompleted);
+                        PlaceLimitOrderAsync(OrderTradeType, SymbolName, volumeInUnits, limitPrice, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, StopLossTriggerMethod, OnCompleted);
                     else
-                        result = PlaceLimitOrder(OrderTradeType, SymbolName, volumeInUnits, limitPrice, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, OrderStopTriggerMethod);
+                        result = PlaceLimitOrder(OrderTradeType, SymbolName, volumeInUnits, limitPrice, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, StopLossTriggerMethod);
 
                     break;
 
@@ -87,9 +90,9 @@ namespace cAlgo.Robots
                     var stopPrice = OrderTradeType == TradeType.Buy ? Symbol.Ask + DistanceInPips : Symbol.Ask - DistanceInPips;
 
                     if (IsAsync)
-                        PlaceStopOrderAsync(OrderTradeType, SymbolName, volumeInUnits, stopPrice, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, OrderStopTriggerMethod, OnCompleted);
+                        PlaceStopOrderAsync(OrderTradeType, SymbolName, volumeInUnits, stopPrice, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, StopLossTriggerMethod, StopOrderTriggerMethod, OnCompleted);
                     else
-                        result = PlaceStopOrder(OrderTradeType, SymbolName, volumeInUnits, stopPrice, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, OrderStopTriggerMethod);
+                        result = PlaceStopOrder(OrderTradeType, SymbolName, volumeInUnits, stopPrice, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, StopLossTriggerMethod, StopOrderTriggerMethod);
 
                     break;
 
@@ -97,9 +100,9 @@ namespace cAlgo.Robots
                     var stopLimitPrice = OrderTradeType == TradeType.Buy ? Symbol.Ask + DistanceInPips : Symbol.Ask - DistanceInPips;
 
                     if (IsAsync)
-                        PlaceStopLimitOrderAsync(OrderTradeType, SymbolName, volumeInUnits, stopLimitPrice, LimitRangeInPips, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, OrderStopTriggerMethod, OnCompleted);
+                        PlaceStopLimitOrderAsync(OrderTradeType, SymbolName, volumeInUnits, stopLimitPrice, LimitRangeInPips, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, StopLossTriggerMethod, StopOrderTriggerMethod, OnCompleted);
                     else
-                        result = PlaceStopLimitOrder(OrderTradeType, SymbolName, volumeInUnits, stopLimitPrice, LimitRangeInPips, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, OrderStopTriggerMethod);
+                        result = PlaceStopLimitOrder(OrderTradeType, SymbolName, volumeInUnits, stopLimitPrice, LimitRangeInPips, Label, stopLoss, takeProfit, expiryTime, Comment, HasTrailingStop, StopLossTriggerMethod, StopOrderTriggerMethod);
 
                     break;
 
