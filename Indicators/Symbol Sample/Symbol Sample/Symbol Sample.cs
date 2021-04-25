@@ -28,7 +28,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(23, 2)
+            var grid = new Grid(24, 2)
             {
                 BackgroundColor = Color.Gold,
                 Opacity = 0.6,
@@ -135,19 +135,31 @@ namespace cAlgo
 
             grid.AddChild(new TextBlock { Text = _symbol.MarketHours.Sessions.Count.ToString(), Style = style }, 21, 1);
 
-            grid.AddChild(new TextBlock { Text = "Leverage Tier", Style = style }, 22, 0);
+            grid.AddChild(new TextBlock { Text = "Trading Session Week Days", Style = style }, 22, 0);
 
-            var leverageTiersStackPanel = new StackPanel
-            {
-                Orientation = Orientation.Horizontal
-            };
+            var weekDays = string.Empty;
 
-            foreach (var leveragTier in _symbol.DynamicLeverage)
+            for (var iSession = 0; iSession < _symbol.MarketHours.Sessions.Count; iSession++)
             {
-                leverageTiersStackPanel.AddChild(new TextBlock { Text = string.Format("Leverage for volume up to {0} is {1}", leveragTier.Volume, leveragTier.Leverage), Style = style });
+                var currentSessionWeekDays = string.Format("{0}-{1}", _symbol.MarketHours.Sessions[iSession].StartDay, _symbol.MarketHours.Sessions[iSession].EndDay);
+
+                weekDays = iSession == 0 ? currentSessionWeekDays : string.Format("{0}, {1}", weekDays, currentSessionWeekDays);
             }
 
-            grid.AddChild(leverageTiersStackPanel, 22, 1);
+            grid.AddChild(new TextBlock { Text = weekDays, Style = style }, 22, 1);
+
+            grid.AddChild(new TextBlock { Text = "Leverage Tier", Style = style }, 23, 0);
+
+            var leverageTiers = string.Empty;
+
+            for (var iLeveragTier = 0; iLeveragTier < _symbol.DynamicLeverage.Count; iLeveragTier++)
+            {
+                var currentLeverageTiers = string.Format("Volume up to {0} is {1}", _symbol.DynamicLeverage[iLeveragTier].Volume, _symbol.DynamicLeverage[iLeveragTier].Leverage);
+
+                leverageTiers = iLeveragTier == 0 ? currentLeverageTiers : string.Format("{0}, {1}", leverageTiers, currentLeverageTiers);
+            }
+
+            grid.AddChild(new TextBlock { Text = leverageTiers, Style = style }, 23, 1);
 
             Chart.AddControl(grid);
 

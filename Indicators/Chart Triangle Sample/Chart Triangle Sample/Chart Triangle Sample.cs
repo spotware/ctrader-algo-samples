@@ -3,7 +3,7 @@
 namespace cAlgo
 {
     /// <summary>
-    /// This sample shows hopw to draw a triangle on chart with Chart.DrawTriangle method
+    /// This sample shows how to draw a triangle on chart with Chart.DrawTriangle method
     /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class ChartTriangleSample : Indicator

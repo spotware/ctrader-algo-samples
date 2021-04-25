@@ -3,7 +3,7 @@
 namespace cAlgo
 {
     /// <summary>
-    /// This sample indicator shows how to use the rectangle cornser radius to create a round corner rectangle
+    /// This sample indicator shows how to use the rectangle corner radius to create a round corner rectangle
     /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class RectangleCornerRadiusSample : Indicator

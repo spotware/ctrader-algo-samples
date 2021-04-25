@@ -3,7 +3,7 @@
 namespace cAlgo
 {
     /// <summary>
-    /// Thios sample shows how to use Chart.DrawText method to draw text
+    /// This sample shows how to use Chart.DrawText method to draw text
     /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class ChartTextSample : Indicator
