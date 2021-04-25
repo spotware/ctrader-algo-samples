@@ -40,8 +40,8 @@ namespace cAlgo
 
             style.Set(ControlProperty.Padding, 1);
             style.Set(ControlProperty.Margin, 2);
-            style.Set(ControlProperty.FontWeight, FontWeight.Bold);
             style.Set(ControlProperty.BackgroundColor, Color.Black);
+            style.Set(ControlProperty.FontSize, 8);
 
             _symbol = UseCurrentSymbol ? Symbol : Symbols.GetSymbol(OtherSymbolName);
 
@@ -141,7 +141,7 @@ namespace cAlgo
 
             for (var iSession = 0; iSession < _symbol.MarketHours.Sessions.Count; iSession++)
             {
-                var currentSessionWeekDays = string.Format("{0}-{1}", _symbol.MarketHours.Sessions[iSession].StartDay, _symbol.MarketHours.Sessions[iSession].EndDay);
+                var currentSessionWeekDays = string.Format("{0}({1})-{2}({3})", _symbol.MarketHours.Sessions[iSession].StartDay, _symbol.MarketHours.Sessions[iSession].StartTime, _symbol.MarketHours.Sessions[iSession].EndDay, _symbol.MarketHours.Sessions[iSession].EndTime);
 
                 weekDays = iSession == 0 ? currentSessionWeekDays : string.Format("{0}, {1}", weekDays, currentSessionWeekDays);
             }
