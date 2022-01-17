@@ -749,3 +749,38 @@ healthchecksdb
 /Indicators/Alert Test.algo
 /Indicators/Gann Drawing
 /Indicators/Gann Drawing.algo
+/Indicators/Custom Fractals
+/Indicators/RSI Alert
+*.algo
+/Indicators/Squeeze Momentum
+/Indicators/SMI Ergodic
+/Indicators/Rob Booker Ziv Ghost Pivots
+/Indicators/Rob Booker Reversal
+/Indicators/Rob Booker Missed Pivot Points
+/Indicators/Rob Booker Knoxville Divergence
+/Indicators/Rob Booker Intraday Pivot Points
+/Indicators/Rob Booker ADX Breakout
+/Indicators/Relative Volatility Index
+/Indicators/Moon Phases
+/Indicators/Measure Tool
+/Indicators/Ehlers Stochastic CG Oscillator
+/Indicators/Ehlers Smoothed Adaptive Momentum
+/Indicators/Ehlers Simple Cycle
+/Indicators/Ehlers MESA Adaptive Moving Average
+/Indicators/Ehlers Instantaneous Trend
+/Indicators/Ehlers Adaptive Cyber Cycle
+/Indicators/Ehlers Adaptive CG
+/Indicators/Economic Events On Chart
+/Indicators/Cumulative Volume Index
+/Indicators/ConnorsRSI
+/Indicators/Chop Zone
+/Indicators/Chart Analysis Saver
+/Indicators/Chande Kroll Stop
+/Indicators/Chaikin Oscillator
+/Indicators/Balance of Power
+/Robots/Alert Test Bot
+/Robots/Renko Backtest
+/Robots/Hotkeys Tool
+/Robots/Renko Test
+/Robots/SMA Sample/SMA Sample
+/Robots/SMA Sample/SMA Sample.sln
