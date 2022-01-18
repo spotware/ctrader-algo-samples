@@ -2,9 +2,7 @@
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This example shows how to use the Bars object BarOpened event BarOpenedEventArgs
-    /// </summary>
+    // This example shows how to use the Bars object BarOpened event BarOpenedEventArgs
     [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class BarOpenedEventArgsSample : Indicator
     {

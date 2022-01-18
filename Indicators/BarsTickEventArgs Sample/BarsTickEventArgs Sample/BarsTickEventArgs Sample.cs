@@ -2,9 +2,7 @@
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This example shows how to use the Bars object Tick event BarsTickEventArgs
-    /// </summary>
+    // This example shows how to use the Bars object Tick event BarsTickEventArgs
     [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class BarsTickEventArgsSample : Indicator
     {

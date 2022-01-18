@@ -2,9 +2,7 @@
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This sample indicator shows how to use the API Application object nad display its properties data inside a chart control
-    /// </summary>
+    // This sample indicator shows how to use the API Application object nad display its properties data inside a chart control
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class ApplicationSample : Indicator
     {

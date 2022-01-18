@@ -2,9 +2,7 @@
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This example shows how to use the Button object Click event ButtonClickEventArgs
-    /// </summary>
+    // This example shows how to use the Button object Click event ButtonClickEventArgs
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class ButtonClickEventArgsSample : Indicator
     {

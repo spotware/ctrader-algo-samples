@@ -2,9 +2,7 @@
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This sample shows how to use the WrapPanel
-    /// </summary>
+    // This sample shows how to use the WrapPanel
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class WrapPanelSample : Indicator
     {

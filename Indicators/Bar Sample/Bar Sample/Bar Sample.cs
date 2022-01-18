@@ -2,9 +2,7 @@
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This sample indicator shows how to use a Bar
-    /// </summary>
+    // This sample indicator shows how to use a Bar
     [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class BarSample : Indicator
     {
