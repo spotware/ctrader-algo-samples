@@ -8,7 +8,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            Chart.SizeChanged += Chart_SizeChanged; ;
+            Chart.SizeChanged += Chart_SizeChanged;
         }
 
         private void Chart_SizeChanged(ChartSizeEventArgs obj)

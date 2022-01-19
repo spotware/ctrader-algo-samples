@@ -29,7 +29,7 @@ namespace cAlgo
             {
                 stackPanel.AddChild(new TextBlock 
                 {
-                    Text = "Textr Block #" + i,
+                    Text = "Text Block #" + i,
                     Style = style
                 });
             }
