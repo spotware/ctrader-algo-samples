@@ -5,9 +5,7 @@ using System.Linq;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Williams Accumulation Distribution indicator
-    /// </summary>
+    // This sample cBot shows how to use the Williams Accumulation Distribution indicator
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class WilliamsAccumulationDistributionSample : Robot
     {
