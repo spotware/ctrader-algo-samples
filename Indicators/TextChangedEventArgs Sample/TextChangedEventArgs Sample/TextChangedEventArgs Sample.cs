@@ -2,9 +2,9 @@
 
 namespace cAlgo
 {
-    // This sample indicator shows how to add a text box control on your chart
+    // This sample indicator shows how to use TextChangedEventArgs
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class TextBoxSample : Indicator
+    public class TextChangedEventArgsSample : Indicator
     {
         protected override void Initialize()
         {

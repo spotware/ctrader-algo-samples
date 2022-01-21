@@ -3,9 +3,9 @@ using cAlgo.API.Internals;
 
 namespace cAlgo
 {
-    // This sample indicator shows how to use Tick
+    // This sample indicator shows how to use TicksTickEventArgs
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class TickSample : Indicator
+    public class TicksTickEventArgsSample : Indicator
     {
         private Ticks _ticks;
 
@@ -23,7 +23,7 @@ namespace cAlgo
         private void Ticks_Tick(TicksTickEventArgs obj)
         {
             // Printing Last tick inside Ticks collection
-            Print("Bid: {0} | Ask: {1} | Time: {2}", obj.Ticks.LastTick.Bid, obj.Ticks.LastTick.Ask, obj.Ticks.LastTick.Time);
+            Print(obj.Ticks.LastTick);
         }
 
         public override void Calculate(int index)

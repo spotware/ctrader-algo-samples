@@ -3,9 +3,9 @@ using cAlgo.API.Internals;
 
 namespace cAlgo
 {
-    // This sample indicator shows how to use Tick
+    // This sample indicator shows how to get a symbol ticks data and handle its tick events
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class TickSample : Indicator
+    public class TicksSample : Indicator
     {
         private Ticks _ticks;
 
@@ -18,12 +18,29 @@ namespace cAlgo
             _ticks = MarketData.GetTicks(InputSymbolName);
             // Subscribing to upcoming ticks
             _ticks.Tick += Ticks_Tick;
+
+            _ticks.HistoryLoaded += Ticks_HistoryLoaded;
+            // You can also pass a callback method instead of subscribing to HistoryLoaded event
+            //_ticks.LoadMoreHistoryAsync(Ticks_HistoryLoaded);
+            _ticks.LoadMoreHistoryAsync();
+
+            _ticks.Reloaded += Ticks_Reloaded;
+        }
+
+        private void Ticks_Reloaded(TicksHistoryLoadedEventArgs obj)
+        {
+            Print("Ticks got reloaded");
+        }
+
+        private void Ticks_HistoryLoaded(TicksHistoryLoadedEventArgs obj)
+        {
+            Print("New ticks loaded: #", obj.Count);
         }
 
         private void Ticks_Tick(TicksTickEventArgs obj)
         {
             // Printing Last tick inside Ticks collection
-            Print("Bid: {0} | Ask: {1} | Time: {2}", obj.Ticks.LastTick.Bid, obj.Ticks.LastTick.Ask, obj.Ticks.LastTick.Time);
+            Print(obj.Ticks.LastTick);
         }
 
         public override void Calculate(int index)
