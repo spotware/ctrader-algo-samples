@@ -7,7 +7,7 @@ namespace cAlgo
     /// This sample shows how to use the data series functions
     /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
-    public class DataSeriesFunctionsSample : Indicator
+    public class FunctionsSample : Indicator
     {
         private SimpleMovingAverage _smaFast, _smaSlow;
 

@@ -2,10 +2,10 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Williams % R Sample")]
+[assembly: AssemblyTitle("WilliamsPctR Sample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("Williams % R Sample")]
+[assembly: AssemblyProduct("WilliamsPctR Sample")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

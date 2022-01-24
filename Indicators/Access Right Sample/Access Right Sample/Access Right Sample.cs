@@ -3,9 +3,9 @@
 namespace cAlgo
 {
     // This is how you can use the AccessRights property of an Indicator or Robot attribute
-    // The defaul value is None, which means your indicator/cBot will not access anything outside
+    // The default value is None, which means your indicator/cBot will not access anything outside
     // like files, network, windows registry, etc
-    // If you try to access any of abovementioned resources you will see an access right error on
+    // If you try to access any of aforementioned resources you will see an access right error on
     // cTrader automate logs tab if your indicator/cBot access rights were not enough.
     // The FullAccess gives you access to everything, it's like executing a .NET standalone app
     // on a Windows machine.

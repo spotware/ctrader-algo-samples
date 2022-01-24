@@ -2,9 +2,7 @@
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample indicator shows how to use BarsHistoryLoadedEventArgs
-    /// </summary>
+    // This sample indicator shows how to use BarsHistoryLoadedEventArgs
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class BarsHistoryLoadedEventArgsSample : Robot
     {

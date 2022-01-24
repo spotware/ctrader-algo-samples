@@ -2,10 +2,10 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Data Series Functions Sample")]
+[assembly: AssemblyTitle("Functions Sample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("Data Series Functions Sample")]
+[assembly: AssemblyProduct("Functions Sample")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
