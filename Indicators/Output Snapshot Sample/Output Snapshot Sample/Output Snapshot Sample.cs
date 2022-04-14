@@ -26,7 +26,7 @@ namespace cAlgo
 
             _ma = Indicators.MovingAverage(Bars.ClosePrices, 9, MovingAverageType.Exponential);
 
-            _marketSnapshotControl = new MarketSnapshotControl
+            _marketSnapshotControl = new MarketSnapshotControl 
             {
                 BackgroundColor = Color.Gold,
                 BorderColor = Color.Gray,
@@ -93,7 +93,7 @@ namespace cAlgo
 
         public MarketSnapshotControl()
         {
-            _border = new Border
+            _border = new Border 
             {
                 BackgroundColor = "#3F3F3F",
                 BorderColor = "#969696",
@@ -109,26 +109,26 @@ namespace cAlgo
             style.Set(ControlProperty.HorizontalContentAlignment, HorizontalAlignment.Left);
             style.Set(ControlProperty.VerticalContentAlignment, VerticalAlignment.Center);
 
-            _valueTextBlock = new TextBlock
+            _valueTextBlock = new TextBlock 
             {
                 Style = style
             };
-            _timeTextBlock = new TextBlock
+            _timeTextBlock = new TextBlock 
             {
                 Style = style
             };
 
-            var grid = new Grid(2, 2)
+            var grid = new Grid(2, 2) 
             {
                 ShowGridLines = true
             };
 
-            grid.AddChild(new TextBlock
+            grid.AddChild(new TextBlock 
             {
                 Text = "Value",
                 Style = style
             }, 0, 0);
-            grid.AddChild(new TextBlock
+            grid.AddChild(new TextBlock 
             {
                 Text = "Time",
                 Style = style

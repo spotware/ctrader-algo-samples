@@ -10,7 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -18,7 +18,7 @@ namespace cAlgo
                 Opacity = 0.7
             };
 
-            var firstRadioButton = new RadioButton
+            var firstRadioButton = new RadioButton 
             {
                 Text = "Unchecked"
             };
@@ -28,7 +28,7 @@ namespace cAlgo
 
             stackPanel.AddChild(firstRadioButton);
 
-            var secondRadioButton = new RadioButton
+            var secondRadioButton = new RadioButton 
             {
                 Text = "Unchecked"
             };

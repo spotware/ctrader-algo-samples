@@ -784,3 +784,22 @@ healthchecksdb
 /Robots/Renko Test
 /Robots/SMA Sample/SMA Sample
 /Robots/SMA Sample/SMA Sample.sln
+*.backup
+/Indicators/SELL_LIQ
+/Indicators/Custom Renko Chart
+/Indicators/Custom Renko Chart Non-Overlay
+/Indicators/Custom Tick Chart
+/Indicators/Custom Tick Chart Non-Overlay
+/Indicators/Go To Date
+/Indicators/Synchronized Scrolling
+/Indicators/Synchronized Crosshair
+/Robots/WinForms Test
+/Robots/DebugExample
+/Robots/Data Tester
+/Robots/Bar Buy Sell
+/Indicators/WinForms Test
+/Indicators/Ticks test
+/Indicators/MACD Zero lag
+/Indicators/Custom Moving Average
+/Indicators/CrossHairSync
+/Indicators/Bar Arrow

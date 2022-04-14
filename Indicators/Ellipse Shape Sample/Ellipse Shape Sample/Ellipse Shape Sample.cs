@@ -10,7 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var ellipse = new Ellipse
+            var ellipse = new Ellipse 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -25,7 +25,7 @@ namespace cAlgo
                 Top = 50
             };
 
-            var canvas = new Canvas
+            var canvas = new Canvas 
             {
                 BackgroundColor = Color.Gold,
                 Opacity = 0.5

@@ -8,11 +8,11 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var checkBox = new CheckBox
+            var checkBox = new CheckBox 
             {
                 Text = "Check Box",
                 HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
             };
 
             checkBox.Click += CheckBox_Click;

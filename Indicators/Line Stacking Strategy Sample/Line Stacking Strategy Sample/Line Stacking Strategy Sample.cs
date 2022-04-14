@@ -11,7 +11,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 Orientation = Orientation.Vertical,
                 BackgroundColor = Color.Gold,
@@ -28,7 +28,7 @@ namespace cAlgo
             stringBuilder.AppendLine("Fourth line of text");
             stringBuilder.AppendLine("Fifth line of text");
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Margin = 5,
                 Text = "LineStackingStrategy = BlockLineHeight:\n" + stringBuilder.ToString(),
@@ -37,7 +37,7 @@ namespace cAlgo
                 ForegroundColor = Color.Black
             });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Margin = 5,
                 Text = "LineStackingStrategy = MaxHeight:\n" + stringBuilder.ToString(),

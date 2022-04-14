@@ -13,19 +13,43 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 Orientation = Orientation,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 BackgroundColor = Color.Gold,
-                Opacity = 0.7,
+                Opacity = 0.7
             };
 
-            stackPanel.AddChild(new TextBlock { Text = "First TextBlock", FontWeight = FontWeight.ExtraBold, Margin = 5, ForegroundColor = Color.Black });
-            stackPanel.AddChild(new TextBlock { Text = "Second TextBlock", FontWeight = FontWeight.ExtraBold, Margin = 5, ForegroundColor = Color.Black });
-            stackPanel.AddChild(new TextBlock { Text = "Third TextBlock", FontWeight = FontWeight.ExtraBold, Margin = 5, ForegroundColor = Color.Black });
-            stackPanel.AddChild(new TextBlock { Text = "Fourth TextBlock", FontWeight = FontWeight.ExtraBold, Margin = 5, ForegroundColor = Color.Black });
+            stackPanel.AddChild(new TextBlock 
+            {
+                Text = "First TextBlock",
+                FontWeight = FontWeight.ExtraBold,
+                Margin = 5,
+                ForegroundColor = Color.Black
+            });
+            stackPanel.AddChild(new TextBlock 
+            {
+                Text = "Second TextBlock",
+                FontWeight = FontWeight.ExtraBold,
+                Margin = 5,
+                ForegroundColor = Color.Black
+            });
+            stackPanel.AddChild(new TextBlock 
+            {
+                Text = "Third TextBlock",
+                FontWeight = FontWeight.ExtraBold,
+                Margin = 5,
+                ForegroundColor = Color.Black
+            });
+            stackPanel.AddChild(new TextBlock 
+            {
+                Text = "Fourth TextBlock",
+                FontWeight = FontWeight.ExtraBold,
+                Margin = 5,
+                ForegroundColor = Color.Black
+            });
 
             Chart.AddControl(stackPanel);
         }

@@ -23,7 +23,7 @@ namespace cAlgo
         private void Ticks_Tick(TicksTickEventArgs obj)
         {
             // Printing Last tick inside Ticks collection
-            Print("Bid: {0} | Ask: {1} | Time: {2}", obj.Ticks.LastTick.Bid, obj.Ticks.LastTick.Ask, obj.Ticks.LastTick.Time);
+            Print("Bid: {0} | Ask: {1} | Time: {2:dd/MM/yyyy HH:mm:ss}", obj.Ticks.LastTick.Bid, obj.Ticks.LastTick.Ask, obj.Ticks.LastTick.Time);
         }
 
         public override void Calculate(int index)

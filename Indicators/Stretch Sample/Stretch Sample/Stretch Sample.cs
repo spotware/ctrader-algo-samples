@@ -13,7 +13,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var rectangle = new Rectangle
+            var rectangle = new Rectangle 
             {
                 Stretch = Stretch,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -22,7 +22,7 @@ namespace cAlgo
                 Width = 200,
                 FillColor = Color.Blue,
                 StrokeColor = Color.Red,
-                Opacity = 0.7,
+                Opacity = 0.7
             };
 
             Chart.AddControl(rectangle);

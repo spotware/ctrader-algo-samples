@@ -8,7 +8,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var button = new Button
+            var button = new Button 
             {
                 Text = "Button not clicked yet",
                 HorizontalAlignment = HorizontalAlignment.Center,

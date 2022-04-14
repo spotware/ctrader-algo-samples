@@ -13,7 +13,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var image = new Image
+            var image = new Image 
             {
                 Source = Properties.Resources.ctrader_logo,
                 Width = 200,

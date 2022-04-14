@@ -13,7 +13,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 BackgroundColor = Color.Gold,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -22,7 +22,12 @@ namespace cAlgo
                 Width = 200
             };
 
-            stackPanel.AddChild(new TextBlock { Text = Text, FontWeight = FontWeight.ExtraBold, ForegroundColor = Color.Blue });
+            stackPanel.AddChild(new TextBlock 
+            {
+                Text = Text,
+                FontWeight = FontWeight.ExtraBold,
+                ForegroundColor = Color.Blue
+            });
 
             Chart.AddControl(stackPanel);
         }

@@ -10,13 +10,13 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var image = new Image
+            var image = new Image 
             {
                 Source = Properties.Resources.Logo,
                 Width = 200,
                 Height = 200,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
             };
 
             Chart.AddControl(image);

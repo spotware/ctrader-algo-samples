@@ -11,7 +11,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var textBlock = new TextBlock
+            var textBlock = new TextBlock 
             {
                 Text = string.Format("Alignment: {0}", VerticalAlignment),
                 VerticalAlignment = VerticalAlignment,

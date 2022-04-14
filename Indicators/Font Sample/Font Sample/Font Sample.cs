@@ -10,7 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -18,7 +18,7 @@ namespace cAlgo
                 Opacity = 0.6
             };
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Thin Weight Size 10 FontStyle Normal Font Default",
                 FontSize = 10,
@@ -28,7 +28,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Thin Weight Size 10 FontStyle Italic Font Default",
                 FontSize = 10,
@@ -38,7 +38,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Thin Weight Size 10 FontStyle Oblique Font Default",
                 FontSize = 10,
@@ -48,7 +48,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Black Weight Size 10 FontStyle Normal Font Default",
                 FontSize = 10,
@@ -58,7 +58,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Bold Weight Size 10 FontStyle Normal Font Default",
                 FontSize = 10,
@@ -68,7 +68,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Heavy Weight Size 10 FontStyle Normal Font Default",
                 FontSize = 10,
@@ -78,7 +78,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Bold Weight Size 12 FontStyle Normal Font Default",
                 FontSize = 12,
@@ -88,7 +88,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = "Thin Weight Size 12 FontStyle Normal Font Calibri Light Italic",
                 FontSize = 12,

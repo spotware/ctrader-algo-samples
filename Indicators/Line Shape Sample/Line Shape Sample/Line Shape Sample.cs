@@ -13,7 +13,7 @@ namespace cAlgo
             var xCenter = Chart.Width / 2;
             var yCenter = Chart.Height / 2;
 
-            var line = new Line
+            var line = new Line 
             {
                 X1 = xCenter,
                 X2 = xCenter + 100,

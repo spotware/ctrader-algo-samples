@@ -10,7 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -18,7 +18,7 @@ namespace cAlgo
                 Opacity = 0.6
             };
 
-            var rectangle = new Rectangle
+            var rectangle = new Rectangle 
             {
                 StrokeColor = Color.Blue,
                 FillColor = Color.Red,

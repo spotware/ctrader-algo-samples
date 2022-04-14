@@ -12,7 +12,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -22,7 +22,7 @@ namespace cAlgo
 
             for (int i = 0; i < 5; i++)
             {
-                var button = new Button
+                var button = new Button 
                 {
                     Text = "Button #" + i,
                     Margin = 10

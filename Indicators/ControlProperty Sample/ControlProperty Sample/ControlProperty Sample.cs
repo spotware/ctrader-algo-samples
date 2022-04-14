@@ -15,7 +15,7 @@ namespace cAlgo
             style.Set(ControlProperty.FontSize, 14);
             style.Set(ControlProperty.Width, 100);
 
-            var textBlock = new TextBlock
+            var textBlock = new TextBlock 
             {
                 Text = "Styled Text Block",
                 Style = style,

@@ -45,7 +45,8 @@ namespace cAlgo
 
         public override void Calculate(int index)
         {
-            if (!IsLastBar) return;
+            if (!IsLastBar)
+                return;
 
             RemoveLadder();
 
@@ -58,7 +59,8 @@ namespace cAlgo
 
             DateTime startTime = index - startBarIndex > 0 ? Bars.OpenTimes[startBarIndex] : GetOpenTime(startBarIndex);
 
-            if (_marketDepth.AskEntries.Count == 0 || _marketDepth.BidEntries.Count == 0) return;
+            if (_marketDepth.AskEntries.Count == 0 || _marketDepth.BidEntries.Count == 0)
+                return;
 
             double minBidVolume = _marketDepth.BidEntries.Min(entry => entry.VolumeInUnits);
             double maxBidVolume = _marketDepth.BidEntries.Max(entry => entry.VolumeInUnits);
@@ -140,8 +142,7 @@ namespace cAlgo
                     do
                     {
                         result = result.Add(timeDiff);
-                    }
-                    while (result.DayOfWeek == DayOfWeek.Saturday || result.DayOfWeek == DayOfWeek.Sunday);
+                    } while (result.DayOfWeek == DayOfWeek.Saturday || result.DayOfWeek == DayOfWeek.Sunday);
                 }
             }
 

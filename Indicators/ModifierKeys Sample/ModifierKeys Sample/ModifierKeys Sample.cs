@@ -39,7 +39,8 @@ namespace cAlgo
 
         private void DrawLines()
         {
-            if (_mouseBarIndex == -1 || double.IsNaN(_mousePrice)) return;
+            if (_mouseBarIndex == -1 || double.IsNaN(_mousePrice))
+                return;
 
             Chart.DrawVerticalLine(_mouseBarIndex.ToString(), (int)_mouseBarIndex, Color.Red);
             Chart.DrawHorizontalLine(_mousePrice.ToString(), _mousePrice, Color.Red);

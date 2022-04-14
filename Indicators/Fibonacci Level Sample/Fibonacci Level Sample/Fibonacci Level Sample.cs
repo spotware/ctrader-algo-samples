@@ -21,7 +21,8 @@ namespace cAlgo
             {
                 Print(level.PercentLevel);
 
-                if (level.PercentLevel > 62) level.IsVisible = false;
+                if (level.PercentLevel > 62)
+                    level.IsVisible = false;
             }
         }
 

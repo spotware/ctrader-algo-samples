@@ -10,7 +10,8 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            Chart.ObjectHoverChanged += Chart_ObjectHoverChanged; ;
+            Chart.ObjectHoverChanged += Chart_ObjectHoverChanged;
+            ;
         }
 
         private void Chart_ObjectHoverChanged(ChartObjectHoverChangedEventArgs obj)

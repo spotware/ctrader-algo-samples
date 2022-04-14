@@ -28,13 +28,13 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(GridRowsNumber, GridColumnsNumber)
+            var grid = new Grid(GridRowsNumber, GridColumnsNumber) 
             {
                 BackgroundColor = Color.Gold,
                 Opacity = 0.6,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
-                ShowGridLines = true,
+                ShowGridLines = true
             };
 
             for (int iRow = 0; iRow < GridRowsNumber; iRow++)
@@ -49,7 +49,7 @@ namespace cAlgo
 
                     SetGridColumnLength(column);
 
-                    grid.AddChild(new TextBlock
+                    grid.AddChild(new TextBlock 
                     {
                         Text = string.Format("Row {0} and Column {1}", iRow, iColumn),
                         Margin = 5,

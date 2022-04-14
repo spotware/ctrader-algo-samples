@@ -1,4 +1,4 @@
-﻿using cAlgo.API;
+using cAlgo.API;
 using cAlgo.API.Indicators;
 using cAlgo.API.Internals;
 

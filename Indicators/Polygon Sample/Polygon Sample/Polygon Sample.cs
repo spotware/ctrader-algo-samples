@@ -10,18 +10,18 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            Chart.AddControl(new Polygon
+            Chart.AddControl(new Polygon 
             {
                 FillColor = Color.Red,
                 Width = 200,
                 Height = 100,
                 Margin = 10,
-                Points = new Point[]
+                Points = new Point[] 
                 {
                     new Point(100, 100),
                     new Point(200, 50),
                     new Point(300, 100),
-                    new Point(100, 100),
+                    new Point(100, 100)
                 }
             });
         }

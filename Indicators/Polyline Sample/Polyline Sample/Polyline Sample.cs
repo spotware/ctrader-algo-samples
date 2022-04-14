@@ -10,18 +10,18 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            Chart.AddControl(new Polyline
+            Chart.AddControl(new Polyline 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 StrokeColor = Color.Red,
                 StrokeThickness = 1,
-                Points = new[]
+                Points = new[] 
                 {
                     new Point(10, 10),
-                    new Point(100,200),
+                    new Point(100, 200),
                     new Point(10, 100),
-                    new Point(10, 10),
+                    new Point(10, 10)
                 }
             });
         }

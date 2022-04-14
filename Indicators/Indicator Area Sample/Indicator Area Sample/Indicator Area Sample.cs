@@ -12,7 +12,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(1, 2)
+            var grid = new Grid(1, 2) 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -21,9 +21,15 @@ namespace cAlgo
                 Width = 200
             };
 
-            grid.AddChild(new TextBlock { Text = "Indicator Area #", Margin = 5, FontWeight = FontWeight.ExtraBold, ForegroundColor = Color.Black }, 0, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Indicator Area #",
+                Margin = 5,
+                FontWeight = FontWeight.ExtraBold,
+                ForegroundColor = Color.Black
+            }, 0, 0);
 
-            _indicatorAreaNumberTextBlock = new TextBlock
+            _indicatorAreaNumberTextBlock = new TextBlock 
             {
                 Margin = 5,
                 Text = Chart.IndicatorAreas.Count.ToString(),

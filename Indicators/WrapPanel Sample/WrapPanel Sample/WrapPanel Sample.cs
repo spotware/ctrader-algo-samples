@@ -1,4 +1,4 @@
-﻿using cAlgo.API;
+using cAlgo.API;
 
 namespace cAlgo
 {
@@ -11,7 +11,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var wrapPanel = new WrapPanel
+            var wrapPanel = new WrapPanel 
             {
                 BackgroundColor = Color.Gold,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -23,7 +23,7 @@ namespace cAlgo
 
             for (int i = 0; i < 10; i++)
             {
-                wrapPanel.AddChild(new TextBlock
+                wrapPanel.AddChild(new TextBlock 
                 {
                     Text = "Text",
                     Margin = 5,

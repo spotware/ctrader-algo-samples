@@ -10,7 +10,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var scrollViewer = new ScrollViewer
+            var scrollViewer = new ScrollViewer 
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -21,16 +21,16 @@ namespace cAlgo
                 Height = 300
             };
 
-            var grid = new Grid(Symbols.Count + 1, 2)
+            var grid = new Grid(Symbols.Count + 1, 2) 
             {
                 BackgroundColor = Color.Gold,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
             };
 
             scrollViewer.Content = grid;
 
-            grid.AddChild(new TextBlock
+            grid.AddChild(new TextBlock 
             {
                 Text = "Name",
                 Margin = 5,
@@ -38,7 +38,7 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             }, 0, 0);
 
-            grid.AddChild(new TextBlock
+            grid.AddChild(new TextBlock 
             {
                 Text = "Description",
                 Margin = 5,
@@ -51,9 +51,10 @@ namespace cAlgo
                 var symbolName = Symbols[iSymbol];
                 var symbol = Symbols.GetSymbol(symbolName);
 
-                if (!symbol.MarketHours.IsOpened()) continue;
+                if (!symbol.MarketHours.IsOpened())
+                    continue;
 
-                grid.AddChild(new TextBlock
+                grid.AddChild(new TextBlock 
                 {
                     Text = symbolName,
                     Margin = 5,
@@ -61,7 +62,7 @@ namespace cAlgo
                     FontWeight = FontWeight.ExtraBold
                 }, iSymbol, 0);
 
-                grid.AddChild(new Button
+                grid.AddChild(new Button 
                 {
                     Text = symbol.Description,
                     Margin = 5,

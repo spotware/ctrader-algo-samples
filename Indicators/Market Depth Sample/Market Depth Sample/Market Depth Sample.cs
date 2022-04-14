@@ -23,7 +23,8 @@ namespace cAlgo
         protected override void Initialize()
         {
             _marketDepth = MarketData.GetMarketDepth(SymbolName);
-            _marketDepth.Updated += MarketDepth_Updated; ;
+            _marketDepth.Updated += MarketDepth_Updated;
+            ;
         }
 
         private void MarketDepth_Updated()

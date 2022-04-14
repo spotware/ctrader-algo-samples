@@ -8,7 +8,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var firstRadioButton = new RadioButton
+            var firstRadioButton = new RadioButton 
             {
                 Text = "First Radio Button"
             };
@@ -16,7 +16,7 @@ namespace cAlgo
             firstRadioButton.Checked += RadioButton_Changed;
             firstRadioButton.Unchecked += RadioButton_Changed;
 
-            var secondRadioButton = new RadioButton
+            var secondRadioButton = new RadioButton 
             {
                 Text = "Second Radio Button"
             };
@@ -24,11 +24,11 @@ namespace cAlgo
             secondRadioButton.Checked += RadioButton_Changed;
             secondRadioButton.Unchecked += RadioButton_Changed;
 
-            var panel = new StackPanel
+            var panel = new StackPanel 
             {
                 Orientation = Orientation.Vertical,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
             };
 
             panel.AddChild(firstRadioButton);

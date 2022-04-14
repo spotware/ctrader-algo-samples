@@ -25,7 +25,8 @@ namespace cAlgo
 
         public override void Calculate(int index)
         {
-            if (!IsLastBar || _lastNotifiedBarIndex == index) return;
+            if (!IsLastBar || _lastNotifiedBarIndex == index)
+                return;
 
             _lastNotifiedBarIndex = index;
 

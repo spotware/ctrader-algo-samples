@@ -8,15 +8,15 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 BackgroundColor = Color.Gold,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
-                Opacity = 0.6,
+                Opacity = 0.6
             };
 
-            var textBox = new TextBox
+            var textBox = new TextBox 
             {
                 Text = "Enter text here...",
                 FontWeight = FontWeight.ExtraBold,

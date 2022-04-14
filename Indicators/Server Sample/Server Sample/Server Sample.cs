@@ -12,12 +12,12 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(4, 2)
+            var grid = new Grid(4, 2) 
             {
                 BackgroundColor = Color.Gold,
                 Opacity = 0.6,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
             };
 
             var style = new Style();
@@ -27,20 +27,45 @@ namespace cAlgo
             style.Set(ControlProperty.FontWeight, FontWeight.ExtraBold);
             style.Set(ControlProperty.BackgroundColor, Color.Black);
 
-            grid.AddChild(new TextBlock { Text = "Server Info", Style = style, HorizontalAlignment = HorizontalAlignment.Center }, 0, 0, 1, 2);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Server Info",
+                Style = style,
+                HorizontalAlignment = HorizontalAlignment.Center
+            }, 0, 0, 1, 2);
 
-            grid.AddChild(new TextBlock { Text = "Time", Style = style }, 1, 0);
-            grid.AddChild(new TextBlock { Text = Server.Time.ToString("o"), Style = style }, 1, 1);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Time",
+                Style = style
+            }, 1, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = Server.Time.ToString("o"),
+                Style = style
+            }, 1, 1);
 
-            grid.AddChild(new TextBlock { Text = "Time (UTC)", Style = style }, 2, 0);
-            grid.AddChild(new TextBlock { Text = Server.TimeInUtc.ToString("o"), Style = style }, 2, 1);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Time (UTC)",
+                Style = style
+            }, 2, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = Server.TimeInUtc.ToString("o"),
+                Style = style
+            }, 2, 1);
 
-            grid.AddChild(new TextBlock { Text = "Is Connected", Style = style }, 3, 0);
+            grid.AddChild(new TextBlock 
+            {
+                Text = "Is Connected",
+                Style = style
+            }, 3, 0);
 
-            _isConnectedTextBlock = new TextBlock
+            _isConnectedTextBlock = new TextBlock 
             {
                 Text = Server.IsConnected ? "Yes" : "No",
-                Style = style,
+                Style = style
             };
 
             Server.Connected += () => _isConnectedTextBlock.Text = "Yes";

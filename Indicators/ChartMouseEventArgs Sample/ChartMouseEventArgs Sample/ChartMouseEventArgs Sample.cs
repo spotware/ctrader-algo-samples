@@ -8,7 +8,8 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            Chart.MouseMove += Chart_MouseMove; ;
+            Chart.MouseMove += Chart_MouseMove;
+            ;
         }
 
         private void Chart_MouseMove(ChartMouseEventArgs obj)

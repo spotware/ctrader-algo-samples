@@ -9,7 +9,8 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            Chart.ObjectsAdded += Chart_ObjectsAdded; ;
+            Chart.ObjectsAdded += Chart_ObjectsAdded;
+            ;
         }
 
         private void Chart_ObjectsAdded(ChartObjectsAddedEventArgs obj)

@@ -16,7 +16,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel
+            var stackPanel = new StackPanel 
             {
                 BackgroundColor = Color.Gold,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -25,7 +25,7 @@ namespace cAlgo
                 Width = 100
             };
 
-            stackPanel.AddChild(new TextBlock
+            stackPanel.AddChild(new TextBlock 
             {
                 Text = Text,
                 FontWeight = FontWeight.ExtraBold,
