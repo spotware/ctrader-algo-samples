@@ -12,19 +12,8 @@ namespace cAlgo.Plugins
             block.Height = 500;
             
             var webView = new WebView();
+            webView.NavigateAsync("https://ctrader.com/");
             block.Child = webView;
-
-            webView.Loaded += webView_Loaded;
-        }
-
-        private void webView_Loaded(WebViewLoadedEventArgs args)
-        {
-            args.WebView.NavigateAsync("https://ctrader.com/");
-        }
-
-        protected override void OnStop()
-        {
-            // Handle Plugin stop here
         }
     }        
 }
