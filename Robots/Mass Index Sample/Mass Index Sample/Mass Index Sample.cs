@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Mass Index indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class MassIndexSample : Robot
     {
@@ -18,14 +24,24 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "MassIndexSample")]
         public string Label { get; set; }
+
+        [Parameter("Periods", DefaultValue = 9, Group = "Mass Index", MinValue = 4)]
+        public int Periods { get; set; }
+
+        [Parameter("Source", Group = "Simple Moving Average")]
+        public DataSeries SourceSimpleMovingAverage { get; set; }
+
+        [Parameter("Periods", DefaultValue = 20, Group = "Simple Moving Average", MinValue = 0)]
+        public int PeriodsSimpleMovingAverage { get; set; }
+
 
         public Position[] BotPositions
         {
@@ -39,22 +55,22 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _massIndex = Indicators.MassIndex(9);
+            _massIndex = Indicators.MassIndex(Periods);
 
-            _simpleMovingAverage = Indicators.SimpleMovingAverage(Bars.ClosePrices, 20);
+            _simpleMovingAverage = Indicators.SimpleMovingAverage(SourceSimpleMovingAverage, PeriodsSimpleMovingAverage);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (_massIndex.Result.Last(1) < 9) return;
+            if (_massIndex.Result.Last(0) < Periods) return;
 
-            if (Bars.ClosePrices.Last(1) > _simpleMovingAverage.Result.Last(1))
+            if (Bars.ClosePrices.Last(0) > _simpleMovingAverage.Result.Last(0))
             {
                 ClosePositions(TradeType.Buy);
 
                 ExecuteMarketOrder(TradeType.Sell, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (Bars.ClosePrices.Last(1) < _simpleMovingAverage.Result.Last(1))
+            else if (Bars.ClosePrices.Last(0) < _simpleMovingAverage.Result.Last(0))
             {
                 ClosePositions(TradeType.Sell);
 

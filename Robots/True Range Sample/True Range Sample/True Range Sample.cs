@@ -1,12 +1,18 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 using System;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the True Range indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class TrueRangeSample : Robot
     {
@@ -17,7 +23,7 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "TrueRangeSample")]
         public string Label { get; set; }
 
         public Position[] BotPositions
@@ -35,15 +41,15 @@ namespace cAlgo.Robots
             _trueRange = Indicators.TrueRange();
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (Bars.ClosePrices.Last(1) > Bars.OpenPrices.Last(1) && Bars.ClosePrices.Last(2) < Bars.OpenPrices.Last(2))
+            if (Bars.ClosePrices.Last(0) > Bars.OpenPrices.Last(0) && Bars.ClosePrices.Last(1) < Bars.OpenPrices.Last(1))
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteOrder(TradeType.Buy);
             }
-            else if (Bars.ClosePrices.Last(1) < Bars.OpenPrices.Last(1) && Bars.ClosePrices.Last(2) > Bars.OpenPrices.Last(2))
+            else if (Bars.ClosePrices.Last(0) < Bars.OpenPrices.Last(0) && Bars.ClosePrices.Last(1) > Bars.OpenPrices.Last(1))
             {
                 ClosePositions(TradeType.Buy);
 

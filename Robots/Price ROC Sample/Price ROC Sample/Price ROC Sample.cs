@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Price ROC indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class PriceROCSample : Robot
     {
@@ -16,14 +22,21 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "PriceROCSample")]
         public string Label { get; set; }
+
+        [Parameter("Source", Group = "Price ROC")]
+        public DataSeries Source { get; set; }
+
+        [Parameter(DefaultValue = 12, Group = "Price ROC", MinValue = 1)]
+        public int Periods { get; set; }
+
 
         public Position[] BotPositions
         {
@@ -37,18 +50,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _priceROC = Indicators.PriceROC(Bars.ClosePrices, 12);
+            _priceROC = Indicators.PriceROC(Source, Periods);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (_priceROC.Result.Last(1) > 0 && _priceROC.Result.Last(2) <= 0)
+            if (_priceROC.Result.Last(0) > 0 && _priceROC.Result.Last(1) <= 0)
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (_priceROC.Result.Last(1) < 0 && _priceROC.Result.Last(2) >= 0)
+            else if (_priceROC.Result.Last(0) < 0 && _priceROC.Result.Last(1) >= 0)
             {
                 ClosePositions(TradeType.Buy);
 

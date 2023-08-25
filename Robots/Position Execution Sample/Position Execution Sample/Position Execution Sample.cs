@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Internals;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample shows how to execute a position or market order
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class PositionExecutionSample : Robot
     {

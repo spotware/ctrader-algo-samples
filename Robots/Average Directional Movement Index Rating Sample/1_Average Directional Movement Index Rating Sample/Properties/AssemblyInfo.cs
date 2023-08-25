@@ -1,11 +1,11 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Robot Sample")]
+[assembly: AssemblyTitle("1_Average Directional Movement Index Rating Sample")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyProduct("Robot Sample")]
+[assembly: AssemblyProduct("1_Average Directional Movement Index Rating Sample")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

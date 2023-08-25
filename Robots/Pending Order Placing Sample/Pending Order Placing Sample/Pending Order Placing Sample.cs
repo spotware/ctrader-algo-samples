@@ -1,12 +1,18 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using System;
 using System.Globalization;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample bot shows how to place different types of pending orders
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class PendingOrderPlacingSample : Robot
     {

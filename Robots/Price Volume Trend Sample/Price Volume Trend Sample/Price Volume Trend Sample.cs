@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Price Volume Trend indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class PriceVolumeTrendSample : Robot
     {
@@ -18,14 +24,20 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "PriceVolumeTrendSample")]
         public string Label { get; set; }
+
+        [Parameter("Source", Group = "Price Volume Trend")]
+        public DataSeries SourcePriceVolumeTrend { get; set; }
+
+        [Parameter("Periods", DefaultValue = 20, Group = "Simple Moving Average", MinValue = 0)]
+        public int PeriodsSimpleMovingAverage { get; set; }
 
         public Position[] BotPositions
         {
@@ -39,11 +51,11 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _priceVolumeTrend = Indicators.PriceVolumeTrend(Bars.ClosePrices);
-            _simpleMovingAverage = Indicators.SimpleMovingAverage(_priceVolumeTrend.Result, 20);
+            _priceVolumeTrend = Indicators.PriceVolumeTrend(SourcePriceVolumeTrend);
+            _simpleMovingAverage = Indicators.SimpleMovingAverage(_priceVolumeTrend.Result, PeriodsSimpleMovingAverage);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
             if (_priceVolumeTrend.Result.HasCrossedAbove(_simpleMovingAverage.Result, 0))
             {

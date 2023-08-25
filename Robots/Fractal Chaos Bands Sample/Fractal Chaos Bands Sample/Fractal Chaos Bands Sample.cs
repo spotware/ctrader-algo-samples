@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Fractal Chaos Bands indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class FractalChaosBandsSample : Robot
     {
@@ -16,13 +22,13 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "FractalChaosBandsSample")]
         public string Label { get; set; }
 
         public Position[] BotPositions
@@ -40,15 +46,15 @@ namespace cAlgo.Robots
             _fractalChaosBands = Indicators.FractalChaosBands();
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (Bars.ClosePrices.Last(1) > _fractalChaosBands.High.Last(1) && Bars.ClosePrices.Last(2) <= _fractalChaosBands.High.Last(2))
+            if (Bars.ClosePrices.Last(0) > _fractalChaosBands.High.Last(0) && Bars.ClosePrices.Last(1) <= _fractalChaosBands.High.Last(1))
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (Bars.ClosePrices.Last(1) < _fractalChaosBands.Low.Last(1) && Bars.ClosePrices.Last(2) >= _fractalChaosBands.Low.Last(2))
+            else if (Bars.ClosePrices.Last(0) < _fractalChaosBands.Low.Last(0) && Bars.ClosePrices.Last(1) >= _fractalChaosBands.Low.Last(1))
             {
                 ClosePositions(TradeType.Buy);
 

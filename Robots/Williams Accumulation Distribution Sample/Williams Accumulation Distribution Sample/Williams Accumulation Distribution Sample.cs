@@ -1,11 +1,19 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 using System;
 using System.Linq;
 
 namespace cAlgo.Robots
 {
-    // This sample cBot shows how to use the Williams Accumulation Distribution indicator
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class WilliamsAccumulationDistributionSample : Robot
     {
@@ -18,14 +26,20 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01, Group = "Trade")]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10, Group = "Trade")]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, Group = "Trade", MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10, Group = "Trade")]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, Group = "Trade", MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample", Group = "Trade")]
+        [Parameter("Label", DefaultValue = "WilliamsAccumulationDistributionSample", Group = "Trade")]
         public string Label { get; set; }
+
+        [Parameter("Source", Group = "Simple Moving Average")]
+        public DataSeries SourceMovingAverage { get; set; }
+
+        [Parameter("Periods Moving Average", DefaultValue = 14, Group = "Simple Moving Average", MinValue = 2)]
+        public int PeriodsMovingAverage { get; set; }
 
         public Position[] BotPositions
         {
@@ -41,22 +55,22 @@ namespace cAlgo.Robots
 
             _williamsAccumulationDistribution = Indicators.WilliamsAccumulationDistribution();
 
-            _simpleMovingAverage = Indicators.SimpleMovingAverage(Bars.ClosePrices, 14);
+            _simpleMovingAverage = Indicators.SimpleMovingAverage(SourceMovingAverage, PeriodsMovingAverage);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
             var correlation = GetCorrelation(14);
 
             if (correlation > 0.85) return;
 
-            if (Bars.ClosePrices.Last(1) > _simpleMovingAverage.Result.Last(1))
+            if (Bars.ClosePrices.Last(0) > _simpleMovingAverage.Result.Last(0))
             {
                 ClosePositions(TradeType.Buy);
 
                 ExecuteMarketOrder(TradeType.Sell, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (Bars.ClosePrices.Last(1) < _simpleMovingAverage.Result.Last(1))
+            else if (Bars.ClosePrices.Last(0) < _simpleMovingAverage.Result.Last(0))
             {
                 ClosePositions(TradeType.Sell);
 

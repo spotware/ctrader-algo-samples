@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Polynomial Regression Channels indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class PolynomialRegressionChannelsSample : Robot
     {
@@ -16,11 +22,24 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "PolynomialRegressionChannelsSample")]
         public string Label { get; set; }
 
-        [Parameter("Source")]
+        [Parameter("Source", Group = "Polynomial Regression Channels")]
         public DataSeries Source { get; set; }
+
+        [Parameter(DefaultValue = 3.0, Group = "Polynomial Regression Channels", MinValue = 1, MaxValue = 4)]
+        public int Degree { get; set; }
+
+        [Parameter(DefaultValue = 120, Group = "Polynomial Regression Channels", MinValue = 1)]
+        public int Periods { get; set; }
+
+        [Parameter("Standard Deviation", DefaultValue = 1.62, Group = "Polynomial Regression Channels", Step = 0.01)]
+        public double StandardDeviation { get; set; }
+
+        [Parameter("Standard Deviation 2", DefaultValue = 2, Group = "Polynomial Regression Channels", Step = 0.01)]
+        public double StandardDeviation2 { get; set; }
+
 
         public Position[] BotPositions
         {
@@ -34,18 +53,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _polynomialRegressionChannels = Indicators.PolynomialRegressionChannels(3, 120, 1.62, 2);
+            _polynomialRegressionChannels = Indicators.PolynomialRegressionChannels(Degree, Periods, StandardDeviation, StandardDeviation2);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (Bars.LowPrices.Last(1) <= _polynomialRegressionChannels.Sql.Last(1) && Bars.LowPrices.Last(2) > _polynomialRegressionChannels.Sql.Last(2))
+            if (Bars.LowPrices.Last(0) <= _polynomialRegressionChannels.Sql.Last(0) && Bars.LowPrices.Last(1) > _polynomialRegressionChannels.Sql.Last(1))
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label);
             }
-            else if (Bars.HighPrices.Last(1) >= _polynomialRegressionChannels.Sqh.Last(1) && Bars.HighPrices.Last(2) < _polynomialRegressionChannels.Sqh.Last(2))
+            else if (Bars.HighPrices.Last(0) >= _polynomialRegressionChannels.Sqh.Last(0) && Bars.HighPrices.Last(1) < _polynomialRegressionChannels.Sqh.Last(1))
             {
                 ClosePositions(TradeType.Buy);
 

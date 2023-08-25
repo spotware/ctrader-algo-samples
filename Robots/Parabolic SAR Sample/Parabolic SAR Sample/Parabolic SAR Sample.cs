@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Parabolic SAR indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class ParabolicSARSample : Robot
     {
@@ -16,14 +22,21 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "ParabolicSARSample")]
         public string Label { get; set; }
+
+        [Parameter("Min AF", DefaultValue = 0.02, Group = "Parabolic SAR", MinValue = 0)]
+        public double MinAf { get; set; }
+
+        [Parameter("Max AF", DefaultValue = 0.2, Group = "Parabolic SAR", MinValue = 0)]
+        public double MaxAf { get; set; }
+
 
         public Position[] BotPositions
         {
@@ -37,18 +50,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _parabolicSAR = Indicators.ParabolicSAR(0.02, 0.2);
+            _parabolicSAR = Indicators.ParabolicSAR(MinAf, MaxAf);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (_parabolicSAR.Result.Last(1) < Bars.LowPrices.Last(1) && _parabolicSAR.Result.Last(2) > Bars.HighPrices.Last(2))
+            if (_parabolicSAR.Result.Last(0) < Bars.LowPrices.Last(0) && _parabolicSAR.Result.Last(1) > Bars.HighPrices.Last(1))
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (_parabolicSAR.Result.Last(1) > Bars.HighPrices.Last(1) && _parabolicSAR.Result.Last(2) < Bars.LowPrices.Last(2))
+            else if (_parabolicSAR.Result.Last(0) > Bars.HighPrices.Last(0) && _parabolicSAR.Result.Last(1) < Bars.LowPrices.Last(1))
             {
                 ClosePositions(TradeType.Buy);
 

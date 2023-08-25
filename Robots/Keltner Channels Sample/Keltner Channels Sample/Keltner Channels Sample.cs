@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Keltner Channels indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class KeltnerChannelsSample : Robot
     {
@@ -16,11 +22,25 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "KeltnerChannelsSample")]
         public string Label { get; set; }
 
-        [Parameter("Source")]
-        public DataSeries Source { get; set; }
+        [Parameter("MA Period", DefaultValue = 20, Group = "Keltner Channels", MinValue = 1)]
+        public int MAPeriod { get; set; }
+
+        [Parameter("MA Type", DefaultValue = MovingAverageType.Simple, Group = "Keltner Channels")]
+        public MovingAverageType MAType { get; set; }
+
+        [Parameter("ATR Period", DefaultValue = 10, Group = "Keltner Channels", MinValue = 1)]
+        public int AtrPeriod { get; set; }
+
+        [Parameter("ATR MA Type", DefaultValue = MovingAverageType.Simple, Group = "Keltner Channels")]
+        public MovingAverageType AtrMAType { get; set; }
+
+        [Parameter("Band Distance", DefaultValue = 2.0, MinValue = 0)]
+        public double BandDistance { get; set; }
+
+
 
         public Position[] BotPositions
         {
@@ -34,18 +54,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _keltnerChannels = Indicators.KeltnerChannels(20, MovingAverageType.Exponential, 10, MovingAverageType.Simple, 2);
+            _keltnerChannels = Indicators.KeltnerChannels(MAPeriod, MAType, AtrPeriod, AtrMAType, BandDistance);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (Bars.LowPrices.Last(1) <= _keltnerChannels.Bottom.Last(1) && Bars.LowPrices.Last(2) > _keltnerChannels.Bottom.Last(2))
+            if (Bars.LowPrices.Last(0) <= _keltnerChannels.Bottom.Last(0) && Bars.LowPrices.Last(1) > _keltnerChannels.Bottom.Last(1))
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label);
             }
-            else if (Bars.HighPrices.Last(1) >= _keltnerChannels.Top.Last(1) && Bars.HighPrices.Last(2) < _keltnerChannels.Top.Last(2))
+            else if (Bars.HighPrices.Last(0) >= _keltnerChannels.Top.Last(0) && Bars.HighPrices.Last(1) < _keltnerChannels.Top.Last(1))
             {
                 ClosePositions(TradeType.Buy);
 

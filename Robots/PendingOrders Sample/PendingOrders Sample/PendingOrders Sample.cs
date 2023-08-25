@@ -1,10 +1,18 @@
-﻿using System;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using System;
 using System.Linq;
 using cAlgo.API;
 
 namespace cAlgo.Robots
 {
-    // This sample shows how to use the PendingOrders collection
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class PendingOrdersSample : Robot
     {
@@ -15,7 +23,6 @@ namespace cAlgo.Robots
             PendingOrders.Modified += PendingOrders_Modified;
             PendingOrders.Filled += PendingOrders_Filled;
 
-            // You can use Linq to execute queries over all open orders
             var myOrders = PendingOrders.Where(order => order.Label.Equals("MyOrders", StringComparison.OrdinalIgnoreCase));
 
             var orderPrices = from order in PendingOrders

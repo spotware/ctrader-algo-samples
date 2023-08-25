@@ -1,12 +1,19 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 using cAlgo.API.Internals;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Linear Regression Slope indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class LinearRegressionSlopeSample : Robot
     {
@@ -21,14 +28,32 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "LinearRegressionSlopeSample")]
         public string Label { get; set; }
+
+        [Parameter("Source", Group = "Linear Regression")]
+        public DataSeries SourceLinearRegression { get; set; }
+
+        [Parameter("Periods", DefaultValue = 20, Group = "Linear Regression", MinValue = 0)]
+        public int PeriodsLinearRegression { get; set; }
+
+        [Parameter("Source", Group = "Simple Moving Average")]
+        public DataSeries SourceSimpleMovingAverage { get; set; }
+
+        [Parameter("Periods", DefaultValue = 10, Group = "Simple Moving Average", MinValue = 0)]
+        public int PeriodsSimpleMovingAverage { get; set; }
+
+        [Parameter("Source", Group = "Exponential Moving Average")]
+        public DataSeries SourceExponentialMovingAverage { get; set; }
+
+        [Parameter("Periods", DefaultValue = 20, Group = "Exponential Moving Average", MinValue = 0)]
+        public int PeriodsExponentialMovingAverage { get; set; }
 
         public Position[] BotPositions
         {
@@ -42,29 +67,29 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _linearRegressionSlope = Indicators.LinearRegressionSlope(Bars.ClosePrices, 20);
+            _linearRegressionSlope = Indicators.LinearRegressionSlope(SourceLinearRegression, PeriodsLinearRegression);
 
-            _simpleMovingAverage = Indicators.SimpleMovingAverage(_linearRegressionSlope.Result, 10);
+            _simpleMovingAverage = Indicators.SimpleMovingAverage(_linearRegressionSlope.Result, PeriodsSimpleMovingAverage);
 
-            _exponentialMovingAverage = Indicators.ExponentialMovingAverage(Bars.ClosePrices, 20);
+            _exponentialMovingAverage = Indicators.ExponentialMovingAverage(SourceExponentialMovingAverage, PeriodsExponentialMovingAverage);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (Bars.ClosePrices.Last(1) > _exponentialMovingAverage.Result.Last(1) && Bars.ClosePrices.Last(2) <= _exponentialMovingAverage.Result.Last(2))
+            if (Bars.ClosePrices.Last(0) > _exponentialMovingAverage.Result.Last(0) && Bars.ClosePrices.Last(1) <= _exponentialMovingAverage.Result.Last(1))
             {
                 ClosePositions(TradeType.Sell);
 
-                if (_linearRegressionSlope.Result.Last(1) > _simpleMovingAverage.Result.Last(1))
+                if (_linearRegressionSlope.Result.Last(0) > _simpleMovingAverage.Result.Last(0))
                 {
                     ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
                 }
             }
-            else if (Bars.ClosePrices.Last(1) < _exponentialMovingAverage.Result.Last(1) && Bars.ClosePrices.Last(2) >= _exponentialMovingAverage.Result.Last(2))
+            else if (Bars.ClosePrices.Last(0) < _exponentialMovingAverage.Result.Last(0) && Bars.ClosePrices.Last(1) >= _exponentialMovingAverage.Result.Last(1))
             {
                 ClosePositions(TradeType.Buy);
 
-                if (_linearRegressionSlope.Result.Last(1) > _simpleMovingAverage.Result.Last(1))
+                if (_linearRegressionSlope.Result.Last(0) > _simpleMovingAverage.Result.Last(0))
                 {
                     ExecuteMarketOrder(TradeType.Sell, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
                 }

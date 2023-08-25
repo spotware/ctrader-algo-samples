@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Donchian Channel indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class DonchianChannelSample : Robot
     {
@@ -16,11 +22,12 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "DonchianChannelSample")]
         public string Label { get; set; }
 
-        [Parameter("Source")]
-        public DataSeries Source { get; set; }
+        [Parameter("Periods", DefaultValue = 20, Group = "Donchian Channel", MinValue = 1)]
+        public int Periods { get; set; }
+
 
         public Position[] BotPositions
         {
@@ -34,18 +41,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _donchianChannel = Indicators.DonchianChannel(20);
+            _donchianChannel = Indicators.DonchianChannel(Periods);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (Bars.LowPrices.Last(1) <= _donchianChannel.Bottom.Last(1) && Bars.LowPrices.Last(2) > _donchianChannel.Bottom.Last(2))
+            if (Bars.LowPrices.Last(0) <= _donchianChannel.Bottom.Last(0) && Bars.LowPrices.Last(1) > _donchianChannel.Bottom.Last(1))
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label);
             }
-            else if (Bars.HighPrices.Last(1) >= _donchianChannel.Top.Last(1) && Bars.HighPrices.Last(2) < _donchianChannel.Top.Last(2))
+            else if (Bars.HighPrices.Last(0) >= _donchianChannel.Top.Last(0) && Bars.HighPrices.Last(1) < _donchianChannel.Top.Last(1))
             {
                 ClosePositions(TradeType.Buy);
 

@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Alligator indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class AlligatorSample : Robot
     {
@@ -16,14 +22,33 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "AlligatorSample")]
         public string Label { get; set; }
+
+        [Parameter("Jaws Periods", DefaultValue = 13, Group = "Alligator", MinValue = 1)]
+        public int JawsPeriods { get; set; }
+
+        [Parameter("Jaws Shift", DefaultValue = 18, Group = "Alligator", MinValue = 0, MaxValue = 1000)]
+        public int JawsShift { get; set; }
+
+        [Parameter("Teeth Periods", DefaultValue = 8, Group = "Alligator", MinValue = 1)]
+        public int TeethPeriods { get; set; }
+
+        [Parameter("Teeth Shift", DefaultValue = 5, Group = "Alligator", MinValue = 0, MaxValue = 1000)]
+        public int TeethShift { get; set; }
+
+        [Parameter("Lips Periods", DefaultValue = 5, Group = "Alligator", MinValue = 1)]
+        public int LipsPeriods { get; set; }
+
+        [Parameter("Lips Shift", DefaultValue = 3, Group = "Alligator", MinValue = 0, MaxValue = 1000)]
+        public int LipsShift { get; set; }
+
 
         public Position[] BotPositions
         {
@@ -37,18 +62,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _alligator = Indicators.Alligator(13, 18, 8, 5, 5, 3);
+            _alligator = Indicators.Alligator(JawsPeriods, JawsShift, TeethPeriods, TeethShift, LipsPeriods, LipsShift);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (_alligator.Lips.Last(1) > _alligator.Teeth.Last(1) && _alligator.Lips.Last(2) <= _alligator.Teeth.Last(2))
+            if (_alligator.Lips.Last(0) > _alligator.Teeth.Last(0) && _alligator.Lips.Last(1) <= _alligator.Teeth.Last(1))
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (_alligator.Lips.Last(1) < _alligator.Teeth.Last(1) && _alligator.Lips.Last(2) >= _alligator.Teeth.Last(2))
+            else if (_alligator.Lips.Last(0) < _alligator.Teeth.Last(0) && _alligator.Lips.Last(1) >= _alligator.Teeth.Last(1))
             {
                 ClosePositions(TradeType.Buy);
 

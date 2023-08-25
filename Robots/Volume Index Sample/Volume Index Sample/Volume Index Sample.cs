@@ -1,11 +1,18 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Positive/Negative Volume Index indicators
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class VolumeIndexSample : Robot
     {
@@ -19,14 +26,26 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "VolumeIndexSample")]
         public string Label { get; set; }
+
+        [Parameter("Source for Positive Volume", Group = "Volume Index")]
+        public DataSeries PositiveSource { get; set; }
+
+        [Parameter("Source for Negative Volume", Group = "Volume Index")]
+        public DataSeries NegativeSource { get; set; }
+
+        [Parameter("Source", Group = "Simple Moving Average")]
+        public DataSeries SourceSimpleMovingAverage { get; set; }
+
+        [Parameter("Period", DefaultValue = 20, Group = "Simple Moving Average", MinValue = 1)]
+        public int PeriodSimpleMovingAverage { get; set; }
 
         public Position[] BotPositions
         {
@@ -40,28 +59,28 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _positiveVolumeIndex = Indicators.PositiveVolumeIndex(Bars.ClosePrices);
-            _negativeVolumeIndex = Indicators.NegativeVolumeIndex(Bars.ClosePrices);
+            _positiveVolumeIndex = Indicators.PositiveVolumeIndex(PositiveSource);
+            _negativeVolumeIndex = Indicators.NegativeVolumeIndex(NegativeSource);
 
-            _simpleMovingAverage = Indicators.SimpleMovingAverage(Bars.ClosePrices, 20);
+            _simpleMovingAverage = Indicators.SimpleMovingAverage(SourceSimpleMovingAverage, PeriodSimpleMovingAverage);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (Bars.ClosePrices.Last(1) > _simpleMovingAverage.Result.Last(1))
+            if (Bars.ClosePrices.Last(0) > _simpleMovingAverage.Result.Last(0))
             {
                 ClosePositions(TradeType.Sell);
 
-                if (BotPositions.Length == 0 && _negativeVolumeIndex.Result.Last(1) > _positiveVolumeIndex.Result.Last(1))
+                if (BotPositions.Length == 0 && _negativeVolumeIndex.Result.Last(0) > _positiveVolumeIndex.Result.Last(0))
                 {
                     ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
                 }
             }
-            else if (Bars.ClosePrices.Last(1) < _simpleMovingAverage.Result.Last(1))
+            else if (Bars.ClosePrices.Last(0) < _simpleMovingAverage.Result.Last(0))
             {
                 ClosePositions(TradeType.Buy);
 
-                if (BotPositions.Length == 0 && _negativeVolumeIndex.Result.Last(1) > _positiveVolumeIndex.Result.Last(1))
+                if (BotPositions.Length == 0 && _negativeVolumeIndex.Result.Last(0) < _positiveVolumeIndex.Result.Last(0))
                 {
                     ExecuteMarketOrder(TradeType.Sell, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
                 }

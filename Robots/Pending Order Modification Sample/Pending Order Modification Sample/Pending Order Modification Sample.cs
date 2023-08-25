@@ -1,18 +1,19 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using System;
 using System.Globalization;
 using System.Linq;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample shows how to modify a pending order
-    /// It uses order comment to find the order, you can use order label instead if you want to
-    /// Set stop loss and take profit to 0 if you don't want to change it
-    /// Leave expiry parameter empty if you don't want to change it or 0 if you want to remove it
-    /// If you don't want to change the target price set it to 0
-    /// If you don't want to change the volume set it to 0
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class PendingOrderModificationSample : Robot
     {

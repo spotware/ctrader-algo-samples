@@ -1,4 +1,13 @@
-﻿using System;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using System;
 using System.Linq;
 using cAlgo.API;
 using System.Collections.Generic;

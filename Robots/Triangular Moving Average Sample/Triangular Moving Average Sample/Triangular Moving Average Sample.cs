@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Triangular Moving Average indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class TriangularMovingAverageSample : Robot
     {
@@ -29,14 +35,14 @@ namespace cAlgo.Robots
 
         [Parameter("Volume (Lots)", DefaultValue = 0.01, Group = "Trade")]
         public double VolumeInLots { get; set; }
-
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10, Group = "Trade")]
+        
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10, Group = "Trade")]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample", Group = "Trade")]
+        [Parameter("Label", DefaultValue = "TriangularMovingAverageSample", Group = "Trade")]
         public string Label { get; set; }
 
         public Position[] BotPositions
@@ -55,7 +61,7 @@ namespace cAlgo.Robots
             _slowTriangularMovingAverage = Indicators.TriangularMovingAverage(SlowMaSource, SlowMaPeriod);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
             if (_fastTriangularMovingAverage.Result.HasCrossedAbove(_slowTriangularMovingAverage.Result, 0))
             {
