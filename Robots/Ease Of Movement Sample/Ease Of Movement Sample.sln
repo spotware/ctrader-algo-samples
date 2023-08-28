@@ -1,7 +1,7 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease Of Movement Sample", "Ease Of Movement Sample\Ease Of Movement Sample.csproj", "{540D0506-D131-4F7E-9EC7-B274E31A2D03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1_Ease Of Movement Sample", "1_Ease Of Movement Sample\1_Ease Of Movement Sample.csproj", "{540D0506-D131-4F7E-9EC7-B274E31A2D03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

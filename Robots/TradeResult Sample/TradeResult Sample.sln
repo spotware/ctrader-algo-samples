@@ -1,7 +1,7 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeResult Sample", "TradeResult Sample\TradeResult Sample.csproj", "{E209F51C-F151-4612-B7FE-B596EB48747C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1_TradeResult Sample", "1_TradeResult Sample\1_TradeResult Sample.csproj", "{E209F51C-F151-4612-B7FE-B596EB48747C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

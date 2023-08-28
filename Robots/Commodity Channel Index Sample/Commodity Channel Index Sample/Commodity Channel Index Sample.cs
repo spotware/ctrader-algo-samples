@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    /// <summary>
-    /// This sample cBot shows how to use the Commodity Channel Index indicator
-    /// </summary>
     [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class CommodityChannelIndexSample : Robot
     {
@@ -16,14 +22,24 @@ namespace cAlgo.Robots
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
 
-        [Parameter("Stop Loss (Pips)", DefaultValue = 10)]
+        [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 
-        [Parameter("Take Profit (Pips)", DefaultValue = 10)]
+        [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
 
-        [Parameter("Label", DefaultValue = "Sample")]
+        [Parameter("Label", DefaultValue = "CommodityChannelIndexSample")]
         public string Label { get; set; }
+
+        [Parameter(DefaultValue = 20, Group = "Commodity Channel Index", MinValue = 1)]
+        public int Periods { get; set; }
+
+        [Parameter("Down level", DefaultValue = -100, Group = "Commodity Channel Index")]
+        public int DownValue { get; set; }
+
+        [Parameter("Up level", DefaultValue = 100, Group = "Commodity Channel Index")]
+        public int UpValue { get; set; }
+
 
         public Position[] BotPositions
         {
@@ -37,18 +53,18 @@ namespace cAlgo.Robots
         {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
-            _commodityChannelIndex = Indicators.CommodityChannelIndex(14);
+            _commodityChannelIndex = Indicators.CommodityChannelIndex(Periods);
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
-            if (_commodityChannelIndex.Result.Last(1) > 100 && _commodityChannelIndex.Result.Last(2) <= 100)
+            if (_commodityChannelIndex.Result.Last(0) > UpValue && _commodityChannelIndex.Result.Last(1) <= UpValue)
             {
                 ClosePositions(TradeType.Sell);
 
                 ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
             }
-            else if (_commodityChannelIndex.Result.Last(1) < -100 && _commodityChannelIndex.Result.Last(2) >= -100)
+            else if (_commodityChannelIndex.Result.Last(0) < DownValue && _commodityChannelIndex.Result.Last(1) >= DownValue)
             {
                 ClosePositions(TradeType.Buy);
 
