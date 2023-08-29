@@ -1,10 +1,16 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This sample shows how to use Symbols collection to get symbols data
-    /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class SymbolsSample : Indicator
     {
@@ -21,7 +27,7 @@ namespace cAlgo
                 Height = 300
             };
 
-            var grid = new Grid(Symbols.Count + 1, 2) 
+            var grid = new Grid(Symbols.Count, 2) 
             {
                 BackgroundColor = Color.Gold,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -30,23 +36,7 @@ namespace cAlgo
 
             scrollViewer.Content = grid;
 
-            grid.AddChild(new TextBlock 
-            {
-                Text = "Name",
-                Margin = 5,
-                ForegroundColor = Color.Black,
-                FontWeight = FontWeight.ExtraBold
-            }, 0, 0);
-
-            grid.AddChild(new TextBlock 
-            {
-                Text = "Description",
-                Margin = 5,
-                ForegroundColor = Color.Black,
-                FontWeight = FontWeight.ExtraBold
-            }, 0, 1);
-
-            for (int iSymbol = 1; iSymbol < Symbols.Count + 1; iSymbol++)
+            for (int iSymbol = 0; iSymbol < Symbols.Count; iSymbol++)
             {
                 var symbolName = Symbols[iSymbol];
                 var symbol = Symbols.GetSymbol(symbolName);

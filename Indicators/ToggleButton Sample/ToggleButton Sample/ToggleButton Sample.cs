@@ -1,12 +1,9 @@
-﻿using cAlgo.API;
+using cAlgo.API;
 using System;
 using System.Linq;
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This sample indicator shows how to use ToggleButton control and handle its checked/unchecked events
-    /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class ToggleButtonSample : Indicator
     {

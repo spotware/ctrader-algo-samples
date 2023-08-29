@@ -1,10 +1,16 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This indicator shows how to use the Chart.DrawFibonacciRetracement method to draw a Fibonacci Retracement
-    /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class FibonacciRetracementSample : Indicator
     {

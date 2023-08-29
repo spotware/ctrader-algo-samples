@@ -1,11 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using System;
 
 namespace cAlgo
 {
-    /// <summary>
-    /// A sample indicator that shows how to use Bars
-    /// </summary>
     [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class BarsSample : Indicator
     {
@@ -19,7 +25,6 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            // Bars events
             Bars.BarOpened += Bars_BarOpened;
 
             Bars.Tick += Bars_Tick;

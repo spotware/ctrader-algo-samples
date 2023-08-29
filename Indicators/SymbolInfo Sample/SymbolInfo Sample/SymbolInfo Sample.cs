@@ -1,16 +1,25 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
+using cAlgo.API.Internals;
 using System;
 
 namespace cAlgo
 {
-    // This sample shows how to use the SymbolInfo
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class SymbolInfoSample : Indicator
     {
         private TextBlock _timeTillOpenTextBlock;
         private TextBlock _timeTillCloseTextBlock;
         private TextBlock _isOpenedTextBlock;
-        private SymbolInfo _symbol;
+        private Symbol _symbol;
 
         [Parameter("Use Current Symbol", DefaultValue = true)]
         public bool UseCurrentSymbol { get; set; }
@@ -35,7 +44,7 @@ namespace cAlgo
             style.Set(ControlProperty.BackgroundColor, Color.Black);
             style.Set(ControlProperty.FontSize, 8);
 
-            _symbol = UseCurrentSymbol ? Symbols.GetSymbolInfo(SymbolName) : Symbols.GetSymbolInfo(OtherSymbolName);
+            _symbol = UseCurrentSymbol ? Symbols.GetSymbol(SymbolName) : Symbols.GetSymbol(OtherSymbolName);
 
             grid.AddChild(new TextBlock 
             {

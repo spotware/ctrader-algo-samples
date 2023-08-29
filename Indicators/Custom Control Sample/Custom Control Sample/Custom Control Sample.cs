@@ -1,12 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using System.Collections.Generic;
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This sample indicator shows how to use Chart Custom controls to create your own controls
-    /// by combining multiple built-in controls, the combobox control is not a fully functioning combobox, its just for learning purpose
-    /// </summary>
     [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class CustomControlSample : Indicator
     {

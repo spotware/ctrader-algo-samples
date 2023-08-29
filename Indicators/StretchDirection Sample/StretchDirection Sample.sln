@@ -1,7 +1,9 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StretchDirection Sample", "StretchDirection Sample\StretchDirection Sample.csproj", "{3DEEB9E9-9604-41E8-B484-0758CDE5FF5E}"
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StretchDirection Sample", "StretchDirection Sample\StretchDirection Sample.csproj", "{40373676-afea-4829-b8ad-c61839ff5154}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3DEEB9E9-9604-41E8-B484-0758CDE5FF5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DEEB9E9-9604-41E8-B484-0758CDE5FF5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DEEB9E9-9604-41E8-B484-0758CDE5FF5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DEEB9E9-9604-41E8-B484-0758CDE5FF5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40373676-afea-4829-b8ad-c61839ff5154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40373676-afea-4829-b8ad-c61839ff5154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40373676-afea-4829-b8ad-c61839ff5154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40373676-afea-4829-b8ad-c61839ff5154}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

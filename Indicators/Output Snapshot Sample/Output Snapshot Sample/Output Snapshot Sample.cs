@@ -1,12 +1,18 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 using cAlgo.API.Indicators;
 using System;
 
 namespace cAlgo
 {
-    /// <summary>
-    /// This sample shows how to create a tooltips for an indicator data series or output
-    /// </summary>
     [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class OutputSnapshotSample : Indicator
     {

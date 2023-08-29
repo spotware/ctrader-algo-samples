@@ -1,10 +1,16 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
 
 namespace cAlgo
 {
-    // This example shows how to use the ChartArea
-    // ChartArea is the base class of Chart and IndicatorArea
-    // Both Chart and IndicatorArea inherits most of their members from ChartArea
     [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class ChartAreaSample : Indicator
     {

@@ -1,13 +1,34 @@
-﻿using cAlgo.API;
+ // -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+using cAlgo.API;
+using System.IO;
 
 namespace cAlgo
 {
-    [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Indicator(IsOverlay = true, TimeZone = TimeZones.UTC, AccessRights = AccessRights.FullAccess)]
     public class CanvasSample : Indicator
     {
+        [Parameter("Image File Path")]
+        public string ImageFilePath { get; set; }
+
         protected override void Initialize()
         {
-            var canvas = new Canvas 
+
+            if (!File.Exists(ImageFilePath))
+            {
+                Print($"Image not found: {ImageFilePath}");
+                return;
+            }
+            var imageBytes = File.ReadAllBytes(ImageFilePath);
+
+            var canvas = new Canvas
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -17,7 +38,7 @@ namespace cAlgo
                 Opacity = 0.5
             };
 
-            canvas.AddChild(new Button 
+            canvas.AddChild(new Button
             {
                 Top = 20,
                 Left = 80,
@@ -25,9 +46,9 @@ namespace cAlgo
                 Text = "Button Inside Canvas"
             });
 
-            canvas.AddChild(new Image 
+            canvas.AddChild(new Image
             {
-                Source = Properties.Resources.stock,
+                Source = imageBytes,
                 Margin = 5,
                 Width = 128,
                 Height = 128,

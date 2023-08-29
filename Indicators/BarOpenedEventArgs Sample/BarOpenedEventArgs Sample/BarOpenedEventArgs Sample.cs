@@ -1,8 +1,17 @@
-﻿using cAlgo.API;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Automate API example.
+//
+//    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//
+// -------------------------------------------------------------------------------------------------
+
+
+using cAlgo.API;
 
 namespace cAlgo
 {
-    // This example shows how to use the Bars object BarOpened event BarOpenedEventArgs
     [Indicator(IsOverlay = false, TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
     public class BarOpenedEventArgsSample : Indicator
     {
@@ -11,8 +20,6 @@ namespace cAlgo
             Bars.BarOpened += Bars_BarOpened;
         }
 
-        // This method will be called if a new bar opens
-        // BarOpenedEventArgs has a Bars property the you can use to get Bars object
         private void Bars_BarOpened(BarOpenedEventArgs obj)
         {
             var newOpendBar = obj.Bars.LastBar;
