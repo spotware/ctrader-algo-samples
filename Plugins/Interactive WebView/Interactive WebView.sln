@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Current Symbol plugin", "Current Symbol plugin\Current Symbol plugin.csproj", "{e875b218-c77f-45a8-8f80-6decabd8f845}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interactive WebView", "Interactive WebView\Interactive WebView.csproj", "{9d0d3e87-356a-4c76-83a5-9f91c319689d}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{e875b218-c77f-45a8-8f80-6decabd8f845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{e875b218-c77f-45a8-8f80-6decabd8f845}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{e875b218-c77f-45a8-8f80-6decabd8f845}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{e875b218-c77f-45a8-8f80-6decabd8f845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9d0d3e87-356a-4c76-83a5-9f91c319689d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9d0d3e87-356a-4c76-83a5-9f91c319689d}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9d0d3e87-356a-4c76-83a5-9f91c319689d}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9d0d3e87-356a-4c76-83a5-9f91c319689d}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

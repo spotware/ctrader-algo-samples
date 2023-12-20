@@ -4,6 +4,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="cTrader.Automate" Version="1.*" />
+    <PackageReference Include="cTrader.Automate" Version="*" />
   </ItemGroup>
 </Project>
