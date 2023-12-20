@@ -24,19 +24,7 @@ namespace cAlgo.Plugins
             var webView = new WebView();                        
             block.Child = webView;
             
-            webView.NavigateAsync("https://ctrader.com/?theme=" + Application.ColorTheme);
-
-            Application.ColorThemeChanged += Application_ColorThemeChanged;
-        }
-
-        private void Application_ColorThemeChanged(ColorThemeChangeEventArgs obj)
-        {
-            
-        }
-
-        protected override void OnStop()
-        {
-            // Handle Plugin stop here
+            webView.NavigateAsync("https://ctrader.com/");
         }
     }  
 }
