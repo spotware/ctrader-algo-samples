@@ -12,7 +12,7 @@ using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None, AddIndicators = true)]
     public class ExponentialMovingAverageSample : Robot
     {
         private double _volumeInUnits;
@@ -59,8 +59,18 @@ namespace cAlgo.Robots
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
             _fastExponentialMovingAverage = Indicators.ExponentialMovingAverage(SourceFirst, PeriodsFirst);
+            
+            var fastExponentialMovingAverageChartIndicator = _fastExponentialMovingAverage.AddToChart();
+            
+            fastExponentialMovingAverageChartIndicator.Lines[0].Color = Color.Blue;
 
             _slowExponentialMovingAverage = Indicators.ExponentialMovingAverage(SourceSecond, PeriodsSecond);
+            
+            _slowExponentialMovingAverage.Result.Line.Color = Color.Blue;
+            
+            var slowExponentialMovingAverageChartIndicator = _slowExponentialMovingAverage.AddToChart();
+            
+            slowExponentialMovingAverageChartIndicator.Lines[0].Color = Color.Red;
         }
 
         protected override void OnBarClosed()

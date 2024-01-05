@@ -12,7 +12,7 @@ using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None, AddIndicators = true)]
     public class HullMovingAverageSample : Robot
     {
         private double _volumeInUnits;
@@ -59,6 +59,14 @@ namespace cAlgo.Robots
 
             _fastHull = Indicators.HullMovingAverage(FastMaSource, FastMaPeriod);
             _slowHull = Indicators.HullMovingAverage(SlowMaSource, SlowMaPeriod);
+            
+            var fastHullChartIndicator = _fastHull.AddToChart();
+            
+            fastHullChartIndicator.Lines[0].Color = Color.Blue;
+            
+            var slowHullChartIndicator = _slowHull.AddToChart();
+            
+            slowHullChartIndicator.Lines[0].Color = Color.Red;
         }
 
         protected override void OnBarClosed()

@@ -14,7 +14,7 @@ using cAlgo.API.Internals;
 
 namespace cAlgo.Robots
 {
-    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None, AddIndicators = true)]
     public class LinearRegressionSlopeSample : Robot
     {
         private double _volumeInUnits;

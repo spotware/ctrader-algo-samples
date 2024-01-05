@@ -13,7 +13,7 @@ using System;
 
 namespace cAlgo.Robots
 {
-    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None, AddIndicators = true)]
     public class AverageTrueRangeSample : Robot
     {
         private double _volumeInUnits;

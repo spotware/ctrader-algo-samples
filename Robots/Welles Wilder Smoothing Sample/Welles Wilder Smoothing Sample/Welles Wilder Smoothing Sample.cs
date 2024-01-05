@@ -12,7 +12,7 @@ using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None, AddIndicators = true)]
     public class WellesWilderSmoothingSample : Robot
     {
         private double _volumeInUnits;
@@ -59,6 +59,14 @@ namespace cAlgo.Robots
 
             _fastWellesWilderSmoothing = Indicators.WellesWilderSmoothing(FastMaSource, FastMaPeriod);
             _slowWellesWilderSmoothing = Indicators.WellesWilderSmoothing(SlowMaSource, SlowMaPeriod);
+                      
+            var fastWellesWilderSmoothingChartIndicator = _fastWellesWilderSmoothing.AddToChart();
+            
+            fastWellesWilderSmoothingChartIndicator.Lines[0].Color = Color.Blue;
+            
+            var slowWellesWilderSmoothingChartIndicator = _slowWellesWilderSmoothing.AddToChart();
+            
+            slowWellesWilderSmoothingChartIndicator.Lines[0].Color = Color.Red;
         }
 
         protected override void OnBarClosed()
