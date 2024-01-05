@@ -12,7 +12,7 @@ using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    [Robot(AccessRights = AccessRights.None)]
+    [Robot(AccessRights = AccessRights.None, AddIndicators = true)]
     public class RelativeStrengthIndexSample : Robot
     {
         private double _volumeInUnits;

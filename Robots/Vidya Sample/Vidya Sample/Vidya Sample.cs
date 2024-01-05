@@ -12,7 +12,7 @@ using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None, AddIndicators = true)]
     public class VidyaSample : Robot
     {
         private double _volumeInUnits;
@@ -65,6 +65,14 @@ namespace cAlgo.Robots
 
             _fastVidya = Indicators.Vidya(FastMaSource, FastMaPeriod, FastSigma);
             _slowVidya = Indicators.Vidya(SlowMaSource, SlowMaPeriod, SlowSigma);
+            
+            var fastVidyaChartIndicator = _fastVidya.AddToChart();
+            
+            fastVidyaChartIndicator.Lines[0].Color = Color.Blue;
+            
+            var slowVidyaChartIndicator = _slowVidya.AddToChart();
+            
+            slowVidyaChartIndicator.Lines[0].Color = Color.Red;
         }
 
         protected override void OnBarClosed()

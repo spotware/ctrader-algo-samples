@@ -13,7 +13,7 @@ using cAlgo.API.Indicators;
 namespace cAlgo.Robots
 {
 
-    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None, AddIndicators = true)]
     public class AcceleratorOscillatorSample : Robot
     {
         private double _volumeInUnits;
@@ -28,7 +28,7 @@ namespace cAlgo.Robots
 
         [Parameter("Take Profit (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double TakeProfitInPips { get; set; }
-        
+
         [Parameter("Label", DefaultValue = "AcceleratorOscillatorSample")]
         public string Label { get; set; }
 

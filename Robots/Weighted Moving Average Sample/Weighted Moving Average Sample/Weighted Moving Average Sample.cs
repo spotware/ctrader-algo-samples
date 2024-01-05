@@ -12,7 +12,7 @@ using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
-    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None, AddIndicators = true)]
     public class WeightedMovingAverageSample : Robot
     {
         private double _volumeInUnits;
@@ -59,6 +59,14 @@ namespace cAlgo.Robots
 
             _fastWeightedMovingAverage = Indicators.WeightedMovingAverage(FastMaSource, FastMaPeriod);
             _slowWeightedMovingAverage = Indicators.WeightedMovingAverage(SlowMaSource, SlowMaPeriod);
+            
+            var fastWeightedMovingAverageChartIndicator = _fastWeightedMovingAverage.AddToChart();
+            
+            fastWeightedMovingAverageChartIndicator.Lines[0].Color = Color.Blue;
+            
+            var slowWeightedMovingAverageChartIndicator = _slowWeightedMovingAverage.AddToChart();
+            
+            slowWeightedMovingAverageChartIndicator.Lines[0].Color = Color.Red;
         }
 
         protected override void OnBarClosed()

@@ -14,7 +14,7 @@ using System.Linq;
 
 namespace cAlgo.Robots
 {
-    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None, AddIndicators = true)]
     public class WilliamsAccumulationDistributionSample : Robot
     {
         private double _volumeInUnits;
