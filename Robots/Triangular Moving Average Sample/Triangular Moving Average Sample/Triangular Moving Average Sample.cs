@@ -60,13 +60,8 @@ namespace cAlgo.Robots
             _fastTriangularMovingAverage = Indicators.TriangularMovingAverage(FastMaSource, FastMaPeriod);
             _slowTriangularMovingAverage = Indicators.TriangularMovingAverage(SlowMaSource, SlowMaPeriod);
             
-            var fastMaChartIndicator = _fastTriangularMovingAverage.AddToChart();
-            
-            fastMaChartIndicator.Lines[0].Color = Color.Blue;
-            
-            var slowMaChartIndicator = _slowTriangularMovingAverage.AddToChart();
-            
-            slowMaChartIndicator.Lines[0].Color = Color.Red;
+            _fastTriangularMovingAverage.Result.Line.Color = Color.Blue;
+            _slowTriangularMovingAverage.Result.Line.Color = Color.Red;
         }
 
         protected override void OnBarClosed()

@@ -45,7 +45,7 @@ namespace cAlgo.Robots
 
         [Parameter("Source", Group = "Exponential Moving Average 2")]
         public DataSeries SourceSecond { get; set; }
-
+        
         public Position[] BotPositions
         {
             get
@@ -55,22 +55,16 @@ namespace cAlgo.Robots
         }
 
         protected override void OnStart()
-        {
+        {  
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
             _fastExponentialMovingAverage = Indicators.ExponentialMovingAverage(SourceFirst, PeriodsFirst);
             
-            var fastExponentialMovingAverageChartIndicator = _fastExponentialMovingAverage.AddToChart();
-            
-            fastExponentialMovingAverageChartIndicator.Lines[0].Color = Color.Blue;
+            _fastExponentialMovingAverage.Result.Line.Color = Color.Blue;
 
             _slowExponentialMovingAverage = Indicators.ExponentialMovingAverage(SourceSecond, PeriodsSecond);
             
-            _slowExponentialMovingAverage.Result.Line.Color = Color.Blue;
-            
-            var slowExponentialMovingAverageChartIndicator = _slowExponentialMovingAverage.AddToChart();
-            
-            slowExponentialMovingAverageChartIndicator.Lines[0].Color = Color.Red;
+            _slowExponentialMovingAverage.Result.Line.Color = Color.Red;
         }
 
         protected override void OnBarClosed()

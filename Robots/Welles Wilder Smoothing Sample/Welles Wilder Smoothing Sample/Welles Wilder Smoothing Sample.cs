@@ -60,13 +60,8 @@ namespace cAlgo.Robots
             _fastWellesWilderSmoothing = Indicators.WellesWilderSmoothing(FastMaSource, FastMaPeriod);
             _slowWellesWilderSmoothing = Indicators.WellesWilderSmoothing(SlowMaSource, SlowMaPeriod);
                       
-            var fastWellesWilderSmoothingChartIndicator = _fastWellesWilderSmoothing.AddToChart();
-            
-            fastWellesWilderSmoothingChartIndicator.Lines[0].Color = Color.Blue;
-            
-            var slowWellesWilderSmoothingChartIndicator = _slowWellesWilderSmoothing.AddToChart();
-            
-            slowWellesWilderSmoothingChartIndicator.Lines[0].Color = Color.Red;
+            _fastWellesWilderSmoothing.Result.Line.Color = Color.Blue;
+            _slowWellesWilderSmoothing.Result.Line.Color = Color.Red;
         }
 
         protected override void OnBarClosed()

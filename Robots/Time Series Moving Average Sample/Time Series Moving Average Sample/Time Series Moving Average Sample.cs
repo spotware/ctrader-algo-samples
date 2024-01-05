@@ -61,13 +61,8 @@ namespace cAlgo.Robots
             _fastTimeSeriesMovingAverage = Indicators.TimeSeriesMovingAverage(FastMaSource, FastMaPeriod);
             _slowTimeSeriesMovingAverage = Indicators.TimeSeriesMovingAverage(SlowMaSource, SlowMaPeriod);
             
-            var fastMaChartIndicator = _fastTimeSeriesMovingAverage.AddToChart();
-            
-            fastMaChartIndicator.Lines[0].Color = Color.Blue;
-            
-            var slowMaChartIndicator = _slowTimeSeriesMovingAverage.AddToChart();
-            
-            slowMaChartIndicator.Lines[0].Color = Color.Red;
+            _fastTimeSeriesMovingAverage.Result.Line.Color = Color.Blue;
+            _slowTimeSeriesMovingAverage.Result.Line.Color = Color.Red;
         }
 
         protected override void OnBarClosed()

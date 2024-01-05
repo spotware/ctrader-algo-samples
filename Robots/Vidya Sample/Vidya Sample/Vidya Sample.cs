@@ -66,13 +66,8 @@ namespace cAlgo.Robots
             _fastVidya = Indicators.Vidya(FastMaSource, FastMaPeriod, FastSigma);
             _slowVidya = Indicators.Vidya(SlowMaSource, SlowMaPeriod, SlowSigma);
             
-            var fastVidyaChartIndicator = _fastVidya.AddToChart();
-            
-            fastVidyaChartIndicator.Lines[0].Color = Color.Blue;
-            
-            var slowVidyaChartIndicator = _slowVidya.AddToChart();
-            
-            slowVidyaChartIndicator.Lines[0].Color = Color.Red;
+            _fastVidya.Result.Line.Color = Color.Blue;
+            _slowVidya.Result.Line.Color = Color.Red;
         }
 
         protected override void OnBarClosed()
