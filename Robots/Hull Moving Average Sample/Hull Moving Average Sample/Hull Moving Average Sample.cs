@@ -60,13 +60,8 @@ namespace cAlgo.Robots
             _fastHull = Indicators.HullMovingAverage(FastMaSource, FastMaPeriod);
             _slowHull = Indicators.HullMovingAverage(SlowMaSource, SlowMaPeriod);
             
-            var fastHullChartIndicator = _fastHull.AddToChart();
-            
-            fastHullChartIndicator.Lines[0].Color = Color.Blue;
-            
-            var slowHullChartIndicator = _slowHull.AddToChart();
-            
-            slowHullChartIndicator.Lines[0].Color = Color.Red;
+            _fastHull.Result.Line.Color = Color.Blue;
+            _slowHull.Result.Line.Color = Color.Red;
         }
 
         protected override void OnBarClosed()

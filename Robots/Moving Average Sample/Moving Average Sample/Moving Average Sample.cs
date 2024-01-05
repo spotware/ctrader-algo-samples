@@ -64,16 +64,10 @@ namespace cAlgo.Robots
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
             _fastMa = Indicators.MovingAverage(FastMaSource, FastMaPeriod, FastMaType);
-            _slowMa = Indicators.MovingAverage(SlowMaSource, SlowMaPeriod, SlowMaType);
-            
+            _slowMa = Indicators.MovingAverage(SlowMaSource, SlowMaPeriod, SlowMaType);            
                         
-            var fastMaChartIndicator = _fastMa.AddToChart();
-            
-            fastMaChartIndicator.Lines[0].Color = Color.Blue;
-            
-            var slowMaChartIndicator = _slowMa.AddToChart();
-            
-            slowMaChartIndicator.Lines[0].Color = Color.Red;
+            _fastMa.Result.Line.Color = Color.Blue;
+            _slowMa.Result.Line.Color = Color.Red;
         }
 
         protected override void OnBarClosed()
