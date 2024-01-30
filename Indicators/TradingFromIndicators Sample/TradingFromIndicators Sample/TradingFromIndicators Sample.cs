@@ -42,7 +42,7 @@ namespace cAlgo
 
         }
         
-        // Overriding the built-in handler of the Timer.Tick event
+        // Overriding the built-in handler of the Timer.TimerTick event
         protected override void OnTimer() 
         {
             // Checking if the 'fast' SMA has crossed above the 'slow' SMA
