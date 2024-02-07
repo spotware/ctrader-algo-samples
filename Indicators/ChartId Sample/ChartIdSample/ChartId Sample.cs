@@ -25,23 +25,28 @@ namespace cAlgo
     public class ChartIdSample : Indicator
     {
 
-
-        string currentChartId;
+        
+        string _currentChartId;
+        
+        // Getting the Id of the current Chart and
+        // assigning custom event handlers for the
+        // Chart.Activated and Chart.Deactivated events
         protected override void Initialize()
         {
-            currentChartId = Chart.Id.ToString();
+            _currentChartId = Chart.Id.ToString();
             Chart.Activated += Chart_Activated;
             Chart.Deactivated += Chart_Deactivated;
         }
 
+
         private void Chart_Deactivated(ChartActivationChangedEventArgs obj)
         {
-            Print($"Chart with ID {currentChartId} deactivated!");
+            Print($"Chart with ID {_currentChartId} deactivated!");
         }
 
         private void Chart_Activated(ChartActivationChangedEventArgs obj)
         {
-            Print($"Chart with ID {currentChartId} activated!");
+            Print($"Chart with ID {_currentChartId} activated!");
         }
 
         public override void Calculate(int index)
