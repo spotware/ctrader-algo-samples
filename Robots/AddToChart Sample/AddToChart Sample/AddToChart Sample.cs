@@ -45,7 +45,7 @@ namespace cAlgo.Robots
             _macd.AddToChart();
         }
 
-        protected override void OnBar()
+        protected override void OnBarClosed()
         {
             // Using indicator outputs to execute trading operations
             if (_macd.Histogram.LastValue > 0 && _rsi.Result.LastValue <= 30) 
