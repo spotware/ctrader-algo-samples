@@ -5,9 +5,9 @@
 //    This code is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
 //    
-//    This sample adds a new block into the ASP and opens a position for EURUSD with a custom label.
-//    The text inside the new block shows the current price of EURUSD, which is achieved by using the
-//    Position.CurrentPrice property. The text inside the block is updated every 100 milliseconds.
+//    This sample adds a new block into the ASP. The block displays a ComboBox in which the user
+//    can select any of their currently open positions. Below the ComboBox, the block displays the
+//    current price of the symbol for which the selected position was opened.
 //
 // -------------------------------------------------------------------------------------------------
 
@@ -23,39 +23,74 @@ namespace cAlgo.Plugins
     public class PositionCurrentPriceSample : Plugin
     {
         private TextBlock _currentPriceText;
-        
+        ComboBox _positionSelectionComboBox;
+        Position _selectedPosition;
+        Grid _blockGrid;
         
         protected override void OnStart()
         {
             // Configuring the new TextBlock
             _currentPriceText = new TextBlock
             {
-                Text = "Initialising...",
-                FontSize = 50,
+                Text = "Select a position above",
+                FontSize = 30,
                 TextAlignment = TextAlignment.Center,
                 FontWeight = FontWeight.ExtraBold,
             };
             
+            // Adding a new ComboBox and adding existing positions
+            // as options
+            _positionSelectionComboBox = new ComboBox();
+            
+            foreach (var position in Positions) 
+            {
+                _positionSelectionComboBox.AddItem(position.Id.ToString());
+            }
+            
+            // Reacting to the selected position change
+            _positionSelectionComboBox.SelectedItemChanged += SelectedPositionChanged;
+            
+            
+            
+            // Configuring the Grid where the ComboBox and the price TextBlock
+            // are placed
+            _blockGrid = new Grid(2, 1);
+            _blockGrid.AddChild(_positionSelectionComboBox, 0, 0);
+            _blockGrid.AddChild(_currentPriceText, 1, 0);
+            
             // Adding a new block into the ASP
-            Asp.SymbolTab.AddBlock("Position.CurrentPrice").Child = _currentPriceText;
-            
-            // Opening a new position (the sample assumes that the order
-            // is executed successfully)
-            ExecuteMarketOrder(TradeType.Buy, "EURUSD", 10000, "plugin position");
-            
-            // Updating the text inside the TextBlock by using Position.CurrentPrice
-            _currentPriceText.Text = Positions.Find("plugin position").CurrentPrice.ToString();
-            
+            Asp.SymbolTab.AddBlock("Position.CurrentPrice").Child = _blockGrid;
+                        
             // Starting the timer with 100 milliseconds as the tick
             Timer.Start(TimeSpan.FromMilliseconds(100));
             
+        }
+        
+        // Updating the _selectedPosition field by finding a Position object
+        // with the Id chosen in the ComboBox
+        private void SelectedPositionChanged(ComboBoxSelectedItemChangedEventArgs obj)
+        {
+            _selectedPosition = FindPositionById(obj.SelectedItem);
         }
 
         // Overriding the built-in handler of the Timer.TimerTick event
         protected override void OnTimer()
         {
             // Updating the text inside the TextBlock by using Position.CurrentPrice
-            _currentPriceText.Text = Positions.Find("plugin position").CurrentPrice.ToString();
+            _currentPriceText.Text = _selectedPosition.CurrentPrice.ToString();
+        }
+        
+        // Defining a custom method to find a position by its Id
+        private Position FindPositionById(string positionId)
+        {
+            foreach (var position in Positions)
+            {
+                if (position.Id.ToString() == positionId)
+                {
+                    return position;
+                }
+            }
+            return null; 
         }
 
     }        
