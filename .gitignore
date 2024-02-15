@@ -336,6 +336,9 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 
+# VS Code files
+.vscode/
+
 # BeatPulse healthcheck temp database
 healthchecksdb
 /Indicators/ATRMTF_time_History
