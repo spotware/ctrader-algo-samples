@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="cTrader.Automate" Version="*" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="cAlgo.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3499da3018340880">
+      <HintPath>..\..\..\..\..\..\AppData\Local\Spotware\cTrader\330f49df8243756a8a4dc7f7f7ee6dfe\app_5.1.25171.25171\cAlgo.API.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
