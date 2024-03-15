@@ -83,7 +83,7 @@ namespace cAlgo.Plugins
             var addTradeWatchTabButton = new Button{Text = "add TradeWatch Tab", Style = buttonStyle};
             addTradeWatchTabButton.Click += args => 
             {
-                var tab = Tradewatch.AddTab("Tab " + tradewatchTabCounter);                       
+                var tab = TradeWatch.AddTab("Tab " + tradewatchTabCounter);                       
                 tab.Index = tradewatchTabCounter;                
                 tradewatchTabCounter++;       
                 tab.IsSelected = true;
@@ -100,7 +100,6 @@ namespace cAlgo.Plugins
             {
                 var frame = ChartManager.AddCustomFrame("Custom Frame " + customFrameCounter);                                       
                 customFrameCounter++;                
-                frame.ChartContainer.ActiveFrame = frame;
                 
                 var webView = new WebView();
                 frame.Child = webView;
@@ -111,7 +110,7 @@ namespace cAlgo.Plugins
             var customizeActiveChartButton = new Button{Text = "customize Active Chart", Style = buttonStyle};
             customizeActiveChartButton.Click += args => 
             {
-                var activeFrame = ChartManager.ChartContainers.MainChartContainer.ActiveFrame;
+                var activeFrame = ChartManager.ActiveFrame;
                 if (activeFrame is ChartFrame chartFrame)
                 {
                     var chart = chartFrame.Chart;
@@ -124,19 +123,5 @@ namespace cAlgo.Plugins
             
             block.Child = stackPanel;
         }
-
-        protected override void OnStop()
-        {
-            // Handle Plugin stop here
-        }
     }        
-    
-    static class Extensions
-    {
-        public static Button OnClick(this Button button, Action<ButtonClickEventArgs> action)
-        {
-            button.Click += action;
-            return button;
-        }
-    }
 }
