@@ -21,14 +21,20 @@ namespace cAlgo.Plugins
         const string WebViewUrl = "https://ctrader.com";
     
         protected override void OnStart()
+        {        
+            var icon = new SvgIcon(@"
+<svg class='w-6 h-6 text-gray-800 dark:text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' width='15' height='15' fill='none' viewBox='0 0 24 24'>
+  <path stroke='#BFBFBF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 6.5h2M11 18h2m-7-5v-2m12 2v-2M5 8h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1Zm0 12h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1Zm12 0h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1Zm0-12h2a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1Z'/>
+</svg>
+");
+            Commands.Add(CommandType.ChartContainerToolbar, OnIconClicked, icon);
+        }
+        
+        private CommandResult OnIconClicked(CommandArgs args)        
         {
             var buttonStyle = new Style();
             buttonStyle.Set(ControlProperty.Margin, new Thickness(0, 5, 0, 0));
             buttonStyle.Set(ControlProperty.Width, 150);
-        
-            var block = Asp.SymbolTab.AddBlock("All placements");
-            block.IsExpanded = true;
-            block.IsDetachable = false;
             var stackPanel = new StackPanel();
             
             var showMessageBoxButton = new Button{Text = "show MessageBox", Style = buttonStyle};
@@ -119,9 +125,18 @@ namespace cAlgo.Plugins
                     chart.ZoomLevel = 10;
                 }
             };
-            stackPanel.AddChild(customizeActiveChartButton);
-            
-            block.Child = stackPanel;
+            stackPanel.AddChild(customizeActiveChartButton);                       
+                        
+            var border = new Border();
+            border.Padding = 5;
+            border.BackgroundColor = "#1A1A1A";
+            border.CornerRadius = 3;
+            border.BorderThickness = 1;
+            border.BorderColor = "525252";
+            border.Child = stackPanel;
+            border.Width = 170;
+            border.Height = 190;
+            return new CommandResult(border);
         }
     }        
 }
