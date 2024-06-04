@@ -1,281 +1,320 @@
 [
-    {
-        "name": "Accelerator Oscillator Sample"
-    },
-    {
-        "name": "Accumulative Swing Index Sample"
-    },
-    {
-        "name": "Alligator Sample"
-    },
-    {
-        "name": "Aroon Sample"
-    },
-    {
-        "name": "Average Directional Movement Index Rating Sample"
-    },
-    {
-        "name": "Average True Range Sample"
-    },
-    {
-        "name": "Awesome Oscillator Sample"
-    },
-    {
-        "name": "BarsHistoryLoadedEventArgs Sample"
-    },
-    {
-        "name": "Bollinger Bands Sample"
-    },
-    {
-        "name": "Center Of Gravity Sample"
-    },
-    {
-        "name": "Chaikin Money Flow Sample"
-    },
-    {
-        "name": "Chaikin Volatility Sample"
-    },
-    {
-        "name": "Close All On Market Close Sample"
-    },
-    {
-        "name": "Commodity Channel Index Sample"
-    },
-    {
-        "name": "Cyber Cycle Sample"
-    },
-    {
-        "name": "Detrended Price Oscillator Sample"
-    },
-    {
-        "name": "Directional Movement System Sample"
-    },
-    {
-        "name": "Donchian Channel Sample"
-    },
-    {
-        "name": "Ease Of Movement Sample"
-    },
-    {
-        "name": "Error Sample"
-    },
-    {
-        "name": "Exponential Moving Average Sample"
-    },
-    {
-        "name": "Fractal Chaos Bands Sample"
-    },
-    {
-        "name": "Fractals Sample"
-    },
-    {
-        "name": "GetFitnessArgs Sample"
-    },
-    {
-        "name": "Grid"
-    },
-    {
-        "name": "High Minus Low Sample"
-    },
-    {
-        "name": "Historical Volatility Sample"
-    },
-    {
-        "name": "Hull Moving Average Sample"
-    },
-    {
-        "name": "Ichimoku Kinko Hyo Sample"
-    },
-    {
-        "name": "Keltner Channels Sample"
-    },
-    {
-        "name": "Linear Regression Forecast Sample"
-    },
-    {
-        "name": "Linear Regression Intercept Sample"
-    },
-    {
-        "name": "Linear Regression R Squared Sample"
-    },
-    {
-        "name": "Linear Regression Slope Sample"
-    },
-    {
-        "name": "Macd Cross Over Sample"
-    },
-    {
-        "name": "Macd Histogram Sample"
-    },
-    {
-        "name": "Mass Index Sample"
-    },
-    {
-        "name": "Median Price Sample"
-    },
-    {
-        "name": "Momentum Oscillator Sample"
-    },
-    {
-        "name": "Money Flow Index Sample"
-    },
-    {
-        "name": "Moving Average Sample"
-    },
-    {
-        "name": "On Balance Volume Sample"
-    },
-    {
-        "name": "Parabolic SAR Sample"
-    },
-    {
-        "name": "Partial Close Sample"
-    },
-    {
-        "name": "Pending Order Cancelation Sample"
-    },
-    {
-        "name": "Pending Order Events"
-    },
-    {
-        "name": "Pending Order Modification Sample"
-    },
-    {
-        "name": "Pending Order Placing Sample"
-    },
-    {
-        "name": "PendingOrderCancellationReason Sample"
-    },
-    {
-        "name": "PendingOrders Sample"
-    },
-    {
-        "name": "Polynomial Regression Channels Sample"
-    },
-    {
-        "name": "Position Bars Passed Sample"
-    },
-    {
-        "name": "Position Closing Sample"
-    },
-    {
-        "name": "Position Events Sample"
-    },
-    {
-        "name": "Position Execution Sample"
-    },
-    {
-        "name": "Position Modification Sample"
-    },
-    {
-        "name": "PositionCloseReason Sample"
-    },
-    {
-        "name": "PositionModifiedEventArgs Sample"
-    },
-    {
-        "name": "Price Oscillator Sample"
-    },
-    {
-        "name": "Price ROC Sample"
-    },
-    {
-        "name": "Price Volume Trend Sample"
-    },
-    {
-        "name": "Rainbow Oscillator Sample"
-    },
-    {
-        "name": "Range Strategy Example"
-    },
-    {
-        "name": "RefreshData Sample"
-    },
-    {
-        "name": "Relative Strength Index Sample"
-    },
-    {
-        "name": "Running Mode Sample"
-    },
-    {
-        "name": "Simple Moving Average Sample"
-    },
-    {
-        "name": "Standard Deviation Sample"
-    },
-    {
-        "name": "Stochastic Oscillator Sample"
-    },
-    {
-        "name": "StopTriggerMethod Sample"
-    },
-    {
-        "name": "Supertrend Sample"
-    },
-    {
-        "name": "Swing Index Sample"
-    },
-    {
-        "name": "Time Series Moving Average Sample"
-    },
-    {
-        "name": "Timer Sample"
-    },
-    {
-        "name": "Trade Volume Index Sample"
-    },
-    {
-        "name": "TradeOperation Sample"
-    },
-    {
-        "name": "TradeResult Sample"
-    },
-    {
-        "name": "TradeType Sample"
-    },
-    {
-        "name": "Triangular Moving Average Sample"
-    },
-    {
-        "name": "Trix Sample"
-    },
-    {
-        "name": "True Range Sample"
-    },
-    {
-        "name": "Typical Price Sample"
-    },
-    {
-        "name": "Ultimate Oscillator Sample"
-    },
-    {
-        "name": "Vertical Horizontal Filter Sample"
-    },
-    {
-        "name": "Vidya Sample"
-    },
-    {
-        "name": "Volume Index Sample"
-    },
-    {
-        "name": "Volume Oscillator Sample"
-    },
-    {
-        "name": "Volume ROC Sample"
-    },
-    {
-        "name": "Weighted Close Sample"
-    },
-    {
-        "name": "Weighted Moving Average Sample"
-    },
-    {
-        "name": "Welles Wilder Smoothing Sample"
-    },
-    {
-        "name": "Williams Accumulation Distribution Sample"
-    },
-    {
-        "name": "WilliamsPctR Sample"
-    }
+  {
+    "name": "Accelerator Oscillator Sample"
+  },
+  {
+    "name": "Accumulative Swing Index Sample"
+  },
+  {
+    "name": "AddToChart Sample"
+  },
+  {
+    "name": "AlgoRegistry Sample"
+  },
+  {
+    "name": "Alligator Sample"
+  },
+  {
+    "name": "Aroon Sample"
+  },
+  {
+    "name": "Average Directional Movement Index Rating Sample"
+  },
+  {
+    "name": "Average True Range Sample"
+  },
+  {
+    "name": "Awesome Oscillator Sample"
+  },
+  {
+    "name": "BarClosed Example"
+  },
+  {
+    "name": "BarOpened Example"
+  },
+  {
+    "name": "BarsHistoryLoadedEventArgs Sample"
+  },
+  {
+    "name": "Bollinger Bands Sample"
+  },
+  {
+    "name": "Center Of Gravity Sample"
+  },
+  {
+    "name": "Chaikin Money Flow Sample"
+  },
+  {
+    "name": "Chaikin Volatility Sample"
+  },
+  {
+    "name": "ChartId Sample"
+  },
+  {
+    "name": "ChartIndicators Sample"
+  },
+  {
+    "name": "Close All On Market Close Sample"
+  },
+  {
+    "name": "Commodity Channel Index Sample"
+  },
+  {
+    "name": "CoordinatesConversion Sample"
+  },
+  {
+    "name": "Custom Fitness Functions"
+  },
+  {
+    "name": "CustomHandlers Example"
+  },
+  {
+    "name": "Cyber Cycle Sample"
+  },
+  {
+    "name": "Detrended Price Oscillator Sample"
+  },
+  {
+    "name": "Directional Movement System Sample"
+  },
+  {
+    "name": "Donchian Channel Sample"
+  },
+  {
+    "name": "Ease Of Movement Sample"
+  },
+  {
+    "name": "Error Sample"
+  },
+  {
+    "name": "Exponential Moving Average Sample"
+  },
+  {
+    "name": "Fractal Chaos Bands Sample"
+  },
+  {
+    "name": "Fractals Sample"
+  },
+  {
+    "name": "GetFitnessArgs Sample"
+  },
+  {
+    "name": "Grid"
+  },
+  {
+    "name": "High Minus Low Sample"
+  },
+  {
+    "name": "Historical Volatility Sample"
+  },
+  {
+    "name": "Hull Moving Average Sample"
+  },
+  {
+    "name": "Ichimoku Kinko Hyo Sample"
+  },
+  {
+    "name": "IndicatorTitles Sample"
+  },
+  {
+    "name": "Keltner Channels Sample"
+  },
+  {
+    "name": "Linear Regression Forecast Sample"
+  },
+  {
+    "name": "Linear Regression Intercept Sample"
+  },
+  {
+    "name": "Linear Regression R Squared Sample"
+  },
+  {
+    "name": "Linear Regression Slope Sample"
+  },
+  {
+    "name": "Macd Cross Over Sample"
+  },
+  {
+    "name": "Macd Histogram Sample"
+  },
+  {
+    "name": "Mass Index Sample"
+  },
+  {
+    "name": "Median Price Sample"
+  },
+  {
+    "name": "Momentum Oscillator Sample"
+  },
+  {
+    "name": "Money Flow Index Sample"
+  },
+  {
+    "name": "Moving Average Sample"
+  },
+  {
+    "name": "On Balance Volume Sample"
+  },
+  {
+    "name": "Parabolic SAR Sample"
+  },
+  {
+    "name": "Partial Close Sample"
+  },
+  {
+    "name": "Pending Order Cancelation Sample"
+  },
+  {
+    "name": "Pending Order Events"
+  },
+  {
+    "name": "Pending Order Modification Sample"
+  },
+  {
+    "name": "Pending Order Placing Sample"
+  },
+  {
+    "name": "PendingOrderCancellationReason Sample"
+  },
+  {
+    "name": "PendingOrders Sample"
+  },
+  {
+    "name": "Polynomial Regression Channels Sample"
+  },
+  {
+    "name": "Position Bars Passed Sample"
+  },
+  {
+    "name": "Position Closing Sample"
+  },
+  {
+    "name": "Position Events Sample"
+  },
+  {
+    "name": "Position Execution Sample"
+  },
+  {
+    "name": "Position Modification Sample"
+  },
+  {
+    "name": "PositionCloseReason Sample"
+  },
+  {
+    "name": "PositionCurrentPrice Sample"
+  },
+  {
+    "name": "PositionModifiedEventArgs Sample"
+  },
+  {
+    "name": "Price Oscillator Sample"
+  },
+  {
+    "name": "Price ROC Sample"
+  },
+  {
+    "name": "Price Volume Trend Sample"
+  },
+  {
+    "name": "Rainbow Oscillator Sample"
+  },
+  {
+    "name": "Range Strategy Example"
+  },
+  {
+    "name": "RefreshData Sample"
+  },
+  {
+    "name": "Relative Strength Index Sample"
+  },
+  {
+    "name": "Running Mode Sample"
+  },
+  {
+    "name": "Simple Moving Average Sample"
+  },
+  {
+    "name": "SmoothMouseMove Sample"
+  },
+  {
+    "name": "Standard Deviation Sample"
+  },
+  {
+    "name": "Stochastic Oscillator Sample"
+  },
+  {
+    "name": "StopTriggerMethod Sample"
+  },
+  {
+    "name": "Supertrend Sample"
+  },
+  {
+    "name": "Swing Index Sample"
+  },
+  {
+    "name": "Time Series Moving Average Sample"
+  },
+  {
+    "name": "Timer Sample"
+  },
+  {
+    "name": "Trade Volume Index Sample"
+  },
+  {
+    "name": "TradeOperation Sample"
+  },
+  {
+    "name": "TradeResult Sample"
+  },
+  {
+    "name": "TradeType Sample"
+  },
+  {
+    "name": "Triangular Moving Average Sample"
+  },
+  {
+    "name": "Trix Sample"
+  },
+  {
+    "name": "True Range Sample"
+  },
+  {
+    "name": "Typical Price Sample"
+  },
+  {
+    "name": "Ultimate Oscillator Sample"
+  },
+  {
+    "name": "Vertical Horizontal Filter Sample"
+  },
+  {
+    "name": "Vidya Sample"
+  },
+  {
+    "name": "Volume Index Sample"
+  },
+  {
+    "name": "Volume Oscillator Sample"
+  },
+  {
+    "name": "Volume ROC Sample"
+  },
+  {
+    "name": "WebSocket Sample"
+  },
+  {
+    "name": "Weighted Close Sample"
+  },
+  {
+    "name": "Weighted Moving Average Sample"
+  },
+  {
+    "name": "Welles Wilder Smoothing Sample"
+  },
+  {
+    "name": "Williams Accumulation Distribution Sample"
+  },
+  {
+    "name": "WilliamsPctR Sample"
+  }
 ]
