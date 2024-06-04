@@ -1,56 +1,56 @@
 [
-    {
-        "name": "ASP Section Example"
-    },
-    {
-        "name": "All placements"
-    },
-    {
-        "name": "ActiveFrameChanged Sample"
-    },
-    {
-        "name": "AlgoRegistry Sample"
-    },
-    {
-        "name": "BacktestingInPlugins Sample"
-    },
-    {
-        "name": "ChartId Sample"
-    },
-    {
-        "name": "ChartIndicators Sample"
-    },
-    {
-        "name": "ChartRobots Sample"
-    },
-    {
-        "name": "Commands Sample"
-    },
-    {
-        "name": "CoordinatesConversion Sample"
-    },
-    {
-        "name": "Custom Frame Sample"
-    },
-    {
-        "name": "IndicatorTitles Sample"
-    },
-    {
-        "name": "Interactive WebView"
-    },
-    {
-        "name": "Order by Margin"
-    },
-    {
-        "name": "PositionCurrentPrice Sample"
-    },
-    {
-        "name": "SmoothMouseMove Sample"
-    },
-    {
-        "name": "TradeWatch Tab Sample"
-    },
-    {
-        "name": "WebSocket Sample"
-    }
+  {
+    "name": "ActiveFrameChanged Sample"
+  },
+  {
+    "name": "AlgoRegistry Sample"
+  },
+  {
+    "name": "All placements"
+  },
+  {
+    "name": "ASP Section Example"
+  },
+  {
+    "name": "BacktestingInPlugins Sample"
+  },
+  {
+    "name": "ChartId Sample"
+  },
+  {
+    "name": "ChartIndicators Sample"
+  },
+  {
+    "name": "ChartRobots Sample"
+  },
+  {
+    "name": "Commands Sample"
+  },
+  {
+    "name": "CoordinatesConversion Sample"
+  },
+  {
+    "name": "Custom Frame Sample"
+  },
+  {
+    "name": "IndicatorTitles Sample"
+  },
+  {
+    "name": "Interactive WebView"
+  },
+  {
+    "name": "Order by Margin"
+  },
+  {
+    "name": "PositionCurrentPrice Sample"
+  },
+  {
+    "name": "SmoothMouseMove Sample"
+  },
+  {
+    "name": "TradeWatch Tab Sample"
+  },
+  {
+    "name": "WebSocket Sample"
+  }
 ]
