@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoRegistry Sample", "AlgoRegistry Sample\AlgoRegistry Sample.csproj", "{43349484-218e-4bf3-a452-0e44bf636cfe}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartRobots Sample", "ChartRobots Sample\ChartRobots Sample.csproj", "{9c7a50e7-7abb-4661-a843-c73ff1f2dc58}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{43349484-218e-4bf3-a452-0e44bf636cfe}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43349484-218e-4bf3-a452-0e44bf636cfe}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43349484-218e-4bf3-a452-0e44bf636cfe}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43349484-218e-4bf3-a452-0e44bf636cfe}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9c7a50e7-7abb-4661-a843-c73ff1f2dc58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9c7a50e7-7abb-4661-a843-c73ff1f2dc58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9c7a50e7-7abb-4661-a843-c73ff1f2dc58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9c7a50e7-7abb-4661-a843-c73ff1f2dc58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
