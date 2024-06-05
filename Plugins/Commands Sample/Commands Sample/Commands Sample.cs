@@ -5,15 +5,12 @@
 //    This code is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
 //    
-//    This sample adds several commands to chart container toolbar, and uses .NET project assembly embedded resource
-//    to store and load SVG icons.
+//    This sample adds several commands to chart container toolbar, all SVG icons are stored inside SvgIcons
+//    static class.
 //
 // -------------------------------------------------------------------------------------------------
 
 using System;
-using System.IO;
-using System.Reflection;
-using System.Text;
 using cAlgo.API;
 
 namespace cAlgo.Plugins
@@ -23,15 +20,15 @@ namespace cAlgo.Plugins
     {
         protected override void OnStart()
         {
-            var commandWithoutResultIcon = new SvgIcon(GetSvgIconAsString("growth-icon.svg"));
+            var commandWithoutResultIcon = new SvgIcon(SvgIcons.GrowthIcon);
             var commandWithoutResult = Commands.Add(CommandType.ChartContainerToolbar, CommandWithoutResultCallback, commandWithoutResultIcon);
             commandWithoutResult.ToolTip = "Without Result";
             
-            var commandWithResultIcon = new SvgIcon(GetSvgIconAsString("innovation-creativity-icon.svg"));
+            var commandWithResultIcon = new SvgIcon(SvgIcons.InnovationCreativityIcon);
             var commandWithResult = Commands.Add(CommandType.ChartContainerToolbar, CommandWithResultCallback, commandWithResultIcon);
             commandWithResult.ToolTip = "With Result";
             
-            var disabledCommandIcon = new SvgIcon(GetSvgIconAsString("motor-pump-color-icon.svg"));
+            var disabledCommandIcon = new SvgIcon(SvgIcons.MotorPumpColorIcon);
             var disabledCommand = Commands.Add(CommandType.ChartContainerToolbar, args => throw new InvalidOperationException("Shouldn't be executed!"), disabledCommandIcon);
 
             disabledCommand.ToolTip = "Disabled Command";
@@ -74,23 +71,5 @@ namespace cAlgo.Plugins
         }
 
         private void OnWebViewLoaded(WebViewLoadedEventArgs obj) => obj.WebView.NavigateAsync("https://ctrader.com/");
-
-        private string GetSvgIconAsString(string fileName)
-        {
-            var assembly = Assembly.GetAssembly(typeof(CommandsSample));
-            
-            var assemblyName = assembly!.GetName().Name!.Replace(' ', '_');
-            
-            var embeddedResourceName = $"{assemblyName}.{fileName}";
-            
-            using var stream = assembly.GetManifestResourceStream(embeddedResourceName);
-            
-            if (stream is null)
-                throw new InvalidOperationException($"Resource {embeddedResourceName} not found.");
-            
-            using var streamReader = new StreamReader(stream, Encoding.UTF8);
-
-            return streamReader.ReadToEnd();
-        }
     }        
 }
