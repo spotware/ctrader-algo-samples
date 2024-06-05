@@ -6,10 +6,4 @@
   <ItemGroup>
     <PackageReference Include="cTrader.Automate" Version="*-*" />
   </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="growth-icon.svg" />
-    <EmbeddedResource Include="innovation-creativity-icon.svg" />
-    <EmbeddedResource Include="motor-pump-color-icon.svg" />
-  </ItemGroup>
 </Project>
