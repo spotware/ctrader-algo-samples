@@ -1,9 +1,10 @@
 ﻿using System;
 using cAlgo.API;
+using cAlgo.API.Internals;
 
 namespace cAlgo.Plugins;
 
-public readonly record struct TradeEventArgs(int Volume, TradeType TradeType);
+public readonly record struct TradeEventArgs(int Volume, TradeType TradeType, string SymbolName);
 
 public class TradeControl : CustomControl
 {
@@ -58,17 +59,22 @@ public class TradeControl : CustomControl
         AddChild(_panel);
     }
 
+    public Symbol Symbol { get; set; }
+    
     public event EventHandler<TradeEventArgs> Trade;
 
     private void ExecuteButtonOnClick(ButtonClickEventArgs obj)
     {
+        if (Symbol is null)
+            return;
+        
         if (!int.TryParse(_volumeTextBox.Text, out var volume))
             return;
 
         if (!Enum.TryParse(_tradeTypeComboBox.SelectedItem, out TradeType tradeType))
             return;
 
-        Trade?.Invoke(this, new TradeEventArgs(volume, tradeType));
+        Trade?.Invoke(this, new TradeEventArgs(volume, tradeType, Symbol.Name));
     }
 
     private TextBlock GetTextBlock(string text = null) => new()

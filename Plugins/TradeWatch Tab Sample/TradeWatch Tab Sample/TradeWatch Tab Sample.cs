@@ -20,7 +20,7 @@ namespace cAlgo.Plugins
         private TradeControl _tradeControl;
 
         protected override void OnStart()
-        {
+        {            
             var tab = TradeWatch.AddTab("Active Chart Symbol Stats");
 
             var panel = new StackPanel
@@ -42,10 +42,7 @@ namespace cAlgo.Plugins
 
         private void TradeControlOnTrade(object sender, TradeEventArgs e)
         {
-            if (ChartManager.ActiveFrame is not ChartFrame chartFrame)
-                return;
-
-            ExecuteMarketOrder(e.TradeType, chartFrame.Symbol.Name, e.Volume);
+            ExecuteMarketOrder(e.TradeType, e.SymbolName, e.Volume);
         }
 
         private void SetSymbolStats()
@@ -53,6 +50,7 @@ namespace cAlgo.Plugins
             if (ChartManager.ActiveFrame is not ChartFrame chartFrame)
                 return;
 
+            _tradeControl.Symbol = chartFrame.Symbol;
             _symbolStatsControl.Symbol = chartFrame.Symbol;
         }
     }
