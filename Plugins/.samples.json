@@ -48,6 +48,9 @@
         "name":  "PositionCurrentPrice Sample"
     },
     {
+        "name":  "Previous Bar Info"
+    },
+    {
         "name":  "SmoothMouseMove Sample"
     },
     {
