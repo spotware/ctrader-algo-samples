@@ -2,10 +2,11 @@
 //
 //    This code is a cTrader Algo API example.
 //
-//    The code is intended to be used as a sample and does not guarantee any particular outcome or
-//    profit of any kind. Use it at your own risk.
+//    The code is provided as a sample only and does not guarantee any particular outcome or profit of any kind. Use it at your own risk.
 //    
 //    This example plugin adds a new section to the Active Symbol Panel (ASP), with styles applied to the plugin controls.
+//
+//    For a detailed tutorial on creating this plugin, watch the video at: https://www.youtube.com/watch?v=WRwhT7jxTNs
 //
 // -------------------------------------------------------------------------------------------------
 
