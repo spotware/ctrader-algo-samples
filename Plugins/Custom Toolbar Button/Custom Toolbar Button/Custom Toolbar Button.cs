@@ -4,7 +4,7 @@
 //
 //    The code is provided as a sample only and does not guarantee any particular outcome or profit of any kind. Use it at your own risk.
 //    
-//    This example plugin adds a new button with a pop-up menu to the Chart Toolbar, featuring a "Close All Positions" button that closes open positions when clicked. 
+//    This example plugin adds a new button with a pop-up menu to the Chart Toolbar, featuring a 'Close All Positions' button that closes open positions when clicked. 
 //
 //    For a detailed tutorial on creating this plugin, watch the video at: [to:do]
 //
