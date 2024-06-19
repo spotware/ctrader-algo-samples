@@ -34,6 +34,9 @@
     },
     {
         "name":  "Custom Toolbar Button"
+    },
+    {
+        "name":  "Custom Window Plugin"
     },    
     {
         "name":  "IndicatorTitles Sample"
@@ -44,6 +47,9 @@
     {
         "name":  "My ASP Example"
     },
+    {
+        "name":  "My Custom Frame Example"
+    },   
     {
         "name":  "Order by Margin"
     },
