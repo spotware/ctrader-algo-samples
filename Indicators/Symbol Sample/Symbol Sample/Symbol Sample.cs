@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -34,7 +34,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(24, 2) 
+            var grid = new Grid(24, 2)
             {
                 BackgroundColor = Color.Gold,
                 Opacity = 0.6,
@@ -51,152 +51,152 @@ namespace cAlgo
 
             _symbol = UseCurrentSymbol ? Symbol : Symbols.GetSymbol(OtherSymbolName);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Symbol Info",
                 Style = style,
                 HorizontalAlignment = HorizontalAlignment.Center
             }, 0, 0, 1, 2);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Name",
                 Style = style
             }, 1, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.Name,
                 Style = style
             }, 1, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "ID",
                 Style = style
             }, 2, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.Id.ToString(),
                 Style = style
             }, 2, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Digits",
                 Style = style
             }, 3, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.Digits.ToString(),
                 Style = style
             }, 3, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Description",
                 Style = style
             }, 4, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.Description,
                 Style = style
             }, 4, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Lot Size",
                 Style = style
             }, 5, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.LotSize.ToString(),
                 Style = style
             }, 5, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Pip Size",
                 Style = style
             }, 6, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.PipSize.ToString(),
                 Style = style
             }, 6, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Pip Value",
                 Style = style
             }, 7, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.PipValue.ToString(),
                 Style = style
             }, 7, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Tick Size",
                 Style = style
             }, 8, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.TickSize.ToString(),
                 Style = style
             }, 8, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Tick Value",
                 Style = style
             }, 9, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.TickValue.ToString(),
                 Style = style
             }, 9, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Volume In Units Max",
                 Style = style
             }, 10, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.VolumeInUnitsMax.ToString(),
                 Style = style
             }, 10, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Volume In Units Min",
                 Style = style
             }, 11, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.VolumeInUnitsMin.ToString(),
                 Style = style
             }, 11, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Volume In Units Step",
                 Style = style
             }, 12, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.VolumeInUnitsStep.ToString(),
                 Style = style
             }, 12, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Ask",
                 Style = style
             }, 13, 0);
 
-            _askTextBlock = new TextBlock 
+            _askTextBlock = new TextBlock
             {
                 Text = _symbol.Ask.ToString(),
                 Style = style
@@ -204,13 +204,13 @@ namespace cAlgo
 
             grid.AddChild(_askTextBlock, 13, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Bid",
                 Style = style
             }, 14, 0);
 
-            _bidTextBlock = new TextBlock 
+            _bidTextBlock = new TextBlock
             {
                 Text = _symbol.Bid.ToString(),
                 Style = style
@@ -218,13 +218,13 @@ namespace cAlgo
 
             grid.AddChild(_bidTextBlock, 14, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Spread",
                 Style = style
             }, 15, 0);
 
-            _spreadTextBlock = new TextBlock 
+            _spreadTextBlock = new TextBlock
             {
                 Text = _symbol.Spread.ToString(),
                 Style = style
@@ -232,13 +232,13 @@ namespace cAlgo
 
             grid.AddChild(_spreadTextBlock, 15, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Unrealized Gross Profit",
                 Style = style
             }, 16, 0);
 
-            _unrealizedGrossProfitTextBlock = new TextBlock 
+            _unrealizedGrossProfitTextBlock = new TextBlock
             {
                 Text = _symbol.UnrealizedGrossProfit.ToString(),
                 Style = style
@@ -246,13 +246,13 @@ namespace cAlgo
 
             grid.AddChild(_unrealizedGrossProfitTextBlock, 16, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Unrealized Net Profit",
                 Style = style
             }, 17, 0);
 
-            _unrealizedNetProfitTextBlock = new TextBlock 
+            _unrealizedNetProfitTextBlock = new TextBlock
             {
                 Text = _symbol.UnrealizedNetProfit.ToString(),
                 Style = style
@@ -260,13 +260,13 @@ namespace cAlgo
 
             grid.AddChild(_unrealizedNetProfitTextBlock, 17, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Time Till Open",
                 Style = style
             }, 18, 0);
 
-            _timeTillOpenTextBlock = new TextBlock 
+            _timeTillOpenTextBlock = new TextBlock
             {
                 Text = _symbol.MarketHours.TimeTillOpen().ToString(),
                 Style = style
@@ -274,13 +274,13 @@ namespace cAlgo
 
             grid.AddChild(_timeTillOpenTextBlock, 18, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Time Till Close",
                 Style = style
             }, 19, 0);
 
-            _timeTillCloseTextBlock = new TextBlock 
+            _timeTillCloseTextBlock = new TextBlock
             {
                 Text = _symbol.MarketHours.TimeTillClose().ToString(),
                 Style = style
@@ -288,13 +288,13 @@ namespace cAlgo
 
             grid.AddChild(_timeTillCloseTextBlock, 19, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Is Opened",
                 Style = style
             }, 20, 0);
 
-            _isOpenedTextBlock = new TextBlock 
+            _isOpenedTextBlock = new TextBlock
             {
                 Text = _symbol.MarketHours.IsOpened().ToString(),
                 Style = style
@@ -302,19 +302,19 @@ namespace cAlgo
 
             grid.AddChild(_isOpenedTextBlock, 20, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Trading Sessions #",
                 Style = style
             }, 21, 0);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.MarketHours.Sessions.Count.ToString(),
                 Style = style
             }, 21, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Trading Session Week Days",
                 Style = style
@@ -329,13 +329,13 @@ namespace cAlgo
                 weekDays = iSession == 0 ? currentSessionWeekDays : string.Format("{0}, {1}", weekDays, currentSessionWeekDays);
             }
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = weekDays,
                 Style = style
             }, 22, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Leverage Tier",
                 Style = style
@@ -350,7 +350,7 @@ namespace cAlgo
                 leverageTiers = iLeveragTier == 0 ? currentLeverageTiers : string.Format("{0}, {1}", leverageTiers, currentLeverageTiers);
             }
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = leverageTiers,
                 Style = style

@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -16,7 +16,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var border = new Border 
+            var border = new Border
             {
                 BorderColor = Color.Yellow,
                 BorderThickness = 2,
@@ -29,12 +29,12 @@ namespace cAlgo
                 Margin = 10
             };
 
-            var stackPanel = new StackPanel 
+            var stackPanel = new StackPanel
             {
                 Orientation = Orientation.Vertical
             };
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Text",
                 Margin = 5,
@@ -42,7 +42,7 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             });
 
-            stackPanel.AddChild(new Button 
+            stackPanel.AddChild(new Button
             {
                 Text = "Button",
                 Margin = 5,
@@ -50,7 +50,7 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             });
 
-            stackPanel.AddChild(new TextBox 
+            stackPanel.AddChild(new TextBox
             {
                 Text = "Type text...",
                 Margin = 5,

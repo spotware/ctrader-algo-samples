@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -22,7 +22,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var scrollViewer = new ScrollViewer 
+            var scrollViewer = new ScrollViewer
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -33,7 +33,7 @@ namespace cAlgo
                 Height = 100
             };
 
-            var grid = new Grid(10, 2) 
+            var grid = new Grid(10, 2)
             {
                 BackgroundColor = Color.Gold,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -44,7 +44,7 @@ namespace cAlgo
 
             for (int iRow = 0; iRow < 10; iRow++)
             {
-                grid.AddChild(new TextBlock 
+                grid.AddChild(new TextBlock
                 {
                     Text = "Text",
                     Margin = 5,
@@ -52,7 +52,7 @@ namespace cAlgo
                     FontWeight = FontWeight.ExtraBold
                 }, iRow, 0);
 
-                grid.AddChild(new Button 
+                grid.AddChild(new Button
                 {
                     Text = "Button",
                     Margin = 5,

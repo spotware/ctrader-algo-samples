@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This code is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -15,25 +15,25 @@ using cAlgo.API.Internals;
 
 namespace cAlgo.Plugins
 {
-    [Plugin(AccessRights = AccessRights.None)]
-    public class InteractiveWebView : Plugin
+  [Plugin(AccessRights = AccessRights.None)]
+  public class InteractiveWebView : Plugin
+  {
+    WebView webView;
+
+    protected override void OnStart()
     {
-        WebView webView;    
-    
-        protected override void OnStart()
-        {
-            webView = new WebView();
-            webView.WebMessageReceived += webView_WebMessageReceived;
+      webView = new WebView();
+      webView.WebMessageReceived += webView_WebMessageReceived;
 
-            var block = Asp.SymbolTab.AddBlock("Interactive WebView");
-            block.Index = 1;
-            block.Child = webView;
-            block.Height = 100;
-            block.IsExpanded = true;
-            block.IsDetachable = false;
+      var block = Asp.SymbolTab.AddBlock("Interactive WebView");
+      block.Index = 1;
+      block.Child = webView;
+      block.Height = 100;
+      block.IsExpanded = true;
+      block.IsDetachable = false;
 
-            webView.NavigationCompleted += webView_NavigationCompleted;
-            webView.NavigateToStringAsync(@"
+      webView.NavigationCompleted += webView_NavigationCompleted;
+      webView.NavigateToStringAsync(@"
 <body bgcolor='white'>
 <div>
   <div>
@@ -64,40 +64,41 @@ function updateValues(data){
             ");
 
 
-            Account.Switched += Account_Switched;
-        }
+      Account.Switched += Account_Switched;
+    }
 
-        private void webView_NavigationCompleted(WebViewNavigationCompletedEventArgs obj)
-        {
-            UpdateAccountInfo();
-        }
+    private void webView_NavigationCompleted(WebViewNavigationCompletedEventArgs obj)
+    {
+      UpdateAccountInfo();
+    }
 
-        private void Account_Switched(AccountSwitchedEventArgs obj)
-        {
-            UpdateAccountInfo();
-        }
+    private void Account_Switched(AccountSwitchedEventArgs obj)
+    {
+      UpdateAccountInfo();
+    }
 
-        private void webView_WebMessageReceived(WebViewWebMessageReceivedEventArgs args)
+    private void webView_WebMessageReceived(WebViewWebMessageReceivedEventArgs args)
+    {
+      if (args.Message == @"""close all message""")
+      {
+        foreach (var position in Positions)
         {
-            if (args.Message == @"""close all message""") 
-            {
-                foreach (var position in Positions)
-                {
-                    position.Close();
-                }
-            }
+          position.Close();
         }
+      }
+    }
 
-        private void UpdateAccountInfo()
-        {
-            var data = new {
-                ctid = Account.UserId,
-                account = Account.Number,
-                broker = Account.BrokerName,
-            };
-            var dataJson = System.Text.Json.JsonSerializer.Serialize(data);
-            
-            webView.ExecuteScript("updateValues(" + dataJson +")");
-        }
-    }        
+    private void UpdateAccountInfo()
+    {
+      var data = new
+      {
+        ctid = Account.UserId,
+        account = Account.Number,
+        broker = Account.BrokerName,
+      };
+      var dataJson = System.Text.Json.JsonSerializer.Serialize(data);
+
+      webView.ExecuteScript("updateValues(" + dataJson + ")");
+    }
+  }
 }

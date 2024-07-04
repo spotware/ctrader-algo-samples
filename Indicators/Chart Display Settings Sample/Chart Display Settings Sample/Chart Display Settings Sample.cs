@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -16,7 +16,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel 
+            var stackPanel = new StackPanel
             {
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Bottom,
@@ -26,7 +26,7 @@ namespace cAlgo
                 Orientation = Orientation.Vertical
             };
 
-            var askPriceLineCheckBox = new CheckBox 
+            var askPriceLineCheckBox = new CheckBox
             {
                 Text = "Ask Price Line",
                 Margin = 5,
@@ -37,7 +37,7 @@ namespace cAlgo
 
             stackPanel.AddChild(askPriceLineCheckBox);
 
-            var bidPriceLineCheckBox = new CheckBox 
+            var bidPriceLineCheckBox = new CheckBox
             {
                 Text = "Bid Price Line",
                 Margin = 5,
@@ -48,7 +48,7 @@ namespace cAlgo
 
             stackPanel.AddChild(bidPriceLineCheckBox);
 
-            var chartScaleCheckBox = new CheckBox 
+            var chartScaleCheckBox = new CheckBox
             {
                 Text = "Chart Scale",
                 Margin = 5,
@@ -59,7 +59,7 @@ namespace cAlgo
 
             stackPanel.AddChild(chartScaleCheckBox);
 
-            var dealMapCheckBox = new CheckBox 
+            var dealMapCheckBox = new CheckBox
             {
                 Text = "Deal Map",
                 Margin = 5,
@@ -70,7 +70,7 @@ namespace cAlgo
 
             stackPanel.AddChild(dealMapCheckBox);
 
-            var gridCheckBox = new CheckBox 
+            var gridCheckBox = new CheckBox
             {
                 Text = "Grid",
                 Margin = 5,
@@ -81,7 +81,7 @@ namespace cAlgo
 
             stackPanel.AddChild(gridCheckBox);
 
-            var volumeCheckBox = new CheckBox 
+            var volumeCheckBox = new CheckBox
             {
                 Text = "Volume",
                 Margin = 5,

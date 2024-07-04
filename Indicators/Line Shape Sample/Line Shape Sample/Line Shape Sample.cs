@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -19,7 +19,7 @@ namespace cAlgo
             var xCenter = Chart.Width / 2;
             var yCenter = Chart.Height / 2;
 
-            var line = new Line 
+            var line = new Line
             {
                 X1 = xCenter,
                 X2 = xCenter + 100,

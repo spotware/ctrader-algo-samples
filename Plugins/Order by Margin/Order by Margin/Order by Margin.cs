@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This code is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -18,17 +18,17 @@ namespace cAlgo.Plugins
     [Plugin(AccessRights = AccessRights.None)]
     public class OrderByMargin : Plugin
     {
-        TextBlock availableMarginTextBlock = new TextBlock();  
-        TextBlock quantityToTradeTextBlock = new TextBlock(); 
+        TextBlock availableMarginTextBlock = new TextBlock();
+        TextBlock quantityToTradeTextBlock = new TextBlock();
         ViewModel viewModel = new ViewModel();
         TextBox tradeableMarginTextBox;
-    
+
         protected override void OnStart()
         {
             viewModel.Changed += viewModel_Changed;
-            
+
             AddControls();
-            
+
             Positions.Opened += Positions_Opened;
             Positions.Closed += Positions_Closed;
             Positions.Modified += Positions_Modified;
@@ -54,7 +54,7 @@ namespace cAlgo.Plugins
             var block = Asp.SymbolTab.AddBlock("New Order by Margin");
             block.IsExpanded = true;
             block.IsDetachable = false;
-            block.Index = 1;   
+            block.Index = 1;
             block.Height = 150;
 
             var rootStackPanel = new StackPanel { Margin = new Thickness(10) };
@@ -96,18 +96,18 @@ namespace cAlgo.Plugins
             volumeStackPanel.AddChild(quantityToTradeTextBlock);
             volumeStackPanel.AddChild(new TextBlock { Text = " Lots" });
             rootStackPanel.AddChild(volumeStackPanel);
-            
-            var tradeButtons = new StackPanel{Orientation = Orientation.Horizontal, Margin = new Thickness(10), HorizontalAlignment = HorizontalAlignment.Center};
+
+            var tradeButtons = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(10), HorizontalAlignment = HorizontalAlignment.Center };
             tradeButtons.AddChild(CreateTradeButton("Sell", Styles.CreateSellButtonStyle(), TradeType.Sell));
             tradeButtons.AddChild(CreateTradeButton("Buy", Styles.CreateBuyButtonStyle(), TradeType.Buy));
             rootStackPanel.AddChild(tradeButtons);
 
             block.Child = rootStackPanel;
         }
-        
+
         private Button CreateTradeButton(string text, Style style, TradeType tradeType)
         {
-            var tradeButton = new Button 
+            var tradeButton = new Button
             {
                 Text = text,
                 Style = style,
@@ -129,10 +129,10 @@ namespace cAlgo.Plugins
         {
             var symbol = Asp.SymbolTab.Symbol;
             var leverage = Math.Min(symbol.DynamicLeverage[0].Leverage, Account.PreciseLeverage);
-                        
+
             if (viewModel.Quantity > symbol.VolumeInUnitsMax / symbol.LotSize)
                 return;
-            
+
             viewModel.Quantity += symbol.VolumeInUnitsMin / symbol.LotSize;
             RecalculateMargin(viewModel.Quantity);
         }
@@ -141,16 +141,16 @@ namespace cAlgo.Plugins
         {
             var symbol = Asp.SymbolTab.Symbol;
             var leverage = Math.Min(symbol.DynamicLeverage[0].Leverage, Account.PreciseLeverage);
-                        
+
             if (viewModel.Quantity <= symbol.VolumeInUnitsMin / symbol.LotSize)
                 return;
-            
+
             viewModel.Quantity -= symbol.VolumeInUnitsMin / symbol.LotSize;
             RecalculateMargin(viewModel.Quantity);
         }
 
         private void viewModel_Changed()
-        {            
+        {
             availableMarginTextBlock.Text = Math.Floor(viewModel.AvailableMargin).ToString() + " " + Account.Asset.Name;
             quantityToTradeTextBlock.Text = Math.Round(viewModel.Quantity, 2).ToString();
             tradeableMarginTextBox.Text = viewModel.MarginToTrade.ToString();
@@ -175,28 +175,28 @@ namespace cAlgo.Plugins
         {
             viewModel.AvailableMargin = Account.FreeMargin;
         }
-        
+
         private void SetMaximumMargin()
         {
             var symbol = Asp.SymbolTab.Symbol;
-            var leverage = Math.Min(symbol.DynamicLeverage[0].Leverage, Account.PreciseLeverage);            
+            var leverage = Math.Min(symbol.DynamicLeverage[0].Leverage, Account.PreciseLeverage);
             var volume = Account.Asset.Convert(symbol.BaseAsset, Account.FreeMargin * leverage);
             var tradeableVolume = symbol.NormalizeVolumeInUnits(volume, RoundingMode.Down);
-                       
-            viewModel.Quantity = tradeableVolume / symbol.LotSize;            
+
+            viewModel.Quantity = tradeableVolume / symbol.LotSize;
             viewModel.MarginToTrade = symbol.BaseAsset.Convert(Account.Asset, tradeableVolume / leverage);
         }
         private void RecalculateMargin(double quantity)
         {
             var symbol = Asp.SymbolTab.Symbol;
             var leverage = Math.Min(symbol.DynamicLeverage[0].Leverage, Account.PreciseLeverage);
-            
+
             var volume = quantity * symbol.LotSize;
             var margin = symbol.BaseAsset.Convert(Account.Asset, volume / leverage);
             viewModel.MarginToTrade = Math.Floor(margin);
         }
-    }        
-    
+    }
+
     public static class Styles
     {
         public static Style CreateBuyButtonStyle()
@@ -219,57 +219,57 @@ namespace cAlgo.Plugins
             style.Set(ControlProperty.ForegroundColor, Color.FromHex("#FFFFFF"), ControlState.DarkTheme);
             style.Set(ControlProperty.ForegroundColor, Color.FromHex("#FFFFFF"), ControlState.LightTheme);
             style.Set(ControlProperty.Width, 100);
-            style.Set(ControlProperty.Margin, new Thickness(5,0,5,0));
+            style.Set(ControlProperty.Margin, new Thickness(5, 0, 5, 0));
             return style;
         }
     }
-    
-    
+
+
     class ViewModel
     {
         private double _availableMargin;
         public double AvailableMargin
         {
-            get { return _availableMargin; } 
-            set 
+            get { return _availableMargin; }
+            set
             {
                 if (value == _availableMargin)
                     return;
                 _availableMargin = value;
-                
+
                 Changed?.Invoke();
             }
         }
-        
+
         private double _quantity;
         public double Quantity
         {
-            get { return _quantity; } 
-            set 
+            get { return _quantity; }
+            set
             {
                 if (value == _quantity)
                     return;
                 _quantity = value;
-                
+
                 Changed?.Invoke();
             }
         }
-        
+
         private double _marginToTrade;
         public double MarginToTrade
         {
-            get { return _marginToTrade; } 
-            set 
+            get { return _marginToTrade; }
+            set
             {
                 if (value == _marginToTrade)
                     return;
                 _marginToTrade = value;
-                
+
                 Changed?.Invoke();
             }
         }
-        
-        
+
+
         public event Action Changed;
     }
 }

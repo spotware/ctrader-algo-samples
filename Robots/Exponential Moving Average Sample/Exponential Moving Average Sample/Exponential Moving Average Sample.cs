@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -45,7 +45,7 @@ namespace cAlgo.Robots
 
         [Parameter("Source", Group = "Exponential Moving Average 2")]
         public DataSeries SourceSecond { get; set; }
-        
+
         public Position[] BotPositions
         {
             get
@@ -55,15 +55,15 @@ namespace cAlgo.Robots
         }
 
         protected override void OnStart()
-        {  
+        {
             _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
 
             _fastExponentialMovingAverage = Indicators.ExponentialMovingAverage(SourceFirst, PeriodsFirst);
-            
+
             _fastExponentialMovingAverage.Result.Line.Color = Color.Blue;
 
             _slowExponentialMovingAverage = Indicators.ExponentialMovingAverage(SourceSecond, PeriodsSecond);
-            
+
             _slowExponentialMovingAverage.Result.Line.Color = Color.Red;
         }
 

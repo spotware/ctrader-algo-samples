@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -16,13 +16,13 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            Chart.AddControl(new Polyline 
+            Chart.AddControl(new Polyline
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 StrokeColor = Color.Red,
                 StrokeThickness = 1,
-                Points = new[] 
+                Points = new[]
                 {
                     new Point(10, 10),
                     new Point(100, 200),

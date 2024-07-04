@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -17,7 +17,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel 
+            var stackPanel = new StackPanel
             {
                 Orientation = Orientation.Vertical,
                 BackgroundColor = Color.Gold,
@@ -34,7 +34,7 @@ namespace cAlgo
             stringBuilder.AppendLine("Fourth line of text");
             stringBuilder.AppendLine("Fifth line of text");
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Margin = 5,
                 Text = "LineStackingStrategy = BlockLineHeight:\n" + stringBuilder.ToString(),
@@ -43,7 +43,7 @@ namespace cAlgo
                 ForegroundColor = Color.Black
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Margin = 5,
                 Text = "LineStackingStrategy = MaxHeight:\n" + stringBuilder.ToString(),

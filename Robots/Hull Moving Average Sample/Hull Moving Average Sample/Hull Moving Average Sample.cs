@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -59,7 +59,7 @@ namespace cAlgo.Robots
 
             _fastHull = Indicators.HullMovingAverage(FastMaSource, FastMaPeriod);
             _slowHull = Indicators.HullMovingAverage(SlowMaSource, SlowMaPeriod);
-            
+
             _fastHull.Result.Line.Color = Color.Blue;
             _slowHull.Result.Line.Color = Color.Red;
         }

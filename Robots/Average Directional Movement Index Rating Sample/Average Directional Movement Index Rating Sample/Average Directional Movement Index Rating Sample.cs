@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -33,7 +33,7 @@ namespace cAlgo.Robots
 
         [Parameter("Periods", DefaultValue = 14, Group = "Average Directional Movement Index Ratin")]
         public int Periods { get; set; }
-        
+
         [Parameter("ADXR Level", DefaultValue = 25, Group = "Average Directional Movement Index Ratin")]
         public int ADXRLevel { get; set; }
 

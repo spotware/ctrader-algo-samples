@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -18,7 +18,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel 
+            var stackPanel = new StackPanel
             {
                 Orientation = Orientation.Vertical,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -28,7 +28,7 @@ namespace cAlgo
                 Width = 200
             };
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Keyboard Handler",
                 FontWeight = FontWeight.ExtraBold,
@@ -39,14 +39,14 @@ namespace cAlgo
 
             var grid = new Grid(2, 2);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Key Down",
                 Margin = 5,
                 ForegroundColor = Color.Black
             }, 0, 0);
 
-            _keyDownTextBlock = new TextBlock 
+            _keyDownTextBlock = new TextBlock
             {
                 Margin = 5,
                 ForegroundColor = Color.Black
@@ -54,14 +54,14 @@ namespace cAlgo
 
             grid.AddChild(_keyDownTextBlock, 0, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Key Combination",
                 Margin = 5,
                 ForegroundColor = Color.Black
             }, 1, 0);
 
-            _keyCombinationTextBlock = new TextBlock 
+            _keyCombinationTextBlock = new TextBlock
             {
                 Margin = 5,
                 ForegroundColor = Color.Black

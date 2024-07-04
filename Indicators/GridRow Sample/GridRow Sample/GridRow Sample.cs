@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -25,7 +25,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(GridRowsNumber, 2) 
+            var grid = new Grid(GridRowsNumber, 2)
             {
                 BackgroundColor = Color.Gold,
                 Opacity = 0.6,
@@ -41,7 +41,7 @@ namespace cAlgo
 
                 for (int iColumn = 0; iColumn < 2; iColumn++)
                 {
-                    grid.AddChild(new TextBlock 
+                    grid.AddChild(new TextBlock
                     {
                         Text = string.Format("Row {0} and Column {1}", iRow, iColumn),
                         Margin = 5,

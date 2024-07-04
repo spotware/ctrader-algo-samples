@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -19,7 +19,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel 
+            var stackPanel = new StackPanel
             {
                 Orientation = Orientation,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -28,28 +28,28 @@ namespace cAlgo
                 Opacity = 0.7
             };
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "First TextBlock",
                 FontWeight = FontWeight.ExtraBold,
                 Margin = 5,
                 ForegroundColor = Color.Black
             });
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Second TextBlock",
                 FontWeight = FontWeight.ExtraBold,
                 Margin = 5,
                 ForegroundColor = Color.Black
             });
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Third TextBlock",
                 FontWeight = FontWeight.ExtraBold,
                 Margin = 5,
                 ForegroundColor = Color.Black
             });
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Fourth TextBlock",
                 FontWeight = FontWeight.ExtraBold,

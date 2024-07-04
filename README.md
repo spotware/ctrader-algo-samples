@@ -1,2 +1,2 @@
-# cTrader Automate API Samples
-cBot / Indicator Samples of cTrader Automate API
+# cTrader Algo API Samples
+cBot / Indicator Samples of cTrader Algo API
