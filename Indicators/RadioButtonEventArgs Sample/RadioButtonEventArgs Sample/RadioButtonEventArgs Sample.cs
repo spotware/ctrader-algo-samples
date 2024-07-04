@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -16,7 +16,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var firstRadioButton = new RadioButton 
+            var firstRadioButton = new RadioButton
             {
                 Text = "First Radio Button"
             };
@@ -24,7 +24,7 @@ namespace cAlgo
             firstRadioButton.Checked += RadioButton_Changed;
             firstRadioButton.Unchecked += RadioButton_Changed;
 
-            var secondRadioButton = new RadioButton 
+            var secondRadioButton = new RadioButton
             {
                 Text = "Second Radio Button"
             };
@@ -32,7 +32,7 @@ namespace cAlgo
             secondRadioButton.Checked += RadioButton_Changed;
             secondRadioButton.Unchecked += RadioButton_Changed;
 
-            var panel = new StackPanel 
+            var panel = new StackPanel
             {
                 Orientation = Orientation.Vertical,
                 HorizontalAlignment = HorizontalAlignment.Center,

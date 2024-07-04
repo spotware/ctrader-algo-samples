@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -21,7 +21,7 @@ namespace cAlgo.Robots
 
         [Parameter("Volume (Lots)", DefaultValue = 0.01)]
         public double VolumeInLots { get; set; }
-        
+
         [Parameter("Stop Loss (Pips)", DefaultValue = 10, MaxValue = 100, MinValue = 1, Step = 1)]
         public double StopLossInPips { get; set; }
 

@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -16,7 +16,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel 
+            var stackPanel = new StackPanel
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -25,7 +25,7 @@ namespace cAlgo
                 Width = 200
             };
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Lower Character Casing",
                 Margin = new Thickness(10, 10, 10, 0),
@@ -33,13 +33,13 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             });
 
-            stackPanel.AddChild(new TextBox 
+            stackPanel.AddChild(new TextBox
             {
                 CharacterCasing = CharacterCasing.Lower,
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Upper Character Casing",
                 Margin = new Thickness(10, 10, 10, 0),
@@ -47,13 +47,13 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             });
 
-            stackPanel.AddChild(new TextBox 
+            stackPanel.AddChild(new TextBox
             {
                 CharacterCasing = CharacterCasing.Upper,
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Normal Character Casing",
                 Margin = new Thickness(10, 10, 10, 0),
@@ -61,7 +61,7 @@ namespace cAlgo
                 FontWeight = FontWeight.ExtraBold
             });
 
-            stackPanel.AddChild(new TextBox 
+            stackPanel.AddChild(new TextBox
             {
                 CharacterCasing = CharacterCasing.Normal,
                 Margin = 10

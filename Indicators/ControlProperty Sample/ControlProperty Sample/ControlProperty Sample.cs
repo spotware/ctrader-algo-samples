@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -23,7 +23,7 @@ namespace cAlgo
             style.Set(ControlProperty.FontSize, 14);
             style.Set(ControlProperty.Width, 100);
 
-            var textBlock = new TextBlock 
+            var textBlock = new TextBlock
             {
                 Text = "Styled Text Block",
                 Style = style,

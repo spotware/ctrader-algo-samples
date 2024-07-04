@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -16,7 +16,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanelNonzero = new StackPanel 
+            var stackPanelNonzero = new StackPanel
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -24,7 +24,7 @@ namespace cAlgo
                 Opacity = 0.6
             };
 
-            stackPanelNonzero.AddChild(new TextBlock 
+            stackPanelNonzero.AddChild(new TextBlock
             {
                 Text = "Nonzero",
                 ForegroundColor = Color.Black,
@@ -32,14 +32,14 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanelNonzero.AddChild(new Polygon 
+            stackPanelNonzero.AddChild(new Polygon
             {
                 FillColor = Color.Red,
                 Width = 200,
                 Height = 100,
                 FillRule = FillRule.Nonzero,
                 Margin = 10,
-                Points = new Point[] 
+                Points = new Point[]
                 {
                     new Point(1, 200),
                     new Point(50, 30),
@@ -52,7 +52,7 @@ namespace cAlgo
                 }
             });
 
-            stackPanelNonzero.AddChild(new TextBlock 
+            stackPanelNonzero.AddChild(new TextBlock
             {
                 Text = "EvenOdd",
                 ForegroundColor = Color.Black,
@@ -60,14 +60,14 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanelNonzero.AddChild(new Polygon 
+            stackPanelNonzero.AddChild(new Polygon
             {
                 FillColor = Color.Red,
                 Width = 200,
                 Height = 100,
                 FillRule = FillRule.EvenOdd,
                 Margin = 10,
-                Points = new Point[] 
+                Points = new Point[]
                 {
                     new Point(1, 200),
                     new Point(50, 30),

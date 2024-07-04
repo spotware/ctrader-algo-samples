@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -17,7 +17,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var comboBox = new ComboBox 
+            var comboBox = new ComboBox
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center
@@ -55,21 +55,21 @@ namespace cAlgo
 
         public ComboBox()
         {
-            _textBox = new TextBox 
+            _textBox = new TextBox
             {
                 Width = 100,
                 IsReadOnly = true,
                 IsReadOnlyCaretVisible = false
             };
 
-            _button = new Button 
+            _button = new Button
             {
                 Text = "▼"
             };
 
             _button.Click += Button_Click;
 
-            var stackPanel = new StackPanel 
+            var stackPanel = new StackPanel
             {
                 Orientation = Orientation.Horizontal
             };
@@ -77,7 +77,7 @@ namespace cAlgo
             stackPanel.AddChild(_textBox);
             stackPanel.AddChild(_button);
 
-            _panel = new StackPanel 
+            _panel = new StackPanel
             {
                 Orientation = Orientation.Vertical
             };
@@ -117,7 +117,7 @@ namespace cAlgo
             {
                 var item = _items[i];
 
-                _itemsGrid.AddChild(new TextBlock 
+                _itemsGrid.AddChild(new TextBlock
                 {
                     Text = item.ToString()
                 }, i, 0);

@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -18,7 +18,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            _marketSnapshotControl = new MarketSnapshotControl 
+            _marketSnapshotControl = new MarketSnapshotControl
             {
                 BackgroundColor = Color.Gold,
                 BorderColor = Color.Gray,
@@ -87,7 +87,7 @@ namespace cAlgo
 
         public MarketSnapshotControl()
         {
-            _border = new Border 
+            _border = new Border
             {
                 BackgroundColor = "#3F3F3F",
                 BorderColor = "#969696",
@@ -103,62 +103,62 @@ namespace cAlgo
             style.Set(ControlProperty.HorizontalContentAlignment, HorizontalAlignment.Left);
             style.Set(ControlProperty.VerticalContentAlignment, VerticalAlignment.Center);
 
-            _openTextBlock = new TextBlock 
+            _openTextBlock = new TextBlock
             {
                 Style = style
             };
-            _highTextBlock = new TextBlock 
+            _highTextBlock = new TextBlock
             {
                 Style = style
             };
-            _lowTextBlock = new TextBlock 
+            _lowTextBlock = new TextBlock
             {
                 Style = style
             };
-            _closeTextBlock = new TextBlock 
+            _closeTextBlock = new TextBlock
             {
                 Style = style
             };
-            _volumeTextBlock = new TextBlock 
+            _volumeTextBlock = new TextBlock
             {
                 Style = style
             };
-            _timeTextBlock = new TextBlock 
+            _timeTextBlock = new TextBlock
             {
                 Style = style
             };
 
-            var grid = new Grid(6, 2) 
+            var grid = new Grid(6, 2)
             {
                 ShowGridLines = true
             };
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Open",
                 Style = style
             }, 0, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "High",
                 Style = style
             }, 1, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Low",
                 Style = style
             }, 2, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Close",
                 Style = style
             }, 3, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Volume",
                 Style = style
             }, 4, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Time",
                 Style = style

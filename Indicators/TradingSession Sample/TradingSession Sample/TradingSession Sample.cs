@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -32,7 +32,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(6, 2) 
+            var grid = new Grid(6, 2)
             {
                 BackgroundColor = Color.Gold,
                 Opacity = 0.6,
@@ -49,20 +49,20 @@ namespace cAlgo
 
             _symbol = UseCurrentSymbol ? Symbol : Symbols.GetSymbol(OtherSymbolName);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Symbol Info",
                 Style = style,
                 HorizontalAlignment = HorizontalAlignment.Center
             }, 0, 0, 1, 2);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Time Till Open",
                 Style = style
             }, 1, 0);
 
-            _timeTillOpenTextBlock = new TextBlock 
+            _timeTillOpenTextBlock = new TextBlock
             {
                 Text = _symbol.MarketHours.TimeTillOpen().ToString(),
                 Style = style
@@ -70,13 +70,13 @@ namespace cAlgo
 
             grid.AddChild(_timeTillOpenTextBlock, 1, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Time Till Close",
                 Style = style
             }, 2, 0);
 
-            _timeTillCloseTextBlock = new TextBlock 
+            _timeTillCloseTextBlock = new TextBlock
             {
                 Text = _symbol.MarketHours.TimeTillClose().ToString(),
                 Style = style
@@ -84,13 +84,13 @@ namespace cAlgo
 
             grid.AddChild(_timeTillCloseTextBlock, 2, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Is Opened",
                 Style = style
             }, 3, 0);
 
-            _isOpenedTextBlock = new TextBlock 
+            _isOpenedTextBlock = new TextBlock
             {
                 Text = _symbol.MarketHours.IsOpened().ToString(),
                 Style = style
@@ -98,19 +98,19 @@ namespace cAlgo
 
             grid.AddChild(_isOpenedTextBlock, 3, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Trading Sessions #",
                 Style = style
             }, 4, 0);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = _symbol.MarketHours.Sessions.Count.ToString(),
                 Style = style
             }, 4, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Trading Session Week Days",
                 Style = style
@@ -124,7 +124,7 @@ namespace cAlgo
                 weekDays = iSession == 0 ? currentSessionWeekDays : string.Format("{0}, {1}", weekDays, currentSessionWeekDays);
             }
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = weekDays,
                 Style = style

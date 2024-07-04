@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -16,7 +16,7 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            var stackPanel = new StackPanel 
+            var stackPanel = new StackPanel
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -24,7 +24,7 @@ namespace cAlgo
                 Opacity = 0.6
             };
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Thin Weight Size 10 FontStyle Normal Font Default",
                 FontSize = 10,
@@ -34,7 +34,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Thin Weight Size 10 FontStyle Italic Font Default",
                 FontSize = 10,
@@ -44,7 +44,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Thin Weight Size 10 FontStyle Oblique Font Default",
                 FontSize = 10,
@@ -54,7 +54,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Black Weight Size 10 FontStyle Normal Font Default",
                 FontSize = 10,
@@ -64,7 +64,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Bold Weight Size 10 FontStyle Normal Font Default",
                 FontSize = 10,
@@ -74,7 +74,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Heavy Weight Size 10 FontStyle Normal Font Default",
                 FontSize = 10,
@@ -84,7 +84,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Bold Weight Size 12 FontStyle Normal Font Default",
                 FontSize = 12,
@@ -94,7 +94,7 @@ namespace cAlgo
                 Margin = 10
             });
 
-            stackPanel.AddChild(new TextBlock 
+            stackPanel.AddChild(new TextBlock
             {
                 Text = "Thin Weight Size 12 FontStyle Normal Font Calibri Light Italic",
                 FontSize = 12,

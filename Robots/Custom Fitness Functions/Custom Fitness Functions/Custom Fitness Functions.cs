@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -82,7 +82,7 @@ namespace cAlgo
 
         protected override double GetFitness(GetFitnessArgs args)
         {
-            if(args.TotalTrades > 20 && args.MaxEquityDrawdownPercentages < 50)
+            if (args.TotalTrades > 20 && args.MaxEquityDrawdownPercentages < 50)
             {
                 return Math.Pow(args.WinningTrades + 1, 2) / (args.LosingTrades + 1);
             }

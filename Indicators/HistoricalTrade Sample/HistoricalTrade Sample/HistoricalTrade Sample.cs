@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -21,7 +21,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            _stackPanel = new StackPanel 
+            _stackPanel = new StackPanel
             {
                 Orientation = Orientation.Vertical,
                 HorizontalAlignment = HorizontalAlignment.Center,
@@ -30,7 +30,7 @@ namespace cAlgo
             };
             _textBlocksStyle = new Style();
             _textBlocksStyle.Set(ControlProperty.Margin, 5);
-            _stackPanel.AddChild(new TextBox 
+            _stackPanel.AddChild(new TextBox
             {
                 Text = "Your Last 10 Trades",
                 FontWeight = FontWeight.ExtraBold,
@@ -54,32 +54,32 @@ namespace cAlgo
             if (_tradesGrid != null)
                 _stackPanel.RemoveChild(_tradesGrid);
             _tradesGrid = new Grid(11, 6);
-            _tradesGrid.AddChild(new TextBlock 
+            _tradesGrid.AddChild(new TextBlock
             {
                 Text = "Symbol",
                 Style = _textBlocksStyle
             }, 0, 0);
-            _tradesGrid.AddChild(new TextBlock 
+            _tradesGrid.AddChild(new TextBlock
             {
                 Text = "Direction",
                 Style = _textBlocksStyle
             }, 0, 1);
-            _tradesGrid.AddChild(new TextBlock 
+            _tradesGrid.AddChild(new TextBlock
             {
                 Text = "Volume",
                 Style = _textBlocksStyle
             }, 0, 2);
-            _tradesGrid.AddChild(new TextBlock 
+            _tradesGrid.AddChild(new TextBlock
             {
                 Text = "Open Time",
                 Style = _textBlocksStyle
             }, 0, 3);
-            _tradesGrid.AddChild(new TextBlock 
+            _tradesGrid.AddChild(new TextBlock
             {
                 Text = "Close Time",
                 Style = _textBlocksStyle
             }, 0, 4);
-            _tradesGrid.AddChild(new TextBlock 
+            _tradesGrid.AddChild(new TextBlock
             {
                 Text = "Net Profit",
                 Style = _textBlocksStyle
@@ -90,32 +90,32 @@ namespace cAlgo
             for (int iRowIndex = 1; iRowIndex <= lastTenTrades.Length; iRowIndex++)
             {
                 var trade = lastTenTrades[iRowIndex - 1];
-                _tradesGrid.AddChild(new TextBlock 
+                _tradesGrid.AddChild(new TextBlock
                 {
                     Text = trade.SymbolName,
                     Style = _textBlocksStyle
                 }, iRowIndex, 0);
-                _tradesGrid.AddChild(new TextBlock 
+                _tradesGrid.AddChild(new TextBlock
                 {
                     Text = trade.TradeType.ToString(),
                     Style = _textBlocksStyle
                 }, iRowIndex, 1);
-                _tradesGrid.AddChild(new TextBlock 
+                _tradesGrid.AddChild(new TextBlock
                 {
                     Text = trade.VolumeInUnits.ToString(),
                     Style = _textBlocksStyle
                 }, iRowIndex, 2);
-                _tradesGrid.AddChild(new TextBlock 
+                _tradesGrid.AddChild(new TextBlock
                 {
                     Text = trade.EntryTime.ToString("g"),
                     Style = _textBlocksStyle
                 }, iRowIndex, 3);
-                _tradesGrid.AddChild(new TextBlock 
+                _tradesGrid.AddChild(new TextBlock
                 {
                     Text = trade.ClosingTime.ToString("g"),
                     Style = _textBlocksStyle
                 }, iRowIndex, 4);
-                _tradesGrid.AddChild(new TextBlock 
+                _tradesGrid.AddChild(new TextBlock
                 {
                     Text = trade.NetProfit.ToString(),
                     Style = _textBlocksStyle

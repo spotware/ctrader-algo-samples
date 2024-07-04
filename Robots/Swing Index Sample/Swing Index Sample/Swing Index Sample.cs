@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -31,7 +31,7 @@ namespace cAlgo.Robots
         [Parameter("Label", DefaultValue = "SwingIndexSample")]
         public string Label { get; set; }
 
-        [Parameter("Limit Move Value", DefaultValue = 12, Group ="Swing Index", MinValue = 1)]
+        [Parameter("Limit Move Value", DefaultValue = 12, Group = "Swing Index", MinValue = 1)]
         public int LimitMoveValue { get; set; }
 
 

@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -23,7 +23,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(3, 2) 
+            var grid = new Grid(3, 2)
             {
                 BackgroundColor = Color.DarkGoldenrod,
                 HorizontalAlignment = HorizontalAlignment.Left,
@@ -31,13 +31,13 @@ namespace cAlgo
                 Opacity = 0.5
             };
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Last Value",
                 Margin = 5
             }, 0, 0);
 
-            _lastValueTextBlock = new TextBlock 
+            _lastValueTextBlock = new TextBlock
             {
                 Text = Source.LastValue.ToString(),
                 Margin = 5
@@ -45,13 +45,13 @@ namespace cAlgo
 
             grid.AddChild(_lastValueTextBlock, 0, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Last Closed Value",
                 Margin = 5
             }, 1, 0);
 
-            _lastClosedValueTextBlock = new TextBlock 
+            _lastClosedValueTextBlock = new TextBlock
             {
                 Text = Source.Last(1).ToString(),
                 Margin = 5
@@ -59,13 +59,13 @@ namespace cAlgo
 
             grid.AddChild(_lastClosedValueTextBlock, 1, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Values Count",
                 Margin = 5
             }, 2, 0);
 
-            _countTextBlock = new TextBlock 
+            _countTextBlock = new TextBlock
             {
                 Text = Source.Count.ToString(),
                 Margin = 5

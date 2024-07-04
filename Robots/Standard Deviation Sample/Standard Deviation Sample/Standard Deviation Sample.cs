@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This cBot is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -41,7 +41,7 @@ namespace cAlgo.Robots
         public DataSeries SourceMovingAverage { get; set; }
 
         [Parameter("Periods Moving Average", DefaultValue = 14, Group = "Moving Average", MinValue = 2)]
-        public int PeriodsMovingAverage{ get; set; }
+        public int PeriodsMovingAverage { get; set; }
 
 
         public Position[] BotPositions

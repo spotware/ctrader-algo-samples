@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -16,13 +16,13 @@ namespace cAlgo
     {
         protected override void Initialize()
         {
-            Chart.AddControl(new Polygon 
+            Chart.AddControl(new Polygon
             {
                 FillColor = Color.Red,
                 Width = 200,
                 Height = 100,
                 Margin = 10,
-                Points = new Point[] 
+                Points = new Point[]
                 {
                     new Point(100, 100),
                     new Point(200, 50),

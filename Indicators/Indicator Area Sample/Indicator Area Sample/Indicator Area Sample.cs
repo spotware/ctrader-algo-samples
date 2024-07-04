@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -18,7 +18,7 @@ namespace cAlgo
 
         protected override void Initialize()
         {
-            var grid = new Grid(1, 2) 
+            var grid = new Grid(1, 2)
             {
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -27,7 +27,7 @@ namespace cAlgo
                 Width = 200
             };
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Indicator Area #",
                 Margin = 5,
@@ -35,7 +35,7 @@ namespace cAlgo
                 ForegroundColor = Color.Black
             }, 0, 0);
 
-            _indicatorAreaNumberTextBlock = new TextBlock 
+            _indicatorAreaNumberTextBlock = new TextBlock
             {
                 Margin = 5,
                 Text = Chart.IndicatorAreas.Count.ToString(),

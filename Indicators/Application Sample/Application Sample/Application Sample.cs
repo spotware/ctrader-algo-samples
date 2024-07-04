@@ -1,6 +1,6 @@
 // -------------------------------------------------------------------------------------------------
 //
-//    This code is a cTrader Automate API example.
+//    This code is a cTrader Algo API example.
 //
 //    This Indicator is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
@@ -42,31 +42,31 @@ namespace cAlgo
 
         private void DrawApplicationInfo()
         {
-            var grid = new Grid(3, 2) 
+            var grid = new Grid(3, 2)
             {
                 BackgroundColor = Color.Goldenrod,
                 HorizontalAlignment = HorizontalAlignment,
                 VerticalAlignment = VerticalAlignment
             };
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Version",
                 Margin = 5
             }, 0, 0);
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = Application.Version.ToString(),
                 Margin = 5
             }, 0, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "Theme",
                 Margin = 5
             }, 1, 0);
 
-            _themeTextBlock = new TextBlock 
+            _themeTextBlock = new TextBlock
             {
                 Text = Application.ColorTheme.ToString(),
                 Margin = 5
@@ -74,13 +74,13 @@ namespace cAlgo
 
             grid.AddChild(_themeTextBlock, 1, 1);
 
-            grid.AddChild(new TextBlock 
+            grid.AddChild(new TextBlock
             {
                 Text = "User Time Offset",
                 Margin = 5
             }, 2, 0);
 
-            _userTimeOffsetTextBlock = new TextBlock 
+            _userTimeOffsetTextBlock = new TextBlock
             {
                 Text = Application.UserTimeOffset.ToString(),
                 Margin = 5
