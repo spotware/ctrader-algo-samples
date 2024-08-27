@@ -30,6 +30,9 @@
         "name":  "BarsTickEventArgs Sample"
     },
     {
+        "name":  "Bollinger Bands Cloud Sample"
+    },
+    {
         "name":  "Bollinger Bands MTF Cloud Sample"
     },
     {
@@ -271,6 +274,9 @@
     },
     {
         "name":  "Line Style Sample"
+    },
+    {
+        "name":  "MA Cloud Sample"
     },
     {
         "name":  "Market Data Sample"

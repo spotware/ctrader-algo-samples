@@ -4,7 +4,7 @@
 //
 //    The code is provided as a sample only and does not guarantee any particular outcome or profit of any kind. Use it at your own risk.
 //    
-//    This sample indicator draws a cloud between the top and bottom bands of a Bollinger Band indicator. 
+//    This sample indicator draws a cloud between the top and bottom bands of Bollinger Bands. 
 //
 //    For a detailed tutorial on creating this indicator, see this video: https://www.youtube.com/watch?v=AWqo0k0Rrag
 //
