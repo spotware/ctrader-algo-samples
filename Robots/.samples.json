@@ -6,6 +6,9 @@
         "name":  "Accumulative Swing Index Sample"
     },
     {
+        "name":  "Add Indicator Sample"
+    },
+    {
         "name":  "AddToChart Sample"
     },
     {
@@ -37,12 +40,6 @@
     },
     {
         "name":  "Bollinger Bands Sample"
-    },
-    {
-        "name":  "cBots Adds Indicator Sample"
-    },
-    {
-        "name":  "cBots Starts cBot Sample"
     },
     {
         "name":  "Center Of Gravity Sample"
@@ -247,6 +244,9 @@
     },
     {
         "name":  "Standard Deviation Sample"
+    },
+    {
+        "name":  "Start cBot Sample"
     },
     {
         "name":  "Stochastic Oscillator Sample"
