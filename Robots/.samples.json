@@ -39,6 +39,12 @@
         "name":  "Bollinger Bands Sample"
     },
     {
+        "name":  "cBots Adds Indicator Sample"
+    },
+    {
+        "name":  "cBots Starts cBot Sample"
+    },
+    {
         "name":  "Center Of Gravity Sample"
     },
     {
@@ -298,6 +304,9 @@
     },
     {
         "name":  "Volume ROC Sample"
+    },
+    {
+        "name":  "Web Sockets Sample"
     },
     {
         "name":  "WebSocket Sample"
