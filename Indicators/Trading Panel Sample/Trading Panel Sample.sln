@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trading Panel Sample", "Trading Panel Sample\Trading Panel Sample.csproj", "{b7a7a3f2-374a-41e2-97d3-a27390202a75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{b7a7a3f2-374a-41e2-97d3-a27390202a75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{b7a7a3f2-374a-41e2-97d3-a27390202a75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{b7a7a3f2-374a-41e2-97d3-a27390202a75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{b7a7a3f2-374a-41e2-97d3-a27390202a75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
