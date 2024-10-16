@@ -84,6 +84,9 @@
         "name":  "Directional Movement System Sample"
     },
     {
+        "name":  "Discord Message Example"
+    },
+    {
         "name":  "Donchian Channel Sample"
     },
     {
@@ -168,6 +171,9 @@
         "name":  "Partial Close Sample"
     },
     {
+        "name":  "Patterns Strategy Sample"
+    },
+    {
         "name":  "Pending Order Cancelation Sample"
     },
     {
@@ -232,6 +238,9 @@
     },
     {
         "name":  "Relative Strength Index Sample"
+    },
+    {
+        "name":  "RSI Reversal Strategy Sample"
     },
     {
         "name":  "Running Mode Sample"
