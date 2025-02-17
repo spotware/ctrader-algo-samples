@@ -52,9 +52,8 @@ namespace cAlgo.Plugins
         private void AddControls()
         {
             var block = Asp.SymbolTab.AddBlock("New Order by Margin");
-            block.IsExpanded = true;
+
             block.IsDetachable = false;
-            block.Index = 1;
             block.Height = 150;
 
             var rootStackPanel = new StackPanel { Margin = new Thickness(10) };
