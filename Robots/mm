@@ -1,0 +1,53 @@
+import time
+import numpy as np
+import ccxt  # A library for connecting to exchanges (example for crypto markets)
+
+# Connect to an exchange (example for Binance)
+exchange = ccxt.binance({
+    'apiKey': 'YOUR_API_KEY',
+    'secret': 'YOUR_API_SECRET',
+})
+
+# Settings for the market making strategy
+symbol = 'BTC/USDT'  # Trading pair
+spread = 0.001  # 0.1% spread between bid and ask prices
+order_size = 0.001  # Order size in BTC
+
+def get_market_price(symbol):
+    ticker = exchange.fetch_ticker(symbol)
+    return ticker['ask'], ticker['bid']
+
+def place_order(symbol, side, price, amount):
+    if side == 'buy':
+        order = exchange.create_limit_buy_order(symbol, amount, price)
+    elif side == 'sell':
+        order = exchange.create_limit_sell_order(symbol, amount, price)
+    return order
+
+def cancel_orders(symbol):
+    orders = exchange.fetch_open_orders(symbol)
+    for order in orders:
+        exchange.cancel_order(order['id'], symbol)
+
+def market_making(symbol):
+    while True:
+        # Get the current market price (ask and bid)
+        ask_price, bid_price = get_market_price(symbol)
+
+        # Calculate the new buy and sell prices based on the spread
+        buy_price = bid_price * (1 - spread)
+        sell_price = ask_price * (1 + spread)
+
+        # Cancel previous orders to avoid stale orders
+        cancel_orders(symbol)
+
+        # Place new buy and sell orders at the updated prices
+        print(f"Placing buy order at {buy_price}, sell order at {sell_price}")
+        place_order(symbol, 'buy', buy_price, order_size)
+        place_order(symbol, 'sell', sell_price, order_size)
+
+        # Sleep for a small period to simulate high-frequency execution
+        time.sleep(0.1)  # Adjust the sleep time to control how fast the strategy runs
+
+if __name__ == "__main__":
+    market_making(symbol)
