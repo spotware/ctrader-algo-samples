@@ -303,6 +303,12 @@
         "name":  "Notifications Sample"
     },
     {
+        "name":  "OpenFileDialog Sample"
+    },
+    {
+        "name":  "OpenFolderDialog Sample"
+    },
+    {
         "name":  "Orientation Sample"
     },
     {
@@ -343,6 +349,9 @@
     },
     {
         "name":  "Rectangle Shape Sample"
+    },
+    {
+        "name":  "SaveFileDialog Sample"
     },
     {
         "name":  "ScrollBarVisibility Sample"
