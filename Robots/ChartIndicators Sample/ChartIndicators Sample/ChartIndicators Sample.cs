@@ -4,7 +4,7 @@
 //
 //    This code is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
-//    
+//   
 //    This sample displays a custom detached window there the user is able to select
 //    an indicator from among the indicators attached to the instance chart. When an
 //    indicator is selected, the user can press on a button to remove it from the chart
