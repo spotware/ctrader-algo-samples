@@ -1,84 +1,37 @@
-﻿using System.Linq;
+// -------------------------------------------------------------------------------------------------
+//
+//    This code is a cTrader Algo API example.
+//
+//    This code is intended to be used as a sample and does not guarantee any particular outcome or
+//    profit of any kind. Use it at your own risk.
+//    
+//    The sample adds a trade watch tab and uses Algo Registry API to show stats about installed algo types.
+//
+// -------------------------------------------------------------------------------------------------
+
 using cAlgo.API;
 
-namespace cAlgo.Plugins;
-
-public class AlgoStatsControl: CustomControl
+namespace cAlgo.Plugins
 {
-    private const string FontFamily = "Calibri";
-
-    private readonly AlgoRegistry _algoRegistry;
-    private readonly TextBlock _algosCountTextBlock;
-    private readonly TextBlock _customIndicatorsCountTextBlock;
-    private readonly TextBlock _standardIndicatorsCountTextBlock;
-    private readonly TextBlock _botsCountTextBlock;
-    private readonly TextBlock _pluginsCountTextBlock;
-
-    public AlgoStatsControl(AlgoRegistry algoRegistry)
+    // Declare the class as a plugin without requiring special access permissions.
+    [Plugin(AccessRights = AccessRights.None)]
+    public class AlgoRegistrySample : Plugin
     {
-        _algoRegistry = algoRegistry;
-        
-        var panel = new Grid(6, 2);
+        // This method is triggered when the plugin starts.
+        protected override void OnStart()
+        {
+            var tradeWatchTab = TradeWatch.AddTab("Algo Registry");  // Add a new tab to the Trade Watch section, named "Algo Registry".
 
-        var titleTextBlock = GetTextBlock("Algo Stats");
+            var panel = new StackPanel  // Initialise a StackPanel to hold UI elements.
+            {
+                Orientation = Orientation.Horizontal,  // Set the panel orientation to horizontal.
+                HorizontalAlignment = HorizontalAlignment.Center,  // Centre the panel within its parent container horizontally.
+            };
+            
+            panel.AddChild(new AlgoStatsControl(AlgoRegistry) {Margin = 10, VerticalAlignment = VerticalAlignment.Top});  // Add the AlgoStatsControl to the panel with a margin and top vertical alignment.
+            panel.AddChild(new AlgoTypeInfoControl(AlgoRegistry) {Margin = 10, VerticalAlignment = VerticalAlignment.Top});  // Add the AlgoTypeInfoControl to the panel with a margin and top vertical alignment.
 
-        titleTextBlock.HorizontalAlignment = HorizontalAlignment.Center;
-        
-        panel.AddChild(titleTextBlock, 0, 0, 1, 2);
-        
-        panel.AddChild(GetTextBlock("Algos #"), 1, 0);
-
-        _algosCountTextBlock = GetTextBlock();
-        
-        panel.AddChild(_algosCountTextBlock, 1, 1);
-
-        panel.AddChild(GetTextBlock("Standard Indicators #"), 2, 0);
-
-        _standardIndicatorsCountTextBlock = GetTextBlock();
-        
-        panel.AddChild(_standardIndicatorsCountTextBlock, 2, 1);
-        
-        panel.AddChild(GetTextBlock("Custom Indicators #"), 3, 0);
-
-        _customIndicatorsCountTextBlock = GetTextBlock();
-        
-        panel.AddChild(_customIndicatorsCountTextBlock, 3, 1);
-        
-        panel.AddChild(GetTextBlock("cBots #"), 4, 0);
-
-        _botsCountTextBlock = GetTextBlock();
-        
-        panel.AddChild(_botsCountTextBlock, 4, 1);
-        
-        panel.AddChild(GetTextBlock("Plugins #"), 5, 0);
-
-        _pluginsCountTextBlock = GetTextBlock();
-        
-        panel.AddChild(_pluginsCountTextBlock, 5, 1);
-        
-        AddChild(panel);
-        
-        Populate();
-        
-        _algoRegistry.AlgoTypeInstalled += _ => Populate();
-        _algoRegistry.AlgoTypeDeleted += _ => Populate();
-    }
-
-    private void Populate()
-    {
-        _algosCountTextBlock.Text = _algoRegistry.Count.ToString();
-        _botsCountTextBlock.Text = _algoRegistry.Count(type => type.AlgoKind == AlgoKind.Robot).ToString();
-        _customIndicatorsCountTextBlock.Text = _algoRegistry.Count(type => type.AlgoKind == AlgoKind.CustomIndicator).ToString();
-        _standardIndicatorsCountTextBlock.Text =  _algoRegistry.Count(type => type.AlgoKind == AlgoKind.StandardIndicator).ToString();
-        _pluginsCountTextBlock.Text = _algoRegistry.Count(type => type.AlgoKind == AlgoKind.Plugin).ToString();
-    }
-
-    private TextBlock GetTextBlock(string text = null) => new()
-    {
-        Margin = 3,
-        FontSize = 20,
-        FontWeight = FontWeight.Bold,
-        FontFamily = FontFamily,
-        Text = text
-    };
+            tradeWatchTab.Child = panel;  // Set the StackPanel containing the controls as the content of the "Algo Registry" tab in the Trade Watch section.
+        }
+    }        
 }
