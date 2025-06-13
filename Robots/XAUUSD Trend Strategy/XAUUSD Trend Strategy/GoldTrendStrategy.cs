@@ -6,12 +6,11 @@
 //    profit of any kind. Use it at your own risk.
 //
 // -------------------------------------------------------------------------------------------------
+
 using System;
 using cAlgo.API;
 using cAlgo.API.Indicators;
 using cAlgo.API.Internals;
-using cAlgo.API;
-using cAlgo.API.Indicators;
 
 namespace cAlgo.Robots
 {
@@ -24,7 +23,7 @@ namespace cAlgo.Robots
         private RelativeStrengthIndex _rsi;
         private Supertrend _supertrend;
         private MacdCrossOver _macd;
-        
+
         [Parameter("Fast MA Source", Group = "Fast MA")]
         public DataSeries FastMaSource { get; set; }
 
@@ -76,9 +75,6 @@ namespace cAlgo.Robots
         [Parameter("Trailing Stop (Pips)", DefaultValue = 50, Group = "Trade", MinValue = 0)]
         public double TrailingStopInPips { get; set; }
 
-        [Parameter("Volume (Lots)", DefaultValue = 0.01, Group = "Trade")]
-        public double VolumeInLots { get; set; }
-
         [Parameter("Stop Loss (Pips)", DefaultValue = 100, Group = "Trade", MinValue = 1)]
         public double StopLossInPips { get; set; }
 
@@ -95,15 +91,12 @@ namespace cAlgo.Robots
 
             if (!UseDynamicVolume)
                 _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
+
             _fastMa = Indicators.SimpleMovingAverage(FastMaSource, FastMaPeriod);
             _slowMa = Indicators.SimpleMovingAverage(SlowMaSource, SlowMaPeriod);
             _rsi = Indicators.RelativeStrengthIndex(Bars.ClosePrices, RsiPeriod);
             _supertrend = Indicators.Supertrend(SupertrendPeriods, SupertrendMultiplier);
             _macd = Indicators.MacdCrossOver(Bars.ClosePrices, MacdLongCycle, MacdShortCycle, MacdSignalPeriods);
-            _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
-            _fastMa = Indicators.SimpleMovingAverage(FastMaSource, FastMaPeriod);
-            _slowMa = Indicators.SimpleMovingAverage(SlowMaSource, SlowMaPeriod);
-            _rsi = Indicators.RelativeStrengthIndex(MarketSeries.Close, RsiPeriod);
 
             _fastMa.Result.Line.Color = Color.Gold;
             _slowMa.Result.Line.Color = Color.DarkOrange;
@@ -136,14 +129,14 @@ namespace cAlgo.Robots
 
         protected override void OnTick()
         {
+            if (TrailingStopInPips <= 0)
+                return;
+
             foreach (var position in Positions.FindAll(Label))
             {
-                double? newStopLoss;
-
-                if (position.TradeType == TradeType.Buy)
-                    newStopLoss = Symbol.Bid - TrailingStopInPips * Symbol.PipSize;
-                else
-                    newStopLoss = Symbol.Ask + TrailingStopInPips * Symbol.PipSize;
+                double? newStopLoss = position.TradeType == TradeType.Buy
+                    ? Symbol.Bid - TrailingStopInPips * Symbol.PipSize
+                    : Symbol.Ask + TrailingStopInPips * Symbol.PipSize;
 
                 if (position.TradeType == TradeType.Buy && (position.StopLoss == null || newStopLoss > position.StopLoss))
                     ModifyPosition(position, newStopLoss, position.TakeProfit);
@@ -164,29 +157,12 @@ namespace cAlgo.Robots
             return Symbol.NormalizeVolumeInUnits(units, RoundingMode.ToNearest);
         }
 
-            var inUptrend = _fastMa.Result.LastValue > _slowMa.Result.LastValue;
-            var inDowntrend = _fastMa.Result.LastValue < _slowMa.Result.LastValue;
-
-            if (inUptrend && _rsi.Result.LastValue < Oversold)
-            {
-                ClosePositions(TradeType.Sell);
-                ExecuteMarketOrder(TradeType.Buy, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
-            }
-            else if (inDowntrend && _rsi.Result.LastValue > Overbought)
-            {
-                ClosePositions(TradeType.Buy);
-                ExecuteMarketOrder(TradeType.Sell, SymbolName, _volumeInUnits, Label, StopLossInPips, TakeProfitInPips);
-            }
-        }
-
         private void ClosePositions(TradeType tradeType)
         {
             foreach (var position in Positions.FindAll(Label))
             {
-                if (position.TradeType != tradeType)
-                    continue;
-
-                ClosePosition(position);
+                if (position.TradeType == tradeType)
+                    ClosePosition(position);
             }
         }
     }
