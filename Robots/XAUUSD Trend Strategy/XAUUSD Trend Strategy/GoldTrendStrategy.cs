@@ -91,6 +91,7 @@ namespace cAlgo.Robots
 
             if (!UseDynamicVolume)
                 _volumeInUnits = Symbol.QuantityToVolumeInUnits(VolumeInLots);
+
             _fastMa = Indicators.SimpleMovingAverage(FastMaSource, FastMaPeriod);
             _slowMa = Indicators.SimpleMovingAverage(SlowMaSource, SlowMaPeriod);
             _rsi = Indicators.RelativeStrengthIndex(Bars.ClosePrices, RsiPeriod);
@@ -133,12 +134,9 @@ namespace cAlgo.Robots
 
             foreach (var position in Positions.FindAll(Label))
             {
-                double? newStopLoss;
-
-                if (position.TradeType == TradeType.Buy)
-                    newStopLoss = Symbol.Bid - TrailingStopInPips * Symbol.PipSize;
-                else
-                    newStopLoss = Symbol.Ask + TrailingStopInPips * Symbol.PipSize;
+                double? newStopLoss = position.TradeType == TradeType.Buy
+                    ? Symbol.Bid - TrailingStopInPips * Symbol.PipSize
+                    : Symbol.Ask + TrailingStopInPips * Symbol.PipSize;
 
                 if (position.TradeType == TradeType.Buy && (position.StopLoss == null || newStopLoss > position.StopLoss))
                     ModifyPosition(position, newStopLoss, position.TakeProfit);
@@ -163,10 +161,8 @@ namespace cAlgo.Robots
         {
             foreach (var position in Positions.FindAll(Label))
             {
-                if (position.TradeType != tradeType)
-                    continue;
-
-                ClosePosition(position);
+                if (position.TradeType == tradeType)
+                    ClosePosition(position);
             }
         }
     }
