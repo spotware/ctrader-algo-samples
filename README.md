@@ -3,4 +3,4 @@ cBot / Indicator Samples of cTrader Algo API
 
 ## Custom Samples
 
-- **GoldTrendStrategy**: Moving average crossover strategy for XAUUSD with RSI confirmation and optional dynamic volume control.
+- **GoldAdvancedStrategy**: Combines Supertrend trend detection, MACD momentum confirmation, and RSI filters with dynamic volume and trailing stops for trading XAUUSD.

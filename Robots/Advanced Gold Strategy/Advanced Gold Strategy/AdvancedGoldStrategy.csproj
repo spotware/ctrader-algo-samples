@@ -11,7 +11,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>cAlgo</RootNamespace>
-    <AssemblyName>Gold Trend Strategy</AssemblyName>
+    <AssemblyName>GoldAdvancedStrategy</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
   </PropertyGroup>
@@ -19,7 +19,7 @@
     <PackageReference Include="cTrader.Automate" Version="*-*" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GoldTrendStrategy.cs" />
+    <Compile Include="AdvancedGoldStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 </Project>
