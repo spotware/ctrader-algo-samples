@@ -4,7 +4,7 @@ function CreateSamplesJson {
         $DirectoryName
     )
 
-    Get-ChildItem -Path $DirectoryName -Directory | Select-Object @{n = 'name'; e = { $_.Name } } | ConvertTo-Json |  Set-Content "$($DirectoryName)/.samples.json"
+    Get-ChildItem -Path $DirectoryName -Directory | Select-Object @{n = 'name'; e = { $_.Name } } | ConvertTo-Json -AsArray |  Set-Content "$($DirectoryName)/.samples.json"
 }
 
 CreateSamplesJson -DirectoryName Indicators
