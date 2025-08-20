@@ -1,71 +1,71 @@
 [
-    {
-        "name":  "ActiveFrameChanged Sample"
-    },
-    {
-        "name":  "AlgoRegistry Sample"
-    },
-    {
-        "name":  "All placements"
-    },
-    {
-        "name":  "ASP Section Example"
-    },
-    {
-        "name":  "BacktestingInPlugins Sample"
-    },
-    {
-        "name":  "ChartId Sample"
-    },
-    {
-        "name":  "ChartIndicators Sample"
-    },
-    {
-        "name":  "ChartRobots Sample"
-    },
-    {
-        "name":  "Commands Sample"
-    },
-    {
-        "name":  "CoordinatesConversion Sample"
-    },
-    {
-        "name":  "Custom Frame Sample"
-    },
-    {
-        "name":  "Custom Toolbar Button"
-    },
-    {
-        "name":  "Custom Window Plugin"
-    },    
-    {
-        "name":  "IndicatorTitles Sample"
-    },
-    {
-        "name":  "Interactive WebView"
-    },
-    {
-        "name":  "My ASP Example"
-    },
-    {
-        "name":  "My Custom Frame Example"
-    },   
-    {
-        "name":  "Order by Margin"
-    },
-    {
-        "name":  "PositionCurrentPrice Sample"
-    },
-    {
-        "name":  "Previous Bar Info"
-    },
-    {
-        "name":  "SmoothMouseMove Sample"
-    },
-    {
-        "name":  "TradeWatch Tab Sample"
-    },
-    {
-        "name":  "WebSocket Sample"
-    }
+  {
+    "name": "ActiveFrameChanged Sample"
+  },
+  {
+    "name": "AlgoRegistry Sample"
+  },
+  {
+    "name": "All placements"
+  },
+  {
+    "name": "ASP Section Example"
+  },
+  {
+    "name": "BacktestingInPlugins Sample"
+  },
+  {
+    "name": "ChartId Sample"
+  },
+  {
+    "name": "ChartIndicators Sample"
+  },
+  {
+    "name": "ChartRobots Sample"
+  },
+  {
+    "name": "Commands Sample"
+  },
+  {
+    "name": "CoordinatesConversion Sample"
+  },
+  {
+    "name": "Custom Frame Sample"
+  },
+  {
+    "name": "Custom Toolbar Button"
+  },
+  {
+    "name": "Custom Window Plugin"
+  },
+  {
+    "name": "IndicatorTitles Sample"
+  },
+  {
+    "name": "Interactive WebView"
+  },
+  {
+    "name": "My ASP Example"
+  },
+  {
+    "name": "My Custom Frame Example"
+  },
+  {
+    "name": "Order by Margin"
+  },
+  {
+    "name": "PositionCurrentPrice Sample"
+  },
+  {
+    "name": "Previous Bar Info"
+  },
+  {
+    "name": "SmoothMouseMove Sample"
+  },
+  {
+    "name": "TradeWatch Tab Sample"
+  },
+  {
+    "name": "WebSocket Sample"
+  }
 ]
