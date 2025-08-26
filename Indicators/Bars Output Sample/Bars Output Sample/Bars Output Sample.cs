@@ -6,7 +6,9 @@ using cAlgo.API.Internals;
 
 namespace cAlgo
 {
-    [Indicator(AccessRights = AccessRights.None, IsOverlay = true)]
+    // You can set IsOverlay to true if you want to show the bars output
+    // in main chart panel.
+    [Indicator(AccessRights = AccessRights.None, IsOverlay = false)]
     public class BarsOutputSample : Indicator
     {
         private ExponentialMovingAverage _openEma;
@@ -27,8 +29,8 @@ namespace cAlgo
             _lowEma = Indicators.ExponentialMovingAverage(Bars.LowPrices, EmaPeriods);
             _closeEma = Indicators.ExponentialMovingAverage(Bars.ClosePrices, EmaPeriods);
 
-            // Hide main chart bars
-            Chart.DisplaySettings.Bars = false;
+            // You can hide main chart bars
+            // Chart.DisplaySettings.Bars = false;
 
             // You can change output colors and other appearance properties via code
             // Result.Output.BullFillColor = Color.Blue;
@@ -50,6 +52,10 @@ namespace cAlgo
                 _lowEma.Result[index],
                 _closeEma.Result[index],
                 Convert.ToInt64(Bars.TickVolumes[index]));
+
+            // You can set custom colors for each bar by using SetBarColor
+            // if (index % 2 == 0)
+            //    SetBarColor(Result.Output, index, Color.Yellow, Color.White, Color.Green);
         }
     }
 }
