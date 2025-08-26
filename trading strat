@@ -1,0 +1,92 @@
+using cAlgo.API;
+using cAlgo.API.Indicators;
+using cAlgo.API.Trading;
+
+namespace cAlgo.Robots
+{
+    [Robot(TimeZone = TimeZones.UTC, AccessRights = AccessRights.None)]
+    public class GBPScalpingBot : Robot
+    {
+        // === Parameters ===
+        [Parameter("Symbol", DefaultValue = "GBPUSD")]
+        public string TradingSymbol { get; set; }
+
+        [Parameter("Volume (%) of Equity", DefaultValue = 1)]
+        public double VolumePercent { get; set; }
+
+        [Parameter("EMA Period", DefaultValue = 50)]
+        public int EmaPeriod { get; set; }
+
+        [Parameter("RSI Period", DefaultValue = 14)]
+        public int RsiPeriod { get; set; }
+
+        [Parameter("RSI Overbought", DefaultValue = 70)]
+        public double RsiOverbought { get; set; }
+
+        [Parameter("RSI Oversold", DefaultValue = 30)]
+        public double RsiOversold { get; set; }
+
+        [Parameter("Stop Loss (pips)", DefaultValue = 3)]
+        public double StopLoss { get; set; }
+
+        [Parameter("Take Profit (pips)", DefaultValue = 5)]
+        public double TakeProfit { get; set; }
+
+        [Parameter("Break Even Trigger (pips)", DefaultValue = 3)]
+        public double BreakEvenTrigger { get; set; }
+
+        [Parameter("Trade Cooldown (seconds)", DefaultValue = 60)]
+        public int TradeCooldown { get; set; }
+
+        // === Indicators ===
+        private ExponentialMovingAverage _ema;
+        private RelativeStrengthIndex _rsi;
+
+        // === Timing ===
+        private DateTime _lastTradeTime = DateTime.MinValue;
+
+        protected override void OnStart()
+        {
+            _ema = Indicators.ExponentialMovingAverage(Bars.ClosePrices, EmaPeriod);
+            _rsi = Indicators.RelativeStrengthIndex(Bars.ClosePrices, RsiPeriod);
+        }
+
+        protected override void OnBar()
+        {
+            // Avoid over-trading
+            if (Time < _lastTradeTime.AddSeconds(TradeCooldown))
+                return;
+
+            var symbol = Symbols.GetSymbol(TradingSymbol);
+            var volume = symbol.QuantityToVolumeInUnits(Account.Balance * VolumePercent / 100);
+            var rsi = _rsi.Result.LastValue;
+            var price = Bars.LastBar.Close;
+            var ema = _ema.Result.LastValue;
+
+            var longSignal = rsi < RsiOversold && Bars.LastBar.Close > ema && Bars.LastBar.Open < ema;
+            var shortSignal = rsi > RsiOverbought && Bars.LastBar.Close < ema && Bars.LastBar.Open > ema;
+
+            if (longSignal)
+            {
+                ExecuteMarketOrder(TradeType.Buy, TradingSymbol, volume, "GBP_Scalper", StopLoss, TakeProfit);
+                _lastTradeTime = Time;
+            }
+            else if (shortSignal)
+            {
+                ExecuteMarketOrder(TradeType.Sell, TradingSymbol, volume, "GBP_Scalper", StopLoss, TakeProfit);
+                _lastTradeTime = Time;
+            }
+        }
+
+        protected override void OnPositionModified(PositionModifiedEventArgs args)
+        {
+            var position = args.Position;
+
+            if (position.Pips >= BreakEvenTrigger)
+            {
+                var newSL = position.EntryPrice;
+                ModifyPosition(position, newSL, position.TakeProfit);
+            }
+        }
+    }
+}
