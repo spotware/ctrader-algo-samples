@@ -19,19 +19,25 @@ using cAlgo.API.Internals;
 
 namespace cAlgo.Robots
 {
+    // Define the cBot attributes, such as AccessRights and its ability to add indicators.  
     [Robot(AccessRights = AccessRights.None, AddIndicators = true)]
     public class IndicatorTitlesSample : Robot
     {
+        // This method is called when the cBot is initialised.
         protected override void OnStart()
         {
             // Adding a custom event handler for the DisplaySettingsChanged event
+            // This event is triggered when the user changes the chart display settings.
             Chart.DisplaySettingsChanged += OnDisplaySettingsChanged;
 
+            // Print the initial value of IndicatorTitles when the cBot starts.
             Print(Chart.DisplaySettings.IndicatorTitles);
         }
 
+        // This method is called whenever the chart's display settings are changed.
         protected void OnDisplaySettingsChanged(ChartDisplaySettingsEventArgs args)
         {
+            // Print the updated value of IndicatorTitles whenever the display settings change.
             Print(Chart.DisplaySettings.IndicatorTitles);
         }
     }

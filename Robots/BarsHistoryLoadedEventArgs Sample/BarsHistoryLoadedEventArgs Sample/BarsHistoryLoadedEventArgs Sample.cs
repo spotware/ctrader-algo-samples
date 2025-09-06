@@ -1,4 +1,4 @@
-﻿using cAlgo.API;
+using cAlgo.API;
 
 namespace cAlgo.Robots
 {
