@@ -246,6 +246,45 @@
     "name": "Running Mode Sample"
   },
   {
+    "name": "Sample Advanced Take Profit"
+  },
+  {
+    "name": "Sample Break Even"
+  },
+  {
+    "name": "Sample Breakout cBot"
+  },
+  {
+    "name": "Sample cBot Reference SMA"
+  },
+  {
+    "name": "Sample Close Profitable Positions cBot"
+  },
+  {
+    "name": "Sample Grid cBot"
+  },
+  {
+    "name": "Sample Hotkey Trading"
+  },
+  {
+    "name": "Sample Lines Trader"
+  },
+  {
+    "name": "Sample Martingale cBot"
+  },
+  {
+    "name": "Sample RSI cBot"
+  },
+  {
+    "name": "Sample SAR Trailing Stop"
+  },
+  {
+    "name": "Sample Trading Panel"
+  },
+  {
+    "name": "Sample Trend cBot"
+  },
+  {
     "name": "Simple Moving Average Sample"
   },
   {
