@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample Grid cBot", "Sample Grid cBot\Sample Grid cBot.csproj", "{e9fe7137-45b6-482a-8477-bba77dbf9e9f}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{e9fe7137-45b6-482a-8477-bba77dbf9e9f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{e9fe7137-45b6-482a-8477-bba77dbf9e9f}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{e9fe7137-45b6-482a-8477-bba77dbf9e9f}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{e9fe7137-45b6-482a-8477-bba77dbf9e9f}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
