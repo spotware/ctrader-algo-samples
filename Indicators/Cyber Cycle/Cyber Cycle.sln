@@ -1,0 +1,22 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cyber Cycle", "Cyber Cycle\Cyber Cycle.csproj", "{9d3821b3-4fec-4956-a4b5-d5ff81f9a10e}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9d3821b3-4fec-4956-a4b5-d5ff81f9a10e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9d3821b3-4fec-4956-a4b5-d5ff81f9a10e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9d3821b3-4fec-4956-a4b5-d5ff81f9a10e}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9d3821b3-4fec-4956-a4b5-d5ff81f9a10e}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

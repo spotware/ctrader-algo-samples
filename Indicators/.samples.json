@@ -1,5 +1,8 @@
 [
   {
+    "name": "Accelerator Oscillator"
+  },
+  {
     "name": "Access Right Sample"
   },
   {
@@ -9,13 +12,34 @@
     "name": "AccountType Sample"
   },
   {
+    "name": "Accumulation Distribution"
+  },
+  {
+    "name": "Accumulative Swing Index"
+  },
+  {
     "name": "AlgoRegistry Sample"
+  },
+  {
+    "name": "Alligator"
   },
   {
     "name": "Andrews Pitchfork Sample"
   },
   {
     "name": "Application Sample"
+  },
+  {
+    "name": "Aroon"
+  },
+  {
+    "name": "Average Directional Movement Index Rating"
+  },
+  {
+    "name": "Average True Range"
+  },
+  {
+    "name": "Awesome Oscillator"
   },
   {
     "name": "Bar Sample"
@@ -33,6 +57,12 @@
     "name": "BarsTickEventArgs Sample"
   },
   {
+    "name": "Bears Power"
+  },
+  {
+    "name": "Bollinger Bands"
+  },
+  {
     "name": "Bollinger Bands Cloud Sample"
   },
   {
@@ -42,6 +72,9 @@
     "name": "Border Sample"
   },
   {
+    "name": "Bulls Power"
+  },
+  {
     "name": "Button Sample"
   },
   {
@@ -49,6 +82,21 @@
   },
   {
     "name": "Canvas Sample"
+  },
+  {
+    "name": "Center Of Gravity"
+  },
+  {
+    "name": "Chaikin Money Flow"
+  },
+  {
+    "name": "Chaikin Oscillator"
+  },
+  {
+    "name": "Chaikin Volatility"
+  },
+  {
+    "name": "Chande Momentum Oscillator"
   },
   {
     "name": "Character Casing Sample"
@@ -171,6 +219,9 @@
     "name": "ColorThemeChangeEventArgs Sample"
   },
   {
+    "name": "Commodity Channel Index"
+  },
+  {
     "name": "Control Alignment Sample"
   },
   {
@@ -183,16 +234,49 @@
     "name": "Custom Control Sample"
   },
   {
+    "name": "Cyber Cycle"
+  },
+  {
     "name": "Data Series Sample"
+  },
+  {
+    "name": "DeMarker"
+  },
+  {
+    "name": "Detrended Price Oscillator"
+  },
+  {
+    "name": "Directional Movement System"
   },
   {
     "name": "Dock Panel Sample"
   },
   {
+    "name": "Donchian Channel"
+  },
+  {
+    "name": "Double Exponential Moving Average"
+  },
+  {
+    "name": "Ease Of Movement"
+  },
+  {
+    "name": "Elder Force Index"
+  },
+  {
+    "name": "Elder Ray Index"
+  },
+  {
     "name": "Ellipse Shape Sample"
   },
   {
+    "name": "Envelopes"
+  },
+  {
     "name": "Equidistant Channel Sample"
+  },
+  {
+    "name": "Exponential Moving Average"
   },
   {
     "name": "Fibonacci Expansion Sample"
@@ -213,7 +297,19 @@
     "name": "Font Sample"
   },
   {
+    "name": "Fractal Adaptive Moving Average"
+  },
+  {
+    "name": "Fractal Chaos Bands"
+  },
+  {
+    "name": "Fractals"
+  },
+  {
     "name": "Functions Sample"
+  },
+  {
+    "name": "Gator Oscillator"
   },
   {
     "name": "Grid Sample"
@@ -231,6 +327,12 @@
     "name": "GridUnitType Sample"
   },
   {
+    "name": "High Minus Low"
+  },
+  {
+    "name": "Historical Volatility"
+  },
+  {
     "name": "HistoricalTrade Sample"
   },
   {
@@ -238,6 +340,12 @@
   },
   {
     "name": "HorizontalLine Sample"
+  },
+  {
+    "name": "Hull Moving Average"
+  },
+  {
+    "name": "Ichimoku Kinko Hyo"
   },
   {
     "name": "IIndicatorsAccessor Sample"
@@ -264,6 +372,12 @@
     "name": "IndicatorTitles Sample"
   },
   {
+    "name": "Kaufman Adaptive Moving Average"
+  },
+  {
+    "name": "Keltner Channels"
+  },
+  {
     "name": "Key Sample"
   },
   {
@@ -279,7 +393,28 @@
     "name": "Line Style Sample"
   },
   {
+    "name": "Linear Regression Forecast"
+  },
+  {
+    "name": "Linear Regression Intercept"
+  },
+  {
+    "name": "Linear Regression RSquared"
+  },
+  {
+    "name": "Linear Regression Slope"
+  },
+  {
     "name": "MA Cloud Sample"
+  },
+  {
+    "name": "Macd Cross Over"
+  },
+  {
+    "name": "Macd Histogram"
+  },
+  {
+    "name": "Macd Oscillator Moving Average"
   },
   {
     "name": "Market Data Sample"
@@ -291,13 +426,31 @@
     "name": "Market Depth Sample"
   },
   {
+    "name": "Market Facilitation Index"
+  },
+  {
     "name": "Market Snapshot Sample"
   },
   {
     "name": "MarketHours Sample"
   },
   {
+    "name": "Mass Index"
+  },
+  {
+    "name": "Median Price"
+  },
+  {
     "name": "ModifierKeys Sample"
+  },
+  {
+    "name": "Momentum Oscillator"
+  },
+  {
+    "name": "Money Flow Index"
+  },
+  {
+    "name": "Negative Volume Index"
   },
   {
     "name": "Normalizing Volume Sample"
@@ -306,13 +459,22 @@
     "name": "Notifications Sample"
   },
   {
+    "name": "On Balance Volume"
+  },
+  {
     "name": "Orientation Sample"
+  },
+  {
+    "name": "Oscillator Moving Average"
   },
   {
     "name": "Output Attribute Sample"
   },
   {
     "name": "Output Snapshot Sample"
+  },
+  {
+    "name": "Parabolic SAR"
   },
   {
     "name": "Parameter Attribute Sample"
@@ -333,7 +495,22 @@
     "name": "Polyline Sample"
   },
   {
+    "name": "Polynomial Regression Channels"
+  },
+  {
     "name": "PositionCurrentPrice Sample"
+  },
+  {
+    "name": "Positive Volume Index"
+  },
+  {
+    "name": "Price Oscillator"
+  },
+  {
+    "name": "Price ROC"
+  },
+  {
+    "name": "Price Volume Trend"
   },
   {
     "name": "Radio Button Sample"
@@ -342,10 +519,19 @@
     "name": "RadioButtonEventArgs Sample"
   },
   {
+    "name": "Rainbow Oscillator"
+  },
+  {
     "name": "Rectangle Corner Radius Sample"
   },
   {
     "name": "Rectangle Shape Sample"
+  },
+  {
+    "name": "Relative Strength Index"
+  },
+  {
+    "name": "Relative Vigor Index"
   },
   {
     "name": "Sample Alligator"
@@ -387,10 +573,19 @@
     "name": "Server Sample"
   },
   {
+    "name": "Simple Moving Average"
+  },
+  {
     "name": "SmoothMouseMove Sample"
   },
   {
     "name": "StackPanel Sample"
+  },
+  {
+    "name": "Standard Deviation"
+  },
+  {
+    "name": "Stochastic Oscillator"
   },
   {
     "name": "Stretch Sample"
@@ -400,6 +595,12 @@
   },
   {
     "name": "Style Sample"
+  },
+  {
+    "name": "Supertrend"
+  },
+  {
+    "name": "Swing Index"
   },
   {
     "name": "Symbol Sample"
@@ -438,6 +639,9 @@
     "name": "Tick Sample"
   },
   {
+    "name": "Tick Volume"
+  },
+  {
     "name": "Ticks Sample"
   },
   {
@@ -445,6 +649,9 @@
   },
   {
     "name": "TicksTickEventArgs Sample"
+  },
+  {
+    "name": "Time Series Moving Average"
   },
   {
     "name": "TimeFrame Sample"
@@ -462,6 +669,9 @@
     "name": "ToggleButtonEventArgs Sample"
   },
   {
+    "name": "Trade Volume Index"
+  },
+  {
     "name": "Trading Panel Sample"
   },
   {
@@ -471,10 +681,43 @@
     "name": "TradingSession Sample"
   },
   {
+    "name": "Triangular Moving Average"
+  },
+  {
+    "name": "Triple Exponential Moving Average"
+  },
+  {
+    "name": "Trix"
+  },
+  {
+    "name": "True Range"
+  },
+  {
+    "name": "Typical Price"
+  },
+  {
+    "name": "Ultimate Oscillator"
+  },
+  {
     "name": "UserTimeOffsetChangedEventArgs Sample"
   },
   {
+    "name": "Variable Index Dynamic Average"
+  },
+  {
+    "name": "Vertical Horizontal Filter"
+  },
+  {
     "name": "VerticalAlignment Sample"
+  },
+  {
+    "name": "Vidya"
+  },
+  {
+    "name": "Volume Oscillator"
+  },
+  {
+    "name": "Volume ROC"
   },
   {
     "name": "Watchlist Sample"
@@ -499,6 +742,21 @@
   },
   {
     "name": "WebSocket Sample"
+  },
+  {
+    "name": "Weighted Close"
+  },
+  {
+    "name": "Weighted Moving Average"
+  },
+  {
+    "name": "Welles Wilder Smoothing"
+  },
+  {
+    "name": "Williams Accumulation Distribution"
+  },
+  {
+    "name": "Williams PctR"
   },
   {
     "name": "WrapPanel Sample"
