@@ -4,7 +4,7 @@
 //
 //    This code is intended to be used as a sample and does not guarantee any particular outcome or
 //    profit of any kind. Use it at your own risk.
-//    
+//
 //    On start, this sample displays a detached window containing a ComboBox and a TextBlock. 
 //    Via the AlgoRegistry, the ComboBox is populated with the names of all cBots installed
 //    on the user's machine. When a cBot is selected in the ComboBox, the TextBlock starts
@@ -20,26 +20,27 @@ using cAlgo.API.Internals;
 
 namespace cAlgo.Robots
 {
+    // Define the cBot with access rights and the option to add indicators.   
     [Robot(AccessRights = AccessRights.None, AddIndicators = true)]
     public class AlgoRegistrySample : Robot
     {
-        // Declaring the required controls and storing
-        // the name of the cBot selected in the ComboBox
+        // Declare the required controls and store the name of the cBot selected in the ComboBox.
         private Window _cBotManagementWindow;
         private Grid _controlsGrid;
         private ComboBox _cBotSelectionComboBox;
         private TextBlock _parametersInfoBlock;
         private string _selectedCBotName;
 
+        // This method is called when the bot starts and is used for initialisation.
         protected override void OnStart()
         {
-            // Initialising the Grid
+            // Initialise a 2x1 Grid layout for arranging ComboBox and TextBlock.
             _controlsGrid = new Grid(2, 1);
 
-            // Initialising the ComboBox and populating it
-            // with the names of all installed cBots
+            // Initialise the ComboBox and populate it with the names of all installed cBots.
             _cBotSelectionComboBox = new ComboBox();
 
+            // Loop through all algorithms, adding cBots only to ComboBox.
             foreach (var algo in AlgoRegistry)
             {
                 if (algo.AlgoKind == AlgoKind.Robot)
@@ -48,22 +49,21 @@ namespace cAlgo.Robots
                 }
             }
             
-            // Handling the SelectedItemChanged event
+            // Set up an event handler for ComboBox selection change.
             _cBotSelectionComboBox.SelectedItemChanged += CBotSelectionComboBoxOnSelectedItemChanged;
 
-            // Initialising the TextBlock
+            // Initialise the TextBlock for displaying selected cBot parameters.
             _parametersInfoBlock = new TextBlock
             {
                 LineStackingStrategy = LineStackingStrategy.MaxHeight,
                 TextWrapping = TextWrapping.Wrap,
             };
             
-            // Adding other controls to the Grid
+            // Add other controls to Grid layout.
             _controlsGrid.AddChild(_cBotSelectionComboBox, 0, 0);
             _controlsGrid.AddChild(_parametersInfoBlock, 1, 0);
             
-            // Initialising the Window and adding the Grid
-            // as a child control
+            // Initialise the Window, add the Grid as a child and display it.
             _cBotManagementWindow = new Window
             {
                 Height = 300,
@@ -75,23 +75,22 @@ namespace cAlgo.Robots
             _cBotManagementWindow.Show();
         }
 
+        // Event handler to update TextBlock with selected cBot parameters.
         private void CBotSelectionComboBoxOnSelectedItemChanged(ComboBoxSelectedItemChangedEventArgs obj)
         {
-            // Storing the name of the selected cBot
-            // and changing the text inside the TextBlock
-            _selectedCBotName = obj.SelectedItem;
-            _parametersInfoBlock.Text = GenerateParametersInfo();
+            _selectedCBotName = obj.SelectedItem;  // Store the name of the selected cBot.
+            _parametersInfoBlock.Text = GenerateParametersInfo();  // Update the text inside the TextBlock.
         }
 
+        // Generate a string containing parameter names and default values of the selected cBot.
         private string GenerateParametersInfo()
         {
             string result = "";
             
-            // Finding the currently selected cBot by its name
+            // Find the currently selected cBot by its name.
             var selectedCBot = AlgoRegistry.Get(_selectedCBotName, AlgoKind.Robot) as RobotType;
             
-            // Generating strings containing information
-            // about the parameters of the selected cBot
+            // Generate strings containing information about the parameters of the selected cBot.
             foreach (var parameter in selectedCBot.Parameters)
             {
                 result += $"Param name: {parameter.Name} Param default value: {parameter.DefaultValue}\n";

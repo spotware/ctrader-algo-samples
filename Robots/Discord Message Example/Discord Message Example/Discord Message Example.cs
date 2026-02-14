@@ -20,34 +20,44 @@ using Discord;
 
 namespace cAlgo.Robots
 {
+    // Define the cBot attributes, such as AccessRights and its ability to add indicators.
     [Robot(AccessRights = AccessRights.None, AddIndicators = true)]
     public class DiscordMessageExample : Robot
     {
+        // Parameters for the Discord bot token and channel ID.
         [Parameter("Discord Bot Token")]
-        public string BotToken { get; set; }
+        public string BotToken { get; set; }  // Discord bot token for authentication.
 
         [Parameter("Discord Channel ID")]
-        public string ChannelID { get; set; }
+        public string ChannelID { get; set; }  // Channel ID where the message will be sent.
 
-        DiscordSocketClient _discordSocketClient;
-        IMessageChannel _channel;
+        // Declare private fields for the Discord client and channel.
+        DiscordSocketClient _discordSocketClient;  // Discord client to interact with Discord API.
+        IMessageChannel _channel;  // The channel where messages will be sent.
 
+        // This method is called when the cBot starts.
         protected override void OnStart()
         {
+            // Initialise the Discord client and log in using the bot token.
             _discordSocketClient = new DiscordSocketClient();
-            _discordSocketClient.LoginAsync(TokenType.Bot, BotToken);
-            _discordSocketClient.StartAsync();
+            _discordSocketClient.LoginAsync(TokenType.Bot, BotToken);  // Log into Discord using the bot token.
+            _discordSocketClient.StartAsync();  // Start the Discord client asynchronously.
 
+            // Convert the provided channel ID to ulong and get the channel to send messages to.
             var channelID = Convert.ToUInt64(ChannelID);
             _channel = _discordSocketClient.GetChannelAsync(channelID).Result as IMessageChannel;
+
+            // Send a message indicating the cBot has started.
             _channel.SendMessageAsync("Example cBot Started");
         }
 
+        // This method is called on every tick.
         protected override void OnTick()
         {
             // Handle price updates here
         }
 
+        // This method is called when the cBot stops.
         protected override void OnStop()
         {
             // Handle cBot stop here

@@ -22,10 +22,11 @@ using cAlgo.API.Internals;
 
 namespace cAlgo.Plugins
 {
+    // Declaring the class as a plugin without requiring special access permissions.
     [Plugin(AccessRights = AccessRights.None)]
     public class WebSocketSample : Plugin
     {
-        // Declaring our TextBlock that will display the news contents
+        // Declaring our TextBlock that will display the news contents.
         private TextBlock _textBlock = new TextBlock
         {
             Text = "Starting...",
@@ -35,32 +36,29 @@ namespace cAlgo.Plugins
             Padding = new Thickness(5, 5, 5, 5),
         };
         
-        // _webSocketClientOptions allow us to define several settings
-        // such as the keep-alive interval of the WebSocket connection
+        // _webSocketClientOptions allow us to define several settings such as the keep-alive interval of the WebSocket connection.
         private static WebSocketClientOptions _webSocketClientOptions = new WebSocketClientOptions 
         {
             KeepAliveInterval = new TimeSpan(0, 1, 30),
             UseDefaultCredentials = true,
         };
         
-        // Passing our _webSocketClientOptions to the WebSocketClient
-        // constructor
+        // Passing our _webSocketClientOptions to the WebSocketClient constructor.
         private WebSocketClient _webSocketClient = new WebSocketClient(_webSocketClientOptions);
         
-        // This API is entirely fictional
+        // This API is entirely fictional.
         private readonly Uri _targetUri = new Uri("ws://amazingnews.com:8000");
         
         protected override void OnStart()
         {
-            // Connecting to the API and sending the initial message
+            // Connecting to the API and sending the initial message.
             _webSocketClient.Connect(_targetUri);
             _webSocketClient.Send("Hello");
             
-            // Declaring a custom handler for the TextReceived event
+            // Declaring a custom handler for the TextReceived event.
             _webSocketClient.TextReceived += NewsReceived;
             
-            // Adding our TextBlock as a child of a custom
-            // AspBlock
+            // Adding our TextBlock as a child of a custom AspBlock.
             var aspBlock = Asp.SymbolTab.AddBlock("News");
             aspBlock.IsExpanded = true;
             aspBlock.Height = 300;
@@ -70,15 +68,13 @@ namespace cAlgo.Plugins
 
         protected override void OnStop()
         {
-            // The WebSocketClient must be disposed of in OnStop,
-            // otherwise it will consume system resources
+            // The WebSocketClient must be disposed of in OnStop, otherwise it will consume system resources.
             _webSocketClient.Close(WebSocketClientCloseStatus.NormalClosure);
         }
         
         private void NewsReceived(WebSocketClientTextReceivedEventArgs args) 
         {
-            // Updading the text inside the TextBlock on every
-            // piece of news received
+            // Updading the text inside the TextBlock on every piece of news received.
             if (args.Text.Length != 0) 
             {
                 _textBlock.Text = args.Text;

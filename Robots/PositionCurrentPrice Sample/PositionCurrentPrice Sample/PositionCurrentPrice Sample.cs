@@ -21,31 +21,32 @@ using cAlgo.API.Internals;
 
 namespace cAlgo.Robots
 {
+    // Define the cBot attributes, such as AccessRights and an ability to add indicators.
     [Robot(AccessRights = AccessRights.None, AddIndicators = true)]
     public class PositionCurrentPriceSample : Robot
     {
-
-
+        // This method is called when the cBot starts.
         protected override void OnStart()
         {
             // Executing a market order so that
-            // there is at least one initial position
+            // there is at least one initial position.
             ExecuteMarketOrder(TradeType.Buy, SymbolName, 10000, "cbot position");
         }
 
+        // This method is triggered whenever a bar is closed.
         protected override void OnBarClosed()
         {
-            // Finding all positions opened by the cBot
+            // Finding all positions opened by the cBot.
             var cbotPositions = Positions.FindAll("cbot position");
             
-            // Iterating over all positions opened by the cBot
+            // Iterating over all positions opened by the cBot.
             foreach (var position in cbotPositions)
             {
                 if (position.CurrentPrice > position.EntryPrice)
                 {
                     // Placing a limit order in the opposite direction
                     // and above the current price if the current price
-                    // is greater than the entry price
+                    // is greater than the entry price.
                     PlaceLimitOrder(TradeType.Sell, SymbolName, 20000, position.CurrentPrice * 1.05, "cbot position");
                 }
                 else
@@ -54,7 +55,7 @@ namespace cAlgo.Robots
                     
                     // Placing a limit order in the opposite direction
                     // and below the current price if the current price
-                    // is smaller than the entry price
+                    // is smaller than the entry price.
                     PlaceLimitOrder(TradeType.Buy, SymbolName, 20000, position.CurrentPrice * 0.95, "cbot position");
                 }
             }
