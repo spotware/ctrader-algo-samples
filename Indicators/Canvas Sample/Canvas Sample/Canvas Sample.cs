@@ -9,6 +9,7 @@
 
 using cAlgo.API;
 using System.IO;
+using File = System.IO.File;
 
 namespace cAlgo
 {
